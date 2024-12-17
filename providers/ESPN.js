@@ -419,7 +419,7 @@ module.exports = {
 
     axios.get(url)
       .then( function(response) {
-            callback(self.formatScores(league, response.data, teams));
+            callback(self.formatScores(league, response.data, teams, moment(gameDate).format("YYYYMMDD")));
       })
       .catch( function(r_err) {
         console.log( "[MMM-MyScoreboard] " + moment().format("D-MMM-YY HH:mm") + " ** ERROR ** Couldn't retrieve " + league + " data for provider ESPN: " + r_err );
@@ -429,7 +429,7 @@ module.exports = {
 
   },
 
-  formatScores: function(league, data, teams) {
+  formatScores: function(league, data, teams, gameDate) {
 
     // var self = this;
     var formattedGamesList = new Array();
@@ -456,6 +456,11 @@ module.exports = {
     } else { //return all games
       filteredGamesList = data.events;
     }
+
+    filteredGamesList = filteredGamesList.filter(function(event) {
+      const eventDate = moment.tz(event.date, localTZ).format("YYYYMMDD");
+      return eventDate === gameDate;
+    });
 
     //sort by start time, then by away team shortcode.
     filteredGamesList.sort(function(a,b) {
