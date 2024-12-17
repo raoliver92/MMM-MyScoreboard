@@ -1579,4 +1579,4 @@ WAC
 ```
 
 ## Thank You
-A special thanks goes to @jclarke0000, who was the original author of this module and wrote most of the code.
+A special thanks goes to [@jclarke0000](https://github.com/jclarke0000/), who was the original author of this module and wrote most of the code.
