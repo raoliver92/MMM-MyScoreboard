@@ -29,25 +29,6 @@ leagues, including:
   * Spanish La Liga
   * Mexican Liga BBVA Bancomer
 
-## UPDATE RELEASE 3.0 9-OCT-2022
-
-This update includes several addtions and fixes:
-* Correction of SportsNet provider ticker URL
-* Change of ESPN provider to HTTPS
-* Replacement of deprecated library Request with Axios
-* Addition of WNBA and NCAAW womens' basketball
-* Update of logos for North American leagues
-* Correction of Winsconsin Badgers NCAA team shortcode from WIS to WISC
-* Improves how team logos are handled.  Uses local logo files where available, otherwises uses URL from feed.
-
-If you are upgrading from a previous version, this update introduces new libraries. Upgrade as follows:
-In the MMM-MyScoreboard directory, type:
-
-`git pull`
-followed by
-`npm install`
-
-
 ![Screenshot](/../screenshots/MMM-MyScoreboard-screenshot.png?raw=true "Screenshot")
 
 
@@ -55,19 +36,18 @@ followed by
 
 ```sh
 cd ~/MagicMirror/modules
-git clone https://github.com/jclarke0000/MMM-MyScoreboard
+git clone https://github.com/dathbe/MMM-MyScoreboard
 cd MMM-MyScoreboard
 npm install
 ```
 
+## Update
 
-## Notice to anyone updating from previous versions
-
-1. Run `git pull` in the `MMM-MyScoreboard` directory to get the latest source code. If you are not seeing the latest update, then try deleting your `MMM-MyScoreboard` directory and reclone it as per the initial installation instructions above.
-2. Still in the `MMM-MyScoreboard` directory, run `npm install`.
-3. (Optional) Run `npm prune` to remove some packages that are no longer needed.
-4. As the providers have changed for most sports, some of the team shortcodes are different. If you're not seeing your team show up even though you know a game is scheduled, check your config against the list of team shortcodes below.
-
+```sh
+cd ~/MagicMirror/modules/MMM-MyScoreboard
+git pull
+npm install
+```
 
 ## Configuration
 
@@ -1597,3 +1577,6 @@ Sun Belt
 West Coast
 WAC
 ```
+
+## Thank You
+A special thanks goes to @jclarke0000, who was the original author of this module and wrote most of the code.
