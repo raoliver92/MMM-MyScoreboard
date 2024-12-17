@@ -1,6 +1,6 @@
 # MMM-MyScoreboard
 
-This a module for <strong>MagicMirror</strong><br>
+This a module for **MagicMirror**<br>
 https://magicmirror.builders/<br>
 https://github.com/MagicMirrorOrg/MagicMirror
 
@@ -53,9 +53,12 @@ followed by
 
 ## Installation
 
-1. Navigate into your MagicMirror `modules` folder and execute<br>
-`git clone https://github.com/jclarke0000/MMM-MyScoreboard`.
-2. Enter the new `MMM-MyScoreboard` directory and execute `npm install`.
+```sh
+cd ~/MagicMirror/modules
+git clone https://github.com/jclarke0000/MMM-MyScoreboard
+cd MMM-MyScoreboard
+npm install
+```
 
 
 ## Notice to anyone updating from previous versions
@@ -68,83 +71,31 @@ followed by
 
 ## Configuration
 
-<table>
-  <thead>
-    <tr>
-      <th>Option</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>showLeagueSeparators</code></td>
-      <td>Whether to show separators between different leagues.<br><br><strong>Type</strong> <code>Boolean</code><br>Defaults to <code>true</code></td>
-    </tr>
-    <tr>
-      <td><code>colored</code></td>
-      <td>Whether to present module in colour or black-and-white.<br><br><strong>Type</strong> <code>Boolean</code><br>Defaults to <code>true</code></td>
-    </tr>
-    <tr>
-      <td><code>rolloverHours</code></td>
-      <td>How many hours past midnight to continue to show the previous day's games.<br><br><strong>Type</strong> <code>Number</code><br>Defaults to <code>3</code> (i.e.: continue to show yesterday's games until 3:00 AM)</td>
-    </tr>
-    <tr>
-      <td><code>viewStyle</code></td>
-      <td>One of the following: <code>largeLogos</code>, <code>mediumLogos</code>, <code>smallLogos</code>, <code>oneLine</code>, <code>oneLineWithLogos</code>, <code>stacked</code> or <code>stackedWithLogos</code>.<br><br><strong>Type</strong> <code>String</code><br>Defaults to <code>largeLogos</code><br />See below for examples of the view styles.</td>
-    </tr>
-    <tr>
-      <td><code>shadeRows</code></td>
-      <td>Whether to shade alternate rows.<br><br><strong>Type</strong> <code>Boolean</code><br>Defaults to <code>false</code></td>
-    </tr>
-    <tr>
-      <td><code>highlightWinners</code></td>
-      <td>For games that are final, the winning team / score is highlighted.<br><br><strong>Type</strong> <code>Boolean</code><br>Defaults to <code>true</code></td>
-    </tr>
-    <tr>
-      <td><code>showRankings</code></td>
-      <td>For the NCAAF and NCAAM, whether to show the rankings for the top 25 teams.<br><br><strong>Type</strong> <code>Boolean</code><br>Defaults to <code>true</code></td>
-    </tr>
-    <tr>
-      <td><code>sports</code></td>
-      <td><strong>REQUIRED</strong> An array of leagues and teams you wish to follow.<br><br><strong>Type</strong> <code>Array</code><br>See below for instructions to configure your <code>sports</code> list.</td>
-    </tr>
-  </tbody>
-</table>
-
+| Option                 | Description
+|----------------------- |------------
+| `showLeagueSeparators` | Whether to show separators between different leagues.<br><br>**Type** `Boolean`<br>**Default** `true`
+| `colored`              | Whether to present module in colour or black-and-white.<br><br>**Type** `Boolean`<br>**Default** `true`
+| `rolloverHours`        | How many hours past midnight to continue to show the previous day's games.<br><br>**Type** `Number`<br>**Default** `3` (i.e.: continue to show yesterday's games until 3:00 AM)
+| `alwaysShowToday`      | Whether to show today's games _along with_ the previous day's games during `rolloverHours` period.<br><br>**Type** `Boolean`<br>**Default** `false`
+| `viewStyle`            | One of the following: `largeLogos`, `mediumLogos`, `smallLogos`, `oneLine`, `oneLineWithLogos`, `stacked` or `stackedWithLogos`.<br>See below for examples of the view styles.<br><br>**Type** `String`<br>**Default** `largeLogos`
+| `shadeRows`            | Whether to shade alternate rows.<br><br>**Type** `Boolean`<br>**Default** `false`
+| `highlightWinners`     | For games that are final, the winning team / score is highlighted.<br><br>**Type** `Boolean`<br>**Default** `true`
+| `showRankings`         | For the NCAAF and NCAAM, whether to show the rankings for the top 25 teams.<br><br>**Type** `Boolean`<br>**Default** `true`
+| `sports`               | **REQUIRED** An array of leagues and teams you wish to follow.<br>See below for instructions to configure your `sports` list.<br><br>**Type** `Array`
 
 
 ## Configuring your sports list
 
 Each entry in your `sports` array is an object with the following properties:
 
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>league</code></td>
-      <td><strong>REQUIRED</strong> e.g.: <code>"NHL"</code>. Use any of the bold, uppercase league labaels from the list bleow.<br><br><strong>Type</strong> <code>String</code></td>
-    </tr>
-    <tr>
-      <td><code>label</code></td>
-      <td>If <code>showLeagueSeparators</code> is set to <code>true</code>, you can optionally set a custom label for the separator. Useful in particular to show something other than <code>"NCAAM_MM"</code> for the March Madness tournament.<br><br><strong>Type</strong> <code>String</code><br />Defaults to the value for <code>league</code>.</td>
-    </tr>
-    <tr>
-      <td><code>teams</code></td>
-      <td>An array of teams for which you want to see scores.  Specify teams using their shortcodes (e.g.: <code>"TOR"</code> for Toronto Maple Leafs.<br><br><strong>Type</strong> <code>Array</code><br>See below for a full listing of teams and their short codes<br><br><strong>UPDATE v2.0:</strong> This is no longer required.</td>
-    </tr>
-    <tr>
-      <td><code>groups</code></td>
-      <td>In addition to specifying individual teams, you may also specify groups.  Generally these groups correspond to the league's respective conferences and divisions.  See below for a full listing of groups available for each league. (e.g.: <code>["Atlantic", "Metropolitain"]</code> for teams in the Atlantic and Metropolitain divisions.<br><br><strong>Type</strong> <code>Array</code></td>
-    </tr>
-  </tbody>
-</table>
+| Property   | Description
+|----------- |------------
+| `league`   | **REQUIRED** e.g.: `"NHL"`. Use any of the bold, uppercase league labaels from the list bleow.<br><br>**Type** `String`
+| `label`    | If `showLeagueSeparators` is set to `true`, you can optionally set a custom label for the separator. Useful in particular to show something other than `"NCAAM_MM"` for the March Madness tournament.<br><br>**Type** `String`<br />**Default** the value for `league`.
+| `teams`    | An array of teams for which you want to see scores.  Specify teams using their shortcodes (e.g.: `"TOR"` for Toronto Maple Leafs.<br>See below for a full listing of teams and their short codes<br><br>**Type** `Array`<br>**UPDATE v2.0:** This is no longer required.
+| `groups`   | In addition to specifying individual teams, you may also specify groups.  Generally these groups correspond to the league's respective conferences and divisions.  See below for a full listing of groups available for each league. (e.g.: `["Atlantic", "Metropolitain"]` for teams in the Atlantic and Metropolitain divisions.<br><br>**Type** `Array`
 
-It should be noted that if you specify arrays for both <code>teams</code> and <code>groups</code> they will be added together.  So it's possible to make a team list out of a division and a few other specific teams.  If you omit both parameters, then all games for the particular league will be shown.
+It should be noted that if you specify arrays for both `teams` and `groups` they will be added together.  So it's possible to make a team list out of a division and a few other specific teams.  If you omit both parameters, then all games for the particular league will be shown.
 
 
 ## Example configuration
@@ -494,7 +445,7 @@ STL   St. Louis Cardinals
 TB    Tampa Bay Rays
 TEX   Texas Rangers
 TOR   Toronto Blue Jays
-WAS   Washington Nationals
+WSH   Washington Nationals
 
 Groups:
 ---------------
@@ -616,7 +567,7 @@ SEA   Seattle Seahawks
 SF    San Francisco 49ers
 TB    Tampa Bay Buccaneers
 TEN   Tennessee Titans
-WAS   Washington
+WSH   Washington
 
 Groups:
 ---------------

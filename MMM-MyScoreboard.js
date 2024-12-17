@@ -16,6 +16,7 @@ Module.register("MMM-MyScoreboard",{
     showLeagueSeparators: true,
     colored: true,
     rolloverHours: 3, //hours past midnight to show the pervious day's scores
+    alwaysShowToday: false, //show BOTH today and yesterday during rolloverHours
     shadeRows: false,
     highlightWinners: true,
     viewStyle: "largeLogos",
@@ -520,7 +521,7 @@ Module.register("MMM-MyScoreboard",{
     */
     if (!this.loaded) {
       var loadingText = document.createElement("div");
-      loadingText.innerHTML = this.translate("LOADING");
+      loadingText.innerHTML = this.translate("LOADING MYSCOREBOARD");
       loadingText.className = "dimmed light small";
       wrapper.appendChild(loadingText);
       return wrapper;
@@ -552,6 +553,24 @@ Module.register("MMM-MyScoreboard",{
           wrapper.appendChild(boxScore);
         });
       }
+      if (self.sportsDataYd[index] != null && self.sportsDataYd[index].length > 0 && self.config.alwaysShowToday) {
+        anyGames = true;
+        if (self.config.showLeagueSeparators) {
+          var leagueSeparator = document.createElement("div");
+          leagueSeparator.classList.add("league-separator");
+          if (sport.label) {
+            leagueSeparator.innerHTML = "<span>" + sport.label + " - Yesterday</span>";
+          } else {
+            leagueSeparator.innerHTML = "<span>" + sport.league + " - Yesterday</span>";
+          }
+          wrapper.appendChild(leagueSeparator);
+        }
+        self.sportsDataYd[index].forEach(function(game, gidx) {
+          var boxScore = self.boxScoreFactory(sport.league, game);
+          boxScore.classList.add(gidx % 2 == 0 ? "odd" : "even") ;
+          wrapper.appendChild(boxScore);
+        });
+      }
     });
 
     /*
@@ -572,9 +591,14 @@ Module.register("MMM-MyScoreboard",{
 
   socketNotificationReceived: function(notification, payload) {
     if ( notification === "MMM-MYSCOREBOARD-SCORE-UPDATE" && payload.instanceId == this.identifier) {
-      console.log("[MMM-MyScoreboard] Updating Scores");
+      Log.info("[MMM-MyScoreboard] Updating Scores");
       this.loaded = true;
       this.sportsData[payload.index] = payload.scores;
+      this.updateDom();
+    } else if ( notification === "MMM-MYSCOREBOARD-SCORE-UPDATE-YD" && payload.instanceId == this.identifier && this.config.alwaysShowToday ) {
+      Log.info("[MMM-MyScoreboard] Updating Yesterday's Scores");
+      this.loaded = true;
+      this.sportsDataYd[payload.index] = payload.scores;
       this.updateDom();
     } else if (notification === "MMM-MYSCOREBOARD-LOCAL-LOGO-LIST" && payload.instanceId == this.identifier) {
       this.localLogos = payload.logos;
@@ -598,7 +622,6 @@ Module.register("MMM-MyScoreboard",{
       setInterval(() => {
         this.getScores();
       }, 2 * 60 * 1000);
-
 
     }
   },
@@ -625,6 +648,7 @@ Module.register("MMM-MyScoreboard",{
 
     this.loaded = false;
     this.sportsData = new Array();
+    this.sportsDataYd = new Array();
 
     if (this.viewStyles.indexOf(this.config.viewStyle) == -1) {
       this.config.viewStyle = "largeLogos";
@@ -661,7 +685,6 @@ Module.register("MMM-MyScoreboard",{
       }
     }
 
-
     if (teamList.length == 0) {
       return null;
     }
@@ -672,6 +695,7 @@ Module.register("MMM-MyScoreboard",{
   getScores: function() {
 
     var gameDate = moment(); //get today's date
+    var whichDay = 'one';
 
     if (gameDate.hour() < this.config.rolloverHours) {
       /*
@@ -680,6 +704,9 @@ Module.register("MMM-MyScoreboard",{
         not today's
       */
       gameDate.subtract(1, "day");
+      if (this.config.alwaysShowToday) {
+        whichDay = 'both';
+      }
     }
 
     //just used for debug, if you want to force a specific date
@@ -696,15 +723,13 @@ Module.register("MMM-MyScoreboard",{
         league: sport.league,
         teams: self.makeTeamList(self, sport.league, sport.teams, sport.groups),
         provider: self.supportedLeagues[sport.league].provider,
-        gameDate: gameDate
+        gameDate: gameDate,
+        whichDay: whichDay
       };
 
       self.sendSocketNotification("MMM-MYSCOREBOARD-GET-SCORES", payload);
-
-
+     
     });
-
-
 
   },
 
