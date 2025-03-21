@@ -597,7 +597,7 @@ CIN   FC Cincinnati
 CLB   Columbus Crew
 CLT   Charlotte FC
 DAL   FC Dallas
-DCU   D.C. United
+DC    D.C. United
 HOU   Houston Dynamo FC
 GAL   LA Galaxy
 SKC   Sporting Kansas City
@@ -607,12 +607,12 @@ MNU   Minnesota United
 MTL   CF Montreal
 NER   New England Revolution
 NSH   Nashville SC
-NYR   New York Red Bulls
+NY    New York Red Bulls
 NYC   New York City FC
 ORL   Orlando City
 PHI   Philadelphia Union
 POR   Portland Timbers
-RAP   Colorado Rapids
+COL   Colorado Rapids
 RSL   Real Salt Lake
 SJE   San Jose Earthquakes
 SEA   Seattle Sounders FC
