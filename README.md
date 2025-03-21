@@ -593,30 +593,32 @@ Teams:
 
 ATL   Atlanta United FC
 ATX   Austin FC
+CLT   Charlotte FC
 CHI   Chicago Fire FC
 CIN   FC Cincinnati
+COL   Colorado Rapids
 CLB   Columbus Crew
-CLT   Charlotte FC
-DAL   FC Dallas
 DC    D.C. United
+DAL   FC Dallas
 HOU   Houston Dynamo FC
-GAL   LA Galaxy
 SKC   Sporting Kansas City
+GAL   LA Galaxy
 LAF   Los Angeles FC
 MIA   Inter Miami CF
 MNU   Minnesota United
 MTL   CF Montreal
-NER   New England Revolution
 NSH   Nashville SC
+NER   New England Revolution
 NY    New York Red Bulls
 NYC   New York City FC
 ORL   Orlando City
 PHI   Philadelphia Union
 POR   Portland Timbers
-COL   Colorado Rapids
 RSL   Real Salt Lake
+SD    San Diego FC
 SJE   San Jose Earthquakes
 SEA   Seattle Sounders FC
+STL   St. Louis City SC
 TOR   Toronto FC
 WHI   Vancouver Whitecaps FC
 
