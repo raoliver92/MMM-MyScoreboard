@@ -747,7 +747,7 @@ Module.register("MMM-MyScoreboard",{
       "Atlantic": ["BOS", "BUF", "DET", "FLA", "MTL", "OTT", "TB", "TOR"],
       "Metropolitain": ["CAR", "CLB", "NJ", "NYI", "NYR", "PIT", "PHI", "WSH"],
       "Central": ["ARI", "CHI", "COL", "DAL", "MIN", "NSH", "STL", "WPG"],
-      "Pacific": ["ANA", "CGY", "EDM", "LA", "SEA", "SJ", "VAN", "VGK"],
+      "Pacific": ["ANA", "CGY", "EDM", "LA", "SEA", "SJ", "UTA", "VAN", "VGK"],
 
       //conferences
       "East": ["BOS", "BUF", "CAR", "CLB", "DET", "FLA", "MTL", "NJ", "NYI", "NYR", "PIT", "PHI", "OTT", "TB", "TOR", "WSH"],
@@ -818,8 +818,8 @@ Module.register("MMM-MyScoreboard",{
     MLS : {
 
       //conferences
-      "East" : ["ATL", "CHI", "CLB", "DC", "MTL", "NY", "NYC", "NE", "ORL", "PHI", "TOR"],
-      "West" : ["COL", "DAL", "HOU", "KC", "LA", "MIN", "POR", "RSL", "SEA", "SJ", "VAN"]
+      "East" : ["ATL", "CHI", "CIN", "CLT", "CLB", "DC", "MIA", "MTL", "NY", "NYC", "NE", "NSH", "ORL", "PHI", "TOR"],
+      "West" : ["ATX", "COL", "DAL", "HOU", "SKC", "LA", "LAFC", "MIN", "POR", "RSL", "SEA", "SD", "SJ", "STL", "VAN"]
 
     },
 
