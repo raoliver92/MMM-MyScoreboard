@@ -396,7 +396,7 @@ Canadian (group that includes all seven Canadian teams)
 Teams:
 ---------------
 
-ARI   Arizona Diamondbacks
+AZ    Arizona Diamondbacks
 ATH   Athletics
 ATL   Atlanta Braves
 BAL   Baltimore Orioles
