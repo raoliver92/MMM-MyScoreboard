@@ -762,13 +762,13 @@ Module.register("MMM-MyScoreboard",{
       //divisions
       "AL East": ["BAL", "BOS", "NYY", "TB", "TOR"],
       "AL Central": ["CLE", "CWS", "DET", "KC", "MIN"],
-      "AL West": ["HOU", "LAA", "OAK", "SEA", "TEX"],
+      "AL West": ["HOU", "LAA", "ATH", "SEA", "TEX"],
       "NL East": ["ATL", "MIA", "NYM", "PHI", "WAS"],
       "NL Central": ["CHC", "CIN", "MIL", "PIT", "STL"],
       "NL West": ["ARI", "COL", "LAD", "SD", "SF"],
 
       //leagues
-      "American League": ["BAL", "BOS", "CLE", "CWS", "DET", "HOU", "LAA", "KC", "MIN", "NYY", "OAK", "SEA", "TB", "TEX", "TOR"],
+      "American League": ["BAL", "BOS", "CLE", "CWS", "DET", "HOU", "LAA", "KC", "MIN", "NYY", "ATH", "SEA", "TB", "TEX", "TOR"],
       "National League": ["ARI", "ATL", "CHC", "CIN", "COL", "LAD", "MIA", "MIL", "NYM", "PHI", "PIT", "SD", "SF", "STL", "WAS"]
 
     },
