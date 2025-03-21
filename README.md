@@ -397,6 +397,7 @@ Teams:
 ---------------
 
 ARI   Arizona Diamondbacks
+ATH   Athletics
 ATL   Atlanta Braves
 BAL   Baltimore Orioles
 BOS   Boston Red Sox
@@ -415,7 +416,6 @@ MIL   Milwaukee Brewers
 MIN   Minnesota Twons
 NYM   New York Mets
 NYY   New York Yankees
-OAK   Oakland Athletics
 PHI   Philadelphia Phillies
 PIT   Pittsburgh Pirates
 SD    San Diego Padres
