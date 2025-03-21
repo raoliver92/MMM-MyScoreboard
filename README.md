@@ -11,7 +11,7 @@ leagues, including:
 * NBA / WNBA Basketball
 * MLB Baseball
 * NFL Footabll
-* CFL Footabll (Canadian Football League)
+* CFL Football (Canadian Football League)
 * MLS Soccer
 * NCAA College Football (FBS Division)
 * NCAA College Basketball (Division I and March Madness, and Womens')
@@ -348,7 +348,7 @@ ARI   Arizona Coyotes
 BOS   Boston Bruins
 BUF   Buffalo Sabres
 CAR   Carolina Hurricanes
-CLB   Columbus Blue Jackets
+CBJ   Columbus Blue Jackets
 CGY   Calgary Flames
 CHI   Chicago Black Hawks
 COL   Colorado Avalanche
