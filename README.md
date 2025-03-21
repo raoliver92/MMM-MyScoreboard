@@ -403,7 +403,7 @@ BAL   Baltimore Orioles
 BOS   Boston Red Sox
 CHC   Chicago Cubs
 CIN   Cincinnati reds
-CLE   Cleveland Indians
+CLE   Cleveland Guardians
 COL   Colorado Rockies
 CWS   Chicago White Sox
 DET   Detroit Tigers
@@ -547,7 +547,7 @@ SEA   Seattle Seahawks
 SF    San Francisco 49ers
 TB    Tampa Bay Buccaneers
 TEN   Tennessee Titans
-WSH   Washington
+WSH   Washington Commanders
 
 Groups:
 ---------------
