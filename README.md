@@ -371,6 +371,7 @@ SJ    San Jose Sharks
 STL   St. Louis Blues
 TB    Tamba Bay Lightning
 TOR   Toronto Maple Leafs
+UTA   Utah Hockey Club
 VAN   Vanvouver Canucks
 VGK   Vegas Golden Knights
 WPG   Winnipeg Jets
