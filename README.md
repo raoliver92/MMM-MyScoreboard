@@ -369,7 +369,7 @@ PIT   Pittsburgh Penguins
 SEA   Seattle Kraken
 SJ    San Jose Sharks
 STL   St. Louis Blues
-TB    Tamba Bay Lightning
+TB    Tampa Bay Lightning
 TOR   Toronto Maple Leafs
 UTA   Utah Hockey Club
 VAN   Vanvouver Canucks
