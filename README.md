@@ -608,7 +608,7 @@ MIA   Inter Miami CF
 MNU   Minnesota United
 MTL   CF Montreal
 NSH   Nashville SC
-NER   New England Revolution
+NE    New England Revolution
 NY    New York Red Bulls
 NYC   New York City FC
 ORL   Orlando City
