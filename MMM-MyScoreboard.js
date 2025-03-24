@@ -351,8 +351,8 @@ Module.register("MMM-MyScoreboard",{
     //redirect path to logos to NCAAM
     //for March Madness
     var leagueForLogoPath = league;
-    if (league == "NCAAM_MM") {
-      leagueForLogoPath = "NCAAM";
+    if (league.startsWith('NCAA')) {
+      leagueForLogoPath = "NCAA";
     }
 
     //add team logos if applicable
