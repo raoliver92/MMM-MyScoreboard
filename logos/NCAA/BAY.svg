@@ -23,9 +23,9 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="1.46875"
-     inkscape:cx="-365.61702"
-     inkscape:cy="148.08511"
+     inkscape:zoom="0.51928154"
+     inkscape:cx="-458.32555"
+     inkscape:cy="170.42778"
      inkscape:window-width="3440"
      inkscape:window-height="1377"
      inkscape:window-x="-8"
@@ -37,6 +37,11 @@
      fill-rule="evenodd"
      id="g1"
      transform="translate(13.722656,13.728557)">
+    <polyline
+       points="73.619 108 73.619 102.248 83 102.25 83 80 42 80 42 102.25 51.378 102.25 51.378 108 73.619 108"
+       id="polyline4"
+       style="fill:#f2af36;fill-opacity:1"
+       transform="matrix(1.8801245,0,0,1.7173253,-6.3269334,-13.1307)" />
     <path
        sodipodi:type="inkscape:offset"
        inkscape:radius="13.136191"
