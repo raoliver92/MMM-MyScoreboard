@@ -376,10 +376,10 @@ Module.register("MMM-MyScoreboard",{
       hTeamLogo.appendChild(hTeamLogoImg);
 
       if (this.config.showRankings && this.viewStyleHasRankingOverlay(viewStyle) && gameObj.hTeamRanking) {
-        var hTeamRakingOverlay = document.createElement("span");
-        hTeamRakingOverlay.classList.add("ranking");
-        hTeamRakingOverlay.innerHTML = gameObj.hTeamRanking;
-        hTeamLogo.appendChild(hTeamRakingOverlay);
+        var hTeamRankingOverlay = document.createElement("span");
+        hTeamRankingOverlay.classList.add("ranking");
+        hTeamRankingOverlay.innerHTML = gameObj.hTeamRanking;
+        hTeamLogo.appendChild(hTeamRankingOverlay);
       }
       boxScore.appendChild(hTeamLogo);
 
@@ -404,10 +404,10 @@ Module.register("MMM-MyScoreboard",{
       vTeamLogo.appendChild(vTeamLogoImg);
 
       if (this.config.showRankings && this.viewStyleHasRankingOverlay(viewStyle) && gameObj.vTeamRanking) {
-        var vTeamRakingOverlay = document.createElement("span");
-        vTeamRakingOverlay.classList.add("ranking");
-        vTeamRakingOverlay.innerHTML = gameObj.vTeamRanking;
-        vTeamLogo.appendChild(vTeamRakingOverlay);
+        var vTeamRankingOverlay = document.createElement("span");
+        vTeamRankingOverlay.classList.add("ranking");
+        vTeamRankingOverlay.innerHTML = gameObj.vTeamRanking;
+        vTeamLogo.appendChild(vTeamRankingOverlay);
       }
       boxScore.appendChild(vTeamLogo);
     }
