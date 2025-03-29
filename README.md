@@ -331,7 +331,7 @@ Examples of the available view styles you can specify with the `viewStyle` param
 ![View Styles](/example.jpg)
 
 `smallLogos`<br />
-![Small Logos](/../screenshots/viewStyle_smallLogos.png?raw=true "Small Logos")
+![Small Logos](example_smallLogos.png)
 
 
 ## Team Shortcodes and Groups
