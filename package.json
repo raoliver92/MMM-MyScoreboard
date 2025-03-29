@@ -1,10 +1,10 @@
 {
   "name": "mmm-myscoreboard",
-  "version": "1.0.0",
+  "version": "4",
   "description": "Sports module for MagicMirror²",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jclarke0000/MMM-MyScoreboard.git"
+    "url": "git+https://github.com/dathbe/MMM-MyScoreboard.git"
   },
   "keywords": [
     "MagicMirror",
@@ -13,9 +13,9 @@
     "Sport"
   ],
   "bugs": {
-    "url": "https://github.com/jclarke0000/MMM-MyScoreboard/issues"
+    "url": "https://github.com/dathbe/MMM-MyScoreboard/issues"
   },
-  "homepage": "https://github.com/jclarke0000/MMM-MyScoreboard#readme",
+  "homepage": "https://github.com/dathbe/MMM-MyScoreboard#readme",
   "author": "Jeff Clarke",
   "license": "MIT",
   "dependencies": {
