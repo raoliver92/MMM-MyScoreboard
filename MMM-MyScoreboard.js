@@ -804,14 +804,14 @@ Module.register("MMM-MyScoreboard",{
       "AFC East" : ["NE", "BUF", "MIA", "NYJ"],
       "AFC North" : ["BAL", "CIN", "CLE", "PIT"],
       "AFC South" : ["JAX", "HOU", "IND", "TEN"],
-      "AFC West" : ["DEN", "KC", "LAC", "OAK"],
+      "AFC West" : ["DEN", "KC", "LAC", "LV"],
       "NFC East" : ["DAL", "NYG", "PHI", "WAS"],
       "NFC North" : ["CHI", "DET", "GB", "MIN"],
       "NFC South" : ["ATL", "CAR", "NO", "TB"],
       "NFC West" : ["ARI", "LA", "SEA", "SF"],
 
       //conferences
-      "AFC" : ["BAL", "BUF", "CIN", "CLE", "DEN", "HOU", "IND", "JAX", "KC", "LAC", "MIA", "NE", "NYJ", "OAK", "PIT", "TEN"],
+      "AFC" : ["BAL", "BUF", "CIN", "CLE", "DEN", "HOU", "IND", "JAX", "KC", "LAC", "MIA", "NE", "NYJ", "LV", "PIT", "TEN"],
       "NFC" : ["ARI", "ATL", "CAR", "CHI", "DAL", "DET", "GB", "LA", "MIN", "NO", "NYG", "PHI", "SEA", "SF", "TB", "WAS"]
     },
 
