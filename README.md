@@ -158,6 +158,9 @@ Currently this module supports the following leagues.  Use the bold uppercase sh
 * **ESP_LALIGA** - Spanish La Liga
 * **MEX_LIGA_BANCOMER** - Mexican Liga BBVA Bancomer
 
+<details>
+  <summary><b>Available Soccer Leagues</b> (click to expand)</summary>
+ 
 #### International
 * **AFC_ASIAN_CUP** - AFC Asian Cup
 * **AFC_ASIAN_CUP_Q** - AFC Asian Cup Qualifying
@@ -319,6 +322,7 @@ Currently this module supports the following leagues.  Use the bold uppercase sh
 * **ZAM_SUPER_LEAGUE** - Zambian Super League
 * **ZIM_PREMIER_LEAGUE** - Zimbabwe Super League
 
+</details>
 
 ## View Styles
 
@@ -338,6 +342,9 @@ The following are shortcodes and groups for North American sports leagues.
 
 
 ### NHL
+
+<details>
+  <summary><b>NHL Codes</b> (click to expand)</summary>
 
 ```
 Teams:
@@ -387,11 +394,12 @@ East
 West
 Canadian (group that includes all seven Canadian teams)
 ```
-
-
-
+</details>
 
 ### MLB
+
+<details>
+  <summary><b>MLB Codes</b> (click to expand)</summary>
 
 ```
 Teams:
@@ -439,8 +447,12 @@ NL West
 American League
 National League
 ```
+</details>
 
 ### NBA
+
+<details>
+  <summary><b>NBA Codes</b> (click to expand)</summary>
 
 ```
 Teams:
@@ -488,8 +500,13 @@ Southwest
 East
 West
 ```
+</details>
 
 ### WNBA
+
+<details>
+  <summary><b>WNBA Codes</b> (click to expand)</summary>
+
 ```
 Teams:
 ---------------
@@ -511,8 +528,13 @@ Groups:
 East
 West
 ```
+</details>
 
 ### NFL
+
+<details>
+  <summary><b>NFL Codes</b> (click to expand)</summary>
+
 ```
 Teams:
 ---------------
@@ -563,8 +585,13 @@ NFC West
 AFC
 NFC
 ```
+</details>
 
 ### CFL
+
+<details>
+  <summary><b>CFL Codes</b> (click to expand)</summary>
+
 ```
 Teams:
 ---------------
@@ -584,9 +611,14 @@ Groups:
 East
 West
 ```
+</details>
 
 
 ### MLS
+
+<details>
+  <summary><b>MLS Codes</b> (click to expand)</summary>
+
 ```
 Teams:
 ---------------
@@ -627,9 +659,14 @@ Groups:
 East
 West
 ```
+</details>
 
 
 ### NCAAF (FBS Division)
+
+<details>
+  <summary><b>NCAAF Codes</b> (click to expand)</summary>
+
 ```
 Teams:
 ---------------
@@ -780,8 +817,13 @@ Pac-12
 SEC
 Sun Belt
 ```
+</details>
 
 ### NCAAM (Division I and March Madness)
+
+<details>
+  <summary><b>NCAAM Codes</b> (click to expand)</summary>
+
 ```
 Teams:
 ---------------
@@ -1174,8 +1216,13 @@ Sun Belt
 West Coast
 WAC
 ```
+</details>
 
 ### NCAAW
+
+<details>
+  <summary><b>NCAAW Codes</b> (click to expand)</summary>
+
 ```
 Teams:
 ---------------
@@ -1580,6 +1627,7 @@ Sun Belt
 West Coast
 WAC
 ```
+</details>
 
 ## Thank You
 A special thanks goes to [@jclarke0000](https://github.com/jclarke0000/), who was the original author of this module and wrote most of the code.
