@@ -414,8 +414,8 @@ module.exports = {
       url = url + "&groups=100";
     }
 
-    const response = fetch(url);
-    const body = response.json();
+    const response = await fetch(url);
+    const body = await response.json();
     callback(self.formatScores(league, body, teams, moment(gameDate).format("YYYYMMDD")));
     
   },
