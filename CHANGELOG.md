@@ -8,6 +8,8 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 - Replaced axios dependency with built-in fetch function
 - Removed code relating to lockString (resolved log error; hopefully does not have side effects)
+- Bump directory-tree
+- Remove dependency on json-parse-async (unused)
 
 ## [4.0.0](https://github.com/jclarke0000/MMM-MyScoreboard/compare/master...dathbe:MMM-MyScoreboard:v4.0.0) - 2025-03-28 - First fork version
 
