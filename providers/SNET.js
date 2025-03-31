@@ -102,23 +102,16 @@ module.exports = {
 
   },
 
-  getData: function() {
+  async getData () {
 
     // console.log("Get SNET JSON");
     var self = this;
 
     var url = "https://stats-api.sportsnet.ca/ticker?day=" + this.gameDate.format("YYYY-MM-DD");
 
+    const response = await fetch(url);
+    self.scoresObj = await response.json();
 
-    axios.get(url)
-      .then( function(response) {
-        if(response.data.data) {
-          self.scoresObj = response.data;
-        }
-      })
-      .catch( function(r_err) {
-         console.log( "[MMM-MyScoreboard] " + moment().format("D-MMM-YY HH:mm") + " ** ERROR ** Couldn't retrieve data for provider SNET: " + r_err );       
-      })
   },
 
 
