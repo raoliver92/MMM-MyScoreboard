@@ -10,7 +10,7 @@ leagues, including:
 * NHL Hockey
 * NBA / WNBA Basketball
 * MLB Baseball
-* NFL Footabll
+* NFL Football
 * CFL Football (Canadian Football League)
 * MLS Soccer
 * NCAA College Football (FBS Division)
