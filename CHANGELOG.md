@@ -6,8 +6,9 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [4.1.0](https://github.com/dathbe/MMM-MyScoreboard/compare/v4.0.0...v4.1.)
 
-- Replaced axios dependency with built-in fetch function
+- Change colors of completed games for more visibility (if you want the old colors, you can put it in your `custom.css` file)
 - Removed code relating to lockString (resolved log error; hopefully does not have side effects)
+- Replaced axios dependency with built-in fetch function
 - Bump directory-tree
 - Remove dependency on json-parse-async (unused)
 
