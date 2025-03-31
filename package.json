@@ -19,9 +19,7 @@
   "author": "Jeff Clarke",
   "license": "MIT",
   "dependencies": {
-    "axios": "^1.8.4",
-    "directory-tree": "^3.3.1",
-    "json-parse-async": "^1.0.3",
+    "directory-tree": "^3.5.2",
     "moment-timezone": "^0.5.37"
   }
 }
