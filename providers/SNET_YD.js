@@ -102,15 +102,20 @@ module.exports = {
 
   },
 
-  getData: function() {
+  async getData () {
 
     // console.log("Get SNET JSON");
     var self = this;
 
     var url = "https://stats-api.sportsnet.ca/ticker?day=" + this.gameDate.format("YYYY-MM-DD");
-
-	const response = await fetch(url);
-	self.scoresObj = await response.json();
+  
+    try {
+        const response = await fetch(url);
+        self.scoresObj = await response.json();
+    } catch (error) {
+        console.error(error + url);
+    }
+	
   },
 
 

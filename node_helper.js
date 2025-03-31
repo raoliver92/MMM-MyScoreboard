@@ -7,7 +7,7 @@ module.exports = NodeHelper.create({
   providers: {},
 
   start: function() {
-    console.log("Starting node_helper for module [" + this.name + "]");
+    console.log("Starting node_helper for: " + this.name);
 
     this.providers.SNET = require("./providers/SNET.js");
     this.providers.SNET_YD = require("./providers/SNET_YD.js");
