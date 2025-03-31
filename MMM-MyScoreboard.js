@@ -580,11 +580,11 @@ Module.register("MMM-MyScoreboard",{
       the module will only be visible when both agree that it
       should be visible.
     */
-    if (!anyGames) {
-      this.hide(1000, {lockString: this.identifier});
-    } else {
-      this.show(1000, {lockString: this.identifier});
-    }
+    //if (!anyGames) {
+    //  this.hide(1000, {lockString: this.identifier});
+    //} else {
+    //  this.show(1000, {lockString: this.identifier});
+    //}
 
     return wrapper;
   },
