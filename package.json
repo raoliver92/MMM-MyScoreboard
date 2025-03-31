@@ -1,6 +1,6 @@
 {
   "name": "mmm-myscoreboard",
-  "version": "4.0.1",
+  "version": "4",
   "description": "Sports module for MagicMirror²",
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   "author": "Jeff Clarke",
   "license": "MIT",
   "dependencies": {
+    "axios": "^1.8.4",
     "directory-tree": "^3.3.1",
     "json-parse-async": "^1.0.3",
     "moment-timezone": "^0.5.37"
