@@ -651,7 +651,7 @@
 .MMM-MyScoreboard .box-score.stackedWithLogos .team-name {
   left: 0px;
   width: 150px;
-  color: #AAA;
+  color: white;
 }
 .MMM-MyScoreboard .box-score.in-progress.stacked .team-name,
 .MMM-MyScoreboard .box-score.in-progress.stackedWithLogos .team-name {
