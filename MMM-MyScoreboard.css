@@ -249,15 +249,15 @@
 
 /* Highlight the winners of finished games */
 .MMM-MyScoreboard .wrapper.highlight-winners .box-score.final.winner-h .score.visitor {
-  color: #777;
+  color: white;
 }
 .MMM-MyScoreboard .wrapper.highlight-winners .box-score.final.winner-h .team-short-code.home,
 .MMM-MyScoreboard .wrapper.highlight-winners .box-score.final.winner-h .team-name.home {
-  color: #EFEFEF;
+  color: #7AE4FF;
 }
 .MMM-MyScoreboard .wrapper.highlight-winners .box-score.final.winner-h .team-short-code.visitor,
 .MMM-MyScoreboard .wrapper.highlight-winners .box-score.final.winner-h .team-name.visitor {
-  color: #777
+  color: white;
 }
 
 .MMM-MyScoreboard .wrapper.highlight-winners.colored .box-score.winner-h .score.home {
@@ -265,15 +265,15 @@
 }
 
 .MMM-MyScoreboard .wrapper.highlight-winners .box-score.final.winner-v .score.home {
-  color: #777;
+  color: white;
 }
 .MMM-MyScoreboard .wrapper.highlight-winners .box-score.final.winner-v .team-short-code.visitor,
 .MMM-MyScoreboard .wrapper.highlight-winners .box-score.final.winner-v .team-name.visitor {
-  color: #EFEFEF;
+  color: #7AE4FF;
 }
 .MMM-MyScoreboard .wrapper.highlight-winners .box-score.final.winner-v .team-short-code.home,
 .MMM-MyScoreboard .wrapper.highlight-winners .box-score.final.winner-v .team-name.home {
-  color: #777;
+  color: white;
 }
 .MMM-MyScoreboard .wrapper.highlight-winners.colored .box-score.final.winner-v .score.visitor {
   color: #7AE4FF;
