@@ -45,7 +45,6 @@
 
 //const axios = require("axios");
 const moment = require("moment-timezone");
-const parseJSON = require("json-parse-async");
 
 module.exports = {
 
