@@ -113,7 +113,7 @@ module.exports = {
         const response = await fetch(url);
         self.scoresObj = await response.json();
     } catch (error) {
-        console.error(error + url)
+        console.error(error + url);
     }
 
   },
