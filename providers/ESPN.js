@@ -33,7 +33,7 @@
 
 */
 
-const axios = require("axios");
+//const axios = require("axios");
 const moment = require("moment-timezone");
 const parseJSON = require("json-parse-async");
 
@@ -388,7 +388,7 @@ module.exports = {
     return this.LEAGUE_PATHS[league];
   },
 
-  getScores: function(league, teams, gameDate, callback) {
+  async getScores (league, teams, gameDate, callback) {
 
     var self = this;
 
@@ -416,16 +416,9 @@ module.exports = {
       url = url + "&groups=100";
     }
 
-
-    axios.get(url)
-      .then( function(response) {
-            callback(self.formatScores(league, response.data, teams, moment(gameDate).format("YYYYMMDD")));
-      })
-      .catch( function(r_err) {
-        console.log( "[MMM-MyScoreboard] " + moment().format("D-MMM-YY HH:mm") + " ** ERROR ** Couldn't retrieve " + league + " data for provider ESPN: " + r_err );
-        console.log( "[MMM-MyScoreboard] " + url );        
-      })
-
+	const response = await fetch(url);
+	const body = await response.json();
+	callback(self.formatScores(league, body, teams, moment(gameDate).format("YYYYMMDD")));
 
   },
 
