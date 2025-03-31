@@ -102,7 +102,7 @@ module.exports = {
 
   },
 
-  getData: function() {
+  async getData () {
 
     // console.log("Get SNET JSON");
     var self = this;
