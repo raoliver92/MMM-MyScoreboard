@@ -4,9 +4,10 @@ Notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [4.0.1](https://github.com/dathbe/MMM-MyScoreboard/compare/v4.0.0...v4.0.1)
+## [4.1.0](https://github.com/dathbe/MMM-MyScoreboard/compare/v4.0.0...v4.1.)
 
 - Replaced axios dependency with built-in fetch function
+- Removed code relating to lockString (resolved log error; hopefully does not have side effects)
 
 ## [4.0.0](https://github.com/jclarke0000/MMM-MyScoreboard/compare/master...dathbe:MMM-MyScoreboard:v4.0.0) - 2025-03-28 - First fork version
 
