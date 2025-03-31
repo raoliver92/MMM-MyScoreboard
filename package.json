@@ -1,6 +1,6 @@
 {
   "name": "mmm-myscoreboard",
-  "version": "4",
+  "version": "4.1.0",
   "description": "Sports module for MagicMirror²",
   "repository": {
     "type": "git",
