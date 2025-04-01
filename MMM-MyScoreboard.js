@@ -67,6 +67,9 @@ Module.register("MMM-MyScoreboard",{
     "NCAAM_MM": {provider: "ESPN",logoFormat: "url"},
     "NCAAW": {provider: "ESPN", logoFormat: "url"},
     "WNBA": {provider: "ESPN", logoFormat: "url"},
+	"NBAG": {provider: "ESPN", logoFormat: "url"},
+	"NLL": {provider: "ESPN", logoFormat: "url"},
+	"PLL": {provider: "ESPN", logoFormat: "url"},
 
 
     //International Soccer
@@ -230,6 +233,9 @@ Module.register("MMM-MyScoreboard",{
     "UGA_SUPER_LEAGUE": {provider: "ESPN", logoFormat: "url", homeTeamFirst: true},
     "ZAM_SUPER_LEAGUE": {provider: "ESPN", logoFormat: "url", homeTeamFirst: true},
     "ZIM_PREMIER_LEAGUE": {provider: "ESPN", logoFormat: "url", homeTeamFirst: true},
+
+    //Other
+    "AFL": {provider: "ESPN", logoFormat: "url", homeTeamFirst: false},
 
   },
 

@@ -530,6 +530,55 @@ West
 ```
 </details>
 
+### NBA G League ("NBAG")
+
+<details>
+  <summary><b>NBA G League Codes</b> (click to expand)</summary>
+
+```
+Use `NBAG` for the league code
+
+Teams:
+---------------
+- WCB - Windy City Bulls
+- BIR - Birmingham Squadron
+- RAP - Raptors 905
+- DEL - Delaware Blue Coats
+- GRD - Grand Rapids Gold
+- CLC - Cleveland Charge
+- CPS - College Park Skyhawks
+- LIN - Long Island Nets
+- MCC - Motor City Cruise
+- WIS - Wisconsin Herd
+- CAP - Capital City Go-Go
+- GBO - Greensboro Swarm
+- IMA - Indiana Mad Ants
+- MNE - Maine Celtics
+- OSC - Osceola Magic
+- WES - Westchester Knicks
+- IWA - Iowa Wolves
+- TEX - Texas Legends
+- SAN - San Diego Clippers
+- RCITY - Rip City Remix
+- MHU - Memphis Hustle
+- SBL - South Bay Lakers
+- MXC - Mexico City Capitanes
+- OKL - Oklahoma City Blue
+- SXF - Sioux Falls Skyforce
+- RGV - Rio Grande Valley Vipers
+- SCW - Santa Cruz Warriors
+- VALLEY - Valley Suns
+- SLC - Salt Lake City Stars
+- STO - Stockton Kings
+- AUS - Austin Spurs
+
+Groups:
+---------------
+East
+West
+```
+</details>
+
 ### NFL
 
 <details>
@@ -1628,6 +1677,96 @@ West Coast
 WAC
 ```
 </details>
+
+### NLL (National Lacrosse League)
+
+<details>
+  <summary><b>NLL Codes</b> (click to expand)</summary>
+
+```
+Teams:
+---------------
+
+- ALB - Albany FireWolves
+- BUF - Buffalo Bandits
+- CGY - Calgary Roughnecks
+- COL - Colorado Mammoth
+- GA - Georgia Swarm
+- HFX - Halifax Thunderbirds
+- LV - Las Vegas Desert Dogs
+- OTT - Ottawa Black Bears
+- PHI - Philadelphia Wings
+- ROC - Rochester Knighthawks
+- SAS - Saskatchewan Rush
+- SD - San Diego Seals
+- TOR - Toronto Rock
+- VAN - Vancouver Warriors
+```
+</details>
+
+### PLL (Premier Lacrosse League)
+
+<details>
+  <summary><b>PLL Codes</b> (click to expand)</summary>
+
+```
+Teams:
+---------------
+
+- ARC - Utah Archers
+- ATL - New York Atlas
+- CAN - Boston Cannons
+- CHA - Carolina Chaos
+- OUT - Denver Outlaws
+- RED - California Redwoods
+- WAT - Philadelphia Waterdogs
+- WHP - Maryland Whipsnakes
+```
+</details>
+
+### AFL (Australian Football League)
+
+<details>
+  <summary><b>AFL Codes</b> (click to expand)</summary>
+
+```
+Teams:
+---------------
+
+- HAW - Hawthorn
+- ADEL - Adelaide Crows
+- BL - Brisbane Lions
+- SUNS - Gold Coast SUNS
+- GWS - GWS GIANTS
+- COLL - Collingwood
+- STK - St Kilda
+- WB - Western Bulldogs
+- GEEL - Geelong Cats
+- NMFC - North Melbourne
+- SYD - Sydney Swans
+- PORT - Port Adelaide
+- FRE - Fremantle
+- ESS - Essendon
+- RICH - Richmond
+- CARL - Carlton
+- MELB - Melbourne
+- WCE - West Coast Eagles
+```
+</details>
+
+## Contributing
+
+If you find any problems, bugs or have questions, please [open a GitHub issue](https://github.com/dathbe/MMM-MyScoreboard/issues) in this repository.
+
+Pull requests are of course also very welcome 🙂
+
+### Code of Conduct
+
+Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
 
 ## Thank You
 A special thanks goes to [@jclarke0000](https://github.com/jclarke0000/), who was the original author of this module and wrote most of the code.

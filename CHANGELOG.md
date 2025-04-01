@@ -4,7 +4,14 @@ Notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [4.1.0](https://github.com/dathbe/MMM-MyScoreboard/compare/v4.0.0...v4.1.) - 2025-03-31
+## [4.2.0](https://github.com/dathbe/MMM-MyScoreboard/compare/v4.1.0...v4.2.0) - 2025-03-31
+
+- NEW FEATURE: NLL (National Lacross League) added
+- NEW FEATURE: PLL (Premier Lacross League) added
+- NEW FEATURE: AFL (Australian Football League) added
+- NEW FEATURE: NBA G League (Development League) added
+
+## [4.1.0](https://github.com/dathbe/MMM-MyScoreboard/compare/v4.0.0...v4.1.0) - 2025-03-31
 
 - Change colors of completed games for more visibility (if you want the old colors, you can put it in your `custom.css` file)
 - Removed code relating to lockString (resolved log error; hopefully does not have side effects)
