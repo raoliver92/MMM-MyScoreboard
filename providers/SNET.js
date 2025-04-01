@@ -56,7 +56,7 @@ module.exports = {
     In any case, the front end asks for data every 2 minutes,
     so making this any more frequent doesn't change anything.
   */
-  POLL_FREQUENCY: 60 * 1000, // every 30 seconds.
+  POLL_FREQUENCY: 60 * 1000, // every 60 seconds.
 
   scoresObj: null,
   dataPollStarted: false,
