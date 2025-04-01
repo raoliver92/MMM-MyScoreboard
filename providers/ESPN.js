@@ -519,7 +519,7 @@ module.exports = {
       */
       if (internationalTime) {
         var timeFormat = 'H:mm'
-      } 
+      }
       else {
         timeFormat = 'h:mm a'
       }
