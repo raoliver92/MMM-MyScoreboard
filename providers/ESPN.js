@@ -45,9 +45,13 @@ module.exports = {
     "NCAAF": "football/college-football",
     "NBA": "basketball/nba",
     "WNBA": "basketball/wnba",
+	"NBAG": "basketball/nba-development",
     "NCAAM": "basketball/mens-college-basketball",
     "NCAAM_MM": "basketball/mens-college-basketball",
     "NCAAW" : "basketball/womens-college-basketball/",
+	"PLL" : "lacrosse/pll/",
+	"NLL" : "lacrosse/nll/",
+	"PLL" : "lacrosse/pll/",
 
     //International Soccer
     "AFC_ASIAN_CUP": "soccer/afc.cup",
@@ -210,6 +214,9 @@ module.exports = {
     "UGA_SUPER_LEAGUE": "soccer/uga.1",
     "ZAM_SUPER_LEAGUE": "soccer/zam.1",
     "ZIM_PREMIER_LEAGUE": "soccer/zim.1",
+	
+	//Other
+	"AFL": "australian-football/afl",
 
   },
 
