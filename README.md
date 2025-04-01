@@ -1764,6 +1764,11 @@ Pull requests are of course also very welcome 🙂
 
 Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
+### Developer commands
+
+- `npm run lint` - Run linting checks.
+- `npm run lint:fix` - Fix automatically fixable linting errors.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
