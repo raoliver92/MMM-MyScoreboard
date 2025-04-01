@@ -4,6 +4,10 @@ Notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.2.1](https://github.com/dathbe/MMM-MyScoreboard/compare/v4.2.0...v4.2.1) - 2025-03-31
+
+- Added ESLint and made ESLint style changes
+
 ## [4.2.0](https://github.com/dathbe/MMM-MyScoreboard/compare/v4.1.0...v4.2.0) - 2025-03-31
 
 - NEW FEATURE: NLL (National Lacross League) added
