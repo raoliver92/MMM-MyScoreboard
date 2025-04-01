@@ -15,10 +15,21 @@
   "author": "Jeff Clarke",
   "contributors": [
     "dathbe"
-  ],
+  ],  
+  "scripts": {
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "test": "npm run lint"
+  },
   "license": "MIT",
   "dependencies": {
     "directory-tree": "^3.5.2",
     "moment-timezone": "^0.5.37"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.23.0",
+    "@stylistic/eslint-plugin": "^4.2.0",
+    "eslint": "^9.23.0",
+    "globals": "^16.0.0"
   }
 }
