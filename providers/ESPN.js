@@ -51,7 +51,6 @@ module.exports = {
     NCAAW: 'basketball/womens-college-basketball/',
     PLL: 'lacrosse/pll/',
     NLL: 'lacrosse/nll/',
-    PLL: 'lacrosse/pll/',
 
     // International Soccer
     AFC_ASIAN_CUP: 'soccer/afc.cup',
