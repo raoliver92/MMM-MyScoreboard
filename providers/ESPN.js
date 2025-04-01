@@ -523,6 +523,13 @@ module.exports = {
       else {
         timeFormat = 'h:mm a'
       }
+      var channels = []
+      if (game.competitions[0].broadcasts.length > 0) {
+        channels.push(game.competitions[0].broadcasts[0].names[0])
+        if (game.competitions[0].broadcasts[0].names[1]) {
+          channels.push(game.competitions[0].broadcasts[0].names[1])
+        }
+      }
       switch (game.status.type.id) {
         case '0' : // TBD
           gameState = 0
@@ -531,6 +538,9 @@ module.exports = {
         case '1': // scheduled
           gameState = 0
           status.push(moment(game.competitions[0].date).tz(localTZ).format(timeFormat))
+          if (channels.length > 0) {
+            status.push(channels.join("/"))
+          }
           break
         case '2': // in-progress
         case '21': // beginning of period
@@ -542,6 +552,9 @@ module.exports = {
           gameState = 1
           status.push(game.status.displayClock)
           status.push(this.getPeriod(league, game.status.period))
+          if (channels.length > 0) {
+            status.push(channels.join("/"))
+          }
           break
         case '3': // final
           gameState = 2
@@ -566,6 +579,9 @@ module.exports = {
           gameState = 1
           classes.push['delay']
           status.push('Delay')
+          if (channels.length > 0) {
+            status.push(channels.join("/"))
+          }
           break
         case '8': // suspended
           gameState = 0
@@ -576,14 +592,23 @@ module.exports = {
           gameState = 1
           status.push('END')
           status.push(this.getPeriod(league, game.status.period))
+          if (channels.length > 0) {
+            status.push(channels.join("/"))
+          }
           break
         case '23': // halftime
           gameState = 1
           status.push('HALFTIME')
+          if (channels.length > 0) {
+            status.push(channels.join("/"))
+          }
           break
         case '49': // SOCCER extra time half time
           gameState = 1
           status.push('HALFTIME (ET)')
+          if (channels.length > 0) {
+            status.push(channels.join("/"))
+          }
           break
         case '28': // SOCCER Full Time
           gameState = 2
@@ -601,6 +626,9 @@ module.exports = {
         default: // Anything else, treat like a game that hasn't started yet
           gameState = 0
           status.push(moment(game.competitions[0].date).tz(localTZ).format(timeFormat))
+          if (channels.length > 0) {
+            status.push(channels.join("/"))
+          }
           break
       }
 
