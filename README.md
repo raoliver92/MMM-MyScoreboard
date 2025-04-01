@@ -137,7 +137,7 @@ Currently this module supports the following leagues.  Use the bold uppercase sh
 
 * **AFL** - Australian Football League
 
-**Note:** You can probably guess the team abbreviations based on the city, but lists for these leagues are below.  If you notice an error, open an issue and let me know.
+**Note:** You can probably guess the team abbreviations based on the city, but team abbreviation lists for the leagues above are later in this README.  If you notice an error, open an issue and let me know.
 
 ### Soccer Leagues & Competitions
 
