@@ -534,7 +534,8 @@ module.exports = {
           channels.push(game.competitions[0].broadcasts[0].names[1])
         }
       }
-      console.log(game)
+      console.log(game.name)
+	    console.log(game.status)
 	  console.log(game.status.type)
 	  switch (game.status.type.id) {
         case '0' : // TBD
