@@ -29,7 +29,7 @@ leagues, including:
   * Spanish La Liga
   * Mexican Liga BBVA Bancomer
 
-![Screenshot](screenshot.png)
+![Screenshot](example1.png)
 
 
 ## Installation
@@ -328,10 +328,10 @@ Currently this module supports the following leagues.  Use the bold uppercase sh
 
 Examples of the available view styles you can specify with the `viewStyle` parameter.
 
-![View Styles](/example.jpg)
+![View Styles](/example2.jpg)
 
 `smallLogos`<br />
-![Small Logos](example_smallLogos.png)
+![Small Logos](example3_smallLogos.png)
 
 
 ## Team Shortcodes and Groups
