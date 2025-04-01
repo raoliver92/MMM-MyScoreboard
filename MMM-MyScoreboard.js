@@ -533,11 +533,11 @@ Module.register('MMM-MyScoreboard', {
       Run through the leagues and generate box score displays for
       each game.
     */
-    var anyGames = false
+    //var anyGames = false
     var self = this
     this.config.sports.forEach(function (sport, index) {
       if (self.sportsData[index] != null && self.sportsData[index].length > 0) {
-        anyGames = true
+        //anyGames = true
         if (self.config.showLeagueSeparators) {
           var leagueSeparator = document.createElement('div')
           leagueSeparator.classList.add('league-separator')
@@ -556,7 +556,7 @@ Module.register('MMM-MyScoreboard', {
         })
       }
       if (self.sportsDataYd[index] != null && self.sportsDataYd[index].length > 0 && self.config.alwaysShowToday) {
-        anyGames = true
+        //anyGames = true
         if (self.config.showLeagueSeparators) {
           var leagueSeparator = document.createElement('div')
           leagueSeparator.classList.add('league-separator')
