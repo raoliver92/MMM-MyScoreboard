@@ -539,7 +539,7 @@ module.exports = {
           gameState = 0
           status.push(moment(game.competitions[0].date).tz(localTZ).format(timeFormat))
           if (channels.length > 0) {
-            status.push(channels.join("/"))
+            status.push(channels.join('/'))
           }
           break
         case '2': // in-progress
@@ -553,7 +553,7 @@ module.exports = {
           status.push(game.status.displayClock)
           status.push(this.getPeriod(league, game.status.period))
           if (channels.length > 0) {
-            status.push(channels.join("/"))
+            status.push(channels.join('/'))
           }
           break
         case '3': // final
@@ -580,7 +580,7 @@ module.exports = {
           classes.push['delay']
           status.push('Delay')
           if (channels.length > 0) {
-            status.push(channels.join("/"))
+            status.push(channels.join('/'))
           }
           break
         case '8': // suspended
@@ -593,21 +593,21 @@ module.exports = {
           status.push('END')
           status.push(this.getPeriod(league, game.status.period))
           if (channels.length > 0) {
-            status.push(channels.join("/"))
+            status.push(channels.join('/'))
           }
           break
         case '23': // halftime
           gameState = 1
           status.push('HALFTIME')
           if (channels.length > 0) {
-            status.push(channels.join("/"))
+            status.push(channels.join('/'))
           }
           break
         case '49': // SOCCER extra time half time
           gameState = 1
           status.push('HALFTIME (ET)')
           if (channels.length > 0) {
-            status.push(channels.join("/"))
+            status.push(channels.join('/'))
           }
           break
         case '28': // SOCCER Full Time
@@ -627,7 +627,7 @@ module.exports = {
           gameState = 0
           status.push(moment(game.competitions[0].date).tz(localTZ).format(timeFormat))
           if (channels.length > 0) {
-            status.push(channels.join("/"))
+            status.push(channels.join('/'))
           }
           break
       }
