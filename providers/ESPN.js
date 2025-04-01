@@ -48,9 +48,13 @@ module.exports = {
     NBAG: 'basketball/nba-development',
     NCAAM: 'basketball/mens-college-basketball',
     NCAAM_MM: 'basketball/mens-college-basketball',
-    NCAAW: 'basketball/womens-college-basketball/',
-    PLL: 'lacrosse/pll/',
-    NLL: 'lacrosse/nll/',
+    NCAAW: 'basketball/womens-college-basketball',
+    PLL: 'lacrosse/pll',
+    NLL: 'lacrosse/nll',
+    MLB: 'baseball/mlb',
+    NFL: 'football/nfl',
+    NHL: 'hockey/nhl',
+    MLS: 'soccer/usa.1',
 
     // International Soccer
     AFC_ASIAN_CUP: 'soccer/afc.cup',
