@@ -536,10 +536,11 @@ Module.register('MMM-MyScoreboard', {
     //var anyGames = false
     var self = this
     this.config.sports.forEach(function (sport, index) {
+      var leagueSeparator = []
       if (self.sportsData[index] != null && self.sportsData[index].length > 0) {
         //anyGames = true
         if (self.config.showLeagueSeparators) {
-          var leagueSeparator = document.createElement('div')
+          leagueSeparator = document.createElement('div')
           leagueSeparator.classList.add('league-separator')
           if (sport.label) {
             leagueSeparator.innerHTML = '<span>' + sport.label + '</span>'
@@ -558,7 +559,7 @@ Module.register('MMM-MyScoreboard', {
       if (self.sportsDataYd[index] != null && self.sportsDataYd[index].length > 0 && self.config.alwaysShowToday) {
         //anyGames = true
         if (self.config.showLeagueSeparators) {
-          var leagueSeparator = document.createElement('div')
+          leagueSeparator = document.createElement('div')
           leagueSeparator.classList.add('league-separator')
           if (sport.label) {
             leagueSeparator.innerHTML = '<span>' + sport.label + ' - Yesterday</span>'
