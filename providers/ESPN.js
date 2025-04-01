@@ -534,7 +534,9 @@ module.exports = {
           channels.push(game.competitions[0].broadcasts[0].names[1])
         }
       }
-      switch (game.status.type.id) {
+      console.log(game)
+	  console.log(game.status.type)
+	  switch (game.status.type.id) {
         case '0' : // TBD
           gameState = 0
           status.push('TBD')
@@ -725,7 +727,7 @@ module.exports = {
         return '' // no need to indicate first or second half
       }
     }
-    else {
+	else {
       if (p == 5) {
         return 'OT'
       }
@@ -741,7 +743,12 @@ module.exports = {
     if (this.isSoccer(league) && p > 2) {
       return ' (ET)'
     }
-    else if (!this.isSoccer(league)) {
+    else if (league === "MLB") {
+		if (p > 9) {
+        return (p)
+      }
+	}
+	else if (!this.isSoccer(league)) {
       if (p == 5) {
         return ' (OT)'
       }
