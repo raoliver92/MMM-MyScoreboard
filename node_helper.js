@@ -48,15 +48,15 @@ module.exports = NodeHelper.create({
       }
 
       if (payload.whichDay == 'both') {
-        provider.getScores(payload.league, payload.teams, moment(), function (scores) {
+        provider.getScores(payload.league, payload.teams, moment(), payload.internationalTime, function (scores) {
           self.sendSocketNotification('MMM-MYSCOREBOARD-SCORE-UPDATE', { instanceId: payload.instanceId, index: payload.index, scores: scores })
         })
-        provider2.getScores(payload.league, payload.teams, moment().subtract(1, 'day'), function (scores) {
+        provider2.getScores(payload.league, payload.teams, moment().subtract(1, 'day'), payload.internationalTime, function (scores) {
           self.sendSocketNotification('MMM-MYSCOREBOARD-SCORE-UPDATE-YD', { instanceId: payload.instanceId, index: payload.index, scores: scores })
         })
       }
       else {
-        provider.getScores(payload.league, payload.teams, payload.gameDate, function (scores) {
+        provider.getScores(payload.league, payload.teams, payload.gameDate, payload.internationalTime, function (scores) {
           self.sendSocketNotification('MMM-MYSCOREBOARD-SCORE-UPDATE', { instanceId: payload.instanceId, index: payload.index, scores: scores })
         })
         self.sendSocketNotification('MMM-MYSCOREBOARD-SCORE-UPDATE-YD', { instanceId: payload.instanceId, index: payload.index, scores: {} })
