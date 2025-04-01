@@ -157,10 +157,10 @@ module.exports = {
       var status = []
       var classes = []
 
-
       if (internationalTime) {
         var timeFormat = 'H:mm'
-      } else {
+      }
+      else {
         timeFormat = 'h:mm a'
       }
       switch (game.game_status) {
