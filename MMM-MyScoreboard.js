@@ -727,7 +727,7 @@ Module.register('MMM-MyScoreboard', {
         gameDate: gameDate,
         whichDay: whichDay,
         internationalTime: self.config.internationalTime
-      },
+      }
 
       self.sendSocketNotification('MMM-MYSCOREBOARD-GET-SCORES', payload)
     })
