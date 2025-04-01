@@ -12,7 +12,6 @@
     MLS (Major League Soccer)
     MLB (Major League Baseball)
 
-
   All sports are provided in a single feed at
   https://stats-api.sportsnet.ca/ticker
 
@@ -43,11 +42,11 @@
 
 */
 
-const moment = require("moment-timezone");
+const moment = require('moment-timezone')
 
 module.exports = {
 
-  PROVIDER_NAME: "SNET_YD",
+  PROVIDER_NAME: 'SNET_YD',
 
   /*
     Please don't make this any more frequent.  If you have a
@@ -57,78 +56,69 @@ module.exports = {
     In any case, the front end asks for data every 2 minutes,
     so making this any more frequent doesn't change anything.
   */
-  POLL_FREQUENCY: 60 * 60 * 1000, //every hour.
+  POLL_FREQUENCY: 60 * 60 * 1000, // every hour.
 
   scoresObj: null,
   dataPollStarted: false,
   gameDate: null,
 
-  getScores: function(league, teams, gameDate, callback) {
-    
-    var self = this;
-    this.gameDate = moment(gameDate);
+  getScores: function (league, teams, gameDate, callback) {
+    var self = this
+    this.gameDate = moment(gameDate)
 
     if (this.scoresObj == null) {
-
-      //start the data poll.  Set a timer to check every second to see if the scoresObj gets populated.
+      // start the data poll.  Set a timer to check every second to see if the scoresObj gets populated.
       if (!this.dataPollStarted) {
-        this.startDataPoll();
+        this.startDataPoll()
       }
-      
-      var waitForDataTimer = setInterval(function() {
+
+      var waitForDataTimer = setInterval(function () {
         if (self.scoresObj != null) {
+          clearInterval(waitForDataTimer)
+          waitForDataTimer = null
 
-          clearInterval(waitForDataTimer);
-          waitForDataTimer = null;
-
-          callback(self.getLeague(league, teams));
+          callback(self.getLeague(league, teams))
         }
-      }, 1000);
-
-    } else {
-      callback(self.getLeague(league, teams));
+      }, 1000)
+    }
+    else {
+      callback(self.getLeague(league, teams))
     }
   },
 
-  startDataPoll: function() {
+  startDataPoll: function () {
+    this.dataPollStarted = true
+    this.getData()
 
-    this.dataPollStarted = true;
-    this.getData();
-
-    var self = this;
-    setInterval(function() {
-      self.getData();
-    }, this.POLL_FREQUENCY);
-
+    var self = this
+    setInterval(function () {
+      self.getData()
+    }, this.POLL_FREQUENCY)
   },
 
-  async getData () {
-
+  async getData() {
     // console.log("Get SNET JSON");
-    var self = this;
+    var self = this
 
-    var url = "https://stats-api.sportsnet.ca/ticker?day=" + this.gameDate.format("YYYY-MM-DD");
-  
+    var url = 'https://stats-api.sportsnet.ca/ticker?day=' + this.gameDate.format('YYYY-MM-DD')
+
     try {
-        const response = await fetch(url);
-        self.scoresObj = await response.json();
-    } catch (error) {
-        console.error(error + url);
+      const response = await fetch(url)
+      self.scoresObj = await response.json()
     }
-	
+    catch (error) {
+      console.error(error + url)
+    }
   },
 
+  getLeague: function (league, teams) {
+    var self = this
 
-  getLeague: function(league, teams) {
-
-    var self = this;
-
-    var filteredGames = this.scoresObj.data.games.filter(function(game) {
-      return(game.league.toUpperCase() == league.toUpperCase() &&
-        (teams == null || teams.indexOf(game.home_team.short_name.toUpperCase()) != -1 ||
-          teams.indexOf(game.visiting_team.short_name.toUpperCase()) != -1) );
-    });
-
+    var filteredGames = this.scoresObj.data.games.filter(function (game) {
+      return (game.league.toUpperCase() == league.toUpperCase()
+        && (teams == null || teams.indexOf(game.home_team.short_name.toUpperCase()) != -1
+          || teams.indexOf(game.visiting_team.short_name.toUpperCase()) != -1))
+    })
 
     /*
       now sort the array by start time so that the games always appear
@@ -136,51 +126,46 @@ module.exports = {
       time, then by visting team short code.
     */
 
+    filteredGames.sort(function (a, b) {
+      var aTime = moment(a.timestamp * 1000)
+      var bTime = moment(b.timestamp * 1000)
 
-    filteredGames.sort(function(a,b) {
-      var aTime = moment(a.timestamp * 1000);
-      var bTime = moment(b.timestamp * 1000);
-
-      //first sort by start time
+      // first sort by start time
       if (aTime.isBefore(bTime)) {
-        return -1;
+        return -1
       }
       if (aTime.isAfter(bTime)) {
-        return 1;
+        return 1
       }
 
-      //start times are the same.  Now sort by team short codes
+      // start times are the same.  Now sort by team short codes
       if (a.visiting_team.short_name < b.visiting_team.short_name) {
-        return -1;
+        return -1
       }
       if (a.visiting_team.short_name > b.visiting_team.short_name) {
-        return 1;
+        return 1
       }
 
-      return 0;
+      return 0
+    })
 
-    });
+    var formattedGames = []
+    var localTZ = moment.tz.guess()
 
-    var formattedGames = [];
-    var localTZ = moment.tz.guess();
+    filteredGames.forEach(function (game) {
+      var gameState
+      var status = []
+      var classes = []
 
-    filteredGames.forEach(function(game) {
+      switch (game.game_status) {
+        case 'Pre-Game':
+          gameState = 0 // not started
+          // Feed provides all game times in Eastern Time
+          status.push(moment(game.timestamp * 1000).tz(localTZ).format('h:mm a'))
+          break
 
-
-      var gameState;
-      var status = [];
-      var classes = [];
-
-      switch(game.game_status) {
-
-        case "Pre-Game":
-          gameState = 0; //not started
-          //Feed provides all game times in Eastern Time
-          status.push(moment(game.timestamp * 1000).tz(localTZ).format("h:mm a"));
-          break;
-
-        case "In-Progress":
-          gameState = 1; //in-progress
+        case 'In-Progress':
+          gameState = 1 // in-progress
 
           /*
             You'd think that since Sportsnet's feed returns all
@@ -191,8 +176,7 @@ module.exports = {
             piecemeal instead of having a sea of IF...THEN blocks.
           */
           switch (league) {
-
-            case "NHL":
+            case 'NHL':
               /*
                 We can use game.period_status to handle a
                 couple of special cases.  Otherwise we
@@ -200,41 +184,45 @@ module.exports = {
                 into the getPeriod() routine.
               */
               if (game.shootout == true) {
-                status.push("SHOOTOUT");
-              } else if (game.overtime == true) {
-                status.push(game.clock);          
-                status.push("OT");
-              } else if (game.clock == "0:00") {
-                status.push("END");
-                status.push(self.getPeriod(league, game.period));
-              } else {
-                status.push(game.clock);          
-                status.push(self.getPeriod(league, game.period));
+                status.push('SHOOTOUT')
               }
-              break;
+              else if (game.overtime == true) {
+                status.push(game.clock)
+                status.push('OT')
+              }
+              else if (game.clock == '0:00') {
+                status.push('END')
+                status.push(self.getPeriod(league, game.period))
+              }
+              else {
+                status.push(game.clock)
+                status.push(self.getPeriod(league, game.period))
+              }
+              break
 
-            case "MLB":
+            case 'MLB':
               /*
                 game.period_status property will say "TOP 1st"
                 or "BOT 3rd" etc.  Break out "TOP" or "BOT", and
                 then feed game.period into the getPeriod() routine
                 to format ordinals with the <sup> wrapper.
               */
-              status.push(game.period_status && game.period_status.split(" ")[0]);
-              status.push(self.getPeriod(league, game.period));
-              break;
+              status.push(game.period_status && game.period_status.split(' ')[0])
+              status.push(self.getPeriod(league, game.period))
+              break
 
-            case "MLS":
-              if (game.clock == "Half") {
-                status.push("HALFTIME");
-              } else {
-                status.push(game.clock);                
+            case 'MLS':
+              if (game.clock == 'Half') {
+                status.push('HALFTIME')
               }
-              break;
+              else {
+                status.push(game.clock)
+              }
+              break
 
-            case "NFL":
-            case "CFL":
-            case "NBA":
+            case 'NFL':
+            case 'CFL':
+            case 'NBA':
               /*
                 Sigh.  You'd think Sportnet would reuse the
                 "Half-Over" array for games at halftime.  But
@@ -248,46 +236,47 @@ module.exports = {
                 the same way.  No need to break them out into
                 their own special cases.
               */
-              if (game.clock == "0:00" && game.period == 2) {
-                status.push("HALFTIME");
-              } else if (game.clock == "0:00") {
-                status.push("END");
-                status.push(self.getPeriod(league, game.period));
-              } else {
-                status.push(game.clock);
-                status.push(self.getPeriod(league, game.period));             
+              if (game.clock == '0:00' && game.period == 2) {
+                status.push('HALFTIME')
               }
-              break;
-
+              else if (game.clock == '0:00') {
+                status.push('END')
+                status.push(self.getPeriod(league, game.period))
+              }
+              else {
+                status.push(game.clock)
+                status.push(self.getPeriod(league, game.period))
+              }
+              break
           }
 
-          break;
+          break
 
-        case "Half-Over":
-          gameState = 1; //in-progress
-          status.push("HALFTIME");
-          break;
+        case 'Half-Over':
+          gameState = 1 // in-progress
+          status.push('HALFTIME')
+          break
 
-        case "Delayed":
-          gameState = 1; //in-progress
-          classes.push("delay");
-          status.push("Delay");
-          break;
+        case 'Delayed':
+          gameState = 1 // in-progress
+          classes.push('delay')
+          status.push('Delay')
+          break
 
-        case "Postponed":
-          gameState = 0;
-          status.push("Postponed");
-          break;
+        case 'Postponed':
+          gameState = 0
+          status.push('Postponed')
+          break
 
-        case "Final":
-          gameState = 2; //final
-          status.push("Final" + self.getFinalOT(league, game));
-          break;
+        case 'Final':
+          gameState = 2 // final
+          status.push('Final' + self.getFinalOT(league, game))
+          break
 
         default:
-          gameState = 0;
-          status.push(moment(game.timestamp * 1000).tz(localTZ).format("h:mm a"));
-          break;
+          gameState = 0
+          status.push(moment(game.timestamp * 1000).tz(localTZ).format('h:mm a'))
+          break
       }
 
       /*
@@ -301,123 +290,122 @@ module.exports = {
         gameMode: gameState,
         hTeam: game.home_team.short_name.toUpperCase(),
         vTeam: game.visiting_team.short_name.toUpperCase(),
-        hTeamLong: game.home_team.short_name == "TBD" ? "TBD" : self.titleCase(game.home_team.name),
-        vTeamLong: game.visiting_team.short_name == "TBD" ? "TBD" : self.titleCase(game.visiting_team.name),
+        hTeamLong: game.home_team.short_name == 'TBD' ? 'TBD' : self.titleCase(game.home_team.name),
+        vTeamLong: game.visiting_team.short_name == 'TBD' ? 'TBD' : self.titleCase(game.visiting_team.name),
         hTeamLogoUrl: game.home_team.img_url_90,
         vTeamLogoUrl: game.visiting_team.img_url_90,
         hScore: game.home_team.score,
         vScore: game.visiting_team.score,
         status: status,
-      };
+      }
 
-      formattedGames.push(formattedGame);
-    });
+      formattedGames.push(formattedGame)
+    })
 
-
-    return formattedGames;
-
-
+    return formattedGames
   },
 
-  getFinalOT: function(league, game) {
+  getFinalOT: function (league, game) {
     switch (league) {
-      case "NHL":
+      case 'NHL':
         if (game.shootout == true) {
-          return " (SO)";
-        } else if (game.overtime == true) {
-          return " (OT)";
-        }  else if (game.period == 4) {
-          return " (OT)";
-        } else if (game.period > 4) {
-          return " (" + (game.period - 3) + "OT)";
+          return ' (SO)'
         }
-        break;
-      case "MLB":
+        else if (game.overtime == true) {
+          return ' (OT)'
+        }
+        else if (game.period == 4) {
+          return ' (OT)'
+        }
+        else if (game.period > 4) {
+          return ' (' + (game.period - 3) + 'OT)'
+        }
+        break
+      case 'MLB':
         if (game.period > 9) {
-          return " (" + game.period + ")";
+          return ' (' + game.period + ')'
         }
-        break;
-      case "NFL":
-      case "CFL":
-      case "NBA":
+        break
+      case 'NFL':
+      case 'CFL':
+      case 'NBA':
         if (game.period > 4) {
-          return " (OT)";
-        } 
-        break;
-      case "MLS":
+          return ' (OT)'
+        }
+        break
+      case 'MLS':
         if (game.period > 2) {
-          return " (ET)";
-        } 
-        break;
-    } 
-    return "";
+          return ' (ET)'
+        }
+        break
+    }
+    return ''
   },
 
-  getOrdinal: function(p) {
-
-    var mod10 = p % 10;
-    var mod100 = p % 100;
+  getOrdinal: function (p) {
+    var mod10 = p % 10
+    var mod100 = p % 100
 
     if (mod10 == 1 && mod100 != 11) {
-      return p + "<sup>ST</sup>";
+      return p + '<sup>ST</sup>'
     }
     if (mod10 == 2 && mod100 != 12) {
-      return p + "<sup>ND</sup>";
+      return p + '<sup>ND</sup>'
     }
     if (mod10 == 3 && mod100 != 13) {
-      return p + "<sup>RD</sup>";
+      return p + '<sup>RD</sup>'
     }
 
-    return p + "<sup>TH</sup>";
-
+    return p + '<sup>TH</sup>'
   },
 
-  getPeriod: function(league, p) {
-
-    //check for overtime, otherwise return ordinal
+  getPeriod: function (league, p) {
+    // check for overtime, otherwise return ordinal
     switch (league) {
-      case "NFL":
-      case "NBA":
-      case "CFL":
+      case 'NFL':
+      case 'NBA':
+      case 'CFL':
         if (p == 5) {
-          return ("OT");
-        } else if (p > 5) {
-          return (p - 4) + "OT";
+          return ('OT')
         }
-        break;
-      case "NHL":
+        else if (p > 5) {
+          return (p - 4) + 'OT'
+        }
+        break
+      case 'NHL':
         if (p == 4) {
-          return ("OT");
-        } else if (p > 4) {
-          return (p - 3) + "OT";
+          return ('OT')
         }
-        break;
-      case "MLS" :
+        else if (p > 4) {
+          return (p - 3) + 'OT'
+        }
+        break
+      case 'MLS' :
         if (p > 2) {
-          return ("ET");
+          return ('ET')
         }
-        break;
+        break
     }
-    return this.getOrdinal(p);
+    return this.getOrdinal(p)
   },
 
-  titleCase: function(str) {
-
+  titleCase: function (str) {
     if (str == null || str == undefined) {
-      return "";
-    } 
+      return ''
+    }
 
-    var splitStr = str.toLowerCase().split(" ");
+    var splitStr = str.toLowerCase().split(' ')
     for (var i = 0; i < splitStr.length; i++) {
       // two-letter portions are all upper case (e.g.: the "FC" in Toronto FC)
       if (splitStr[i].length <= 2) {
-        splitStr[i] = splitStr[i].toUpperCase();
-      } else {
-        splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);           
+        splitStr[i] = splitStr[i].toUpperCase()
+      }
+      else {
+        splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1)
       }
     }
     // Directly return the joined string
-    return splitStr.join(" "); 
-  }
+    return splitStr.join(' ')
+  },
 
-};
+}
