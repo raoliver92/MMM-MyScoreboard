@@ -61,7 +61,7 @@ Module.register('MMM-MyScoreboard', {
     NHL: { provider: 'SNET', logoFormat: 'svg' },
     NFL: { provider: 'SNET', logoFormat: 'svg' },
     CFL: { provider: 'SNET', logoFormat: 'svg' },
-    MLB: { provider: 'MLB', logoFormat: 'svg' },
+    MLB: { provider: 'ESPN', logoFormat: 'svg' },
     MLS: { provider: 'SNET', logoFormat: 'url', homeTeamFirst: true },
     NCAAF: { provider: 'ESPN', logoFormat: 'url' },
     NCAAM: { provider: 'ESPN', logoFormat: 'url' },
