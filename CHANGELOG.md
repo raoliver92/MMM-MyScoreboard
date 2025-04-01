@@ -9,6 +9,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - NEW FEATURE: `internationalTime` config option that allows display of game times in 24-hour format (i.e., "14:00" instead of "2:00 pm")
 - NEW FEATURE: Module now displays up to the first two broadcast channels the game will be on (more than 2 won't fit)
 - Changed MLB from SportsNet to ESPN (to take advantage of broadcast channel information)
+- Replaced `directory-tree` dependency with internal method
 
 ## [4.2.1](https://github.com/dathbe/MMM-MyScoreboard/compare/v4.2.0...v4.2.1) - 2025-03-31
 
@@ -25,7 +26,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 - Change colors of completed games for more visibility (if you want the old colors, you can put it in your `custom.css` file)
 - Removed code relating to lockString (resolved log error; hopefully does not have side effects)
-- Replaced axios dependency with built-in fetch function
+- Replaced `axios` dependency with built-in fetch function
 - Bump directory-tree
 - Remove dependency on json-parse-async (unused)
 
