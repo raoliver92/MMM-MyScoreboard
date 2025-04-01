@@ -517,6 +517,11 @@ module.exports = {
         support, and some are so rare that we'll likely never
         see it.  These cases are handled in the 'default' block.
       */
+      if (false) {
+        var timeFormat = 'H:mm'
+      } else {
+        timeFormat = 'h:mm a'
+      }
       switch (game.status.type.id) {
         case '0' : // TBD
           gameState = 0
@@ -524,7 +529,7 @@ module.exports = {
           break
         case '1': // scheduled
           gameState = 0
-          status.push(moment(game.competitions[0].date).tz(localTZ).format('h:mm a'))
+          status.push(moment(game.competitions[0].date).tz(localTZ).format(timeFormat))
           break
         case '2': // in-progress
         case '21': // beginning of period
@@ -594,7 +599,7 @@ module.exports = {
           break
         default: // Anything else, treat like a game that hasn't started yet
           gameState = 0
-          status.push(moment(game.competitions[0].date).tz(localTZ).format('h:mm a'))
+          status.push(moment(game.competitions[0].date).tz(localTZ).format(timeFormat))
           break
       }
 
