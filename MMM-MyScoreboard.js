@@ -584,6 +584,7 @@ Module.register('MMM-MyScoreboard', {
       the module will only be visible when both agree that it
       should be visible.
     */
+    // Removed because it was throwing errors in the console
     // if (!anyGames) {
     //  this.hide(1000, {lockString: this.identifier});
     // } else {
