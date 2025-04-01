@@ -157,11 +157,16 @@ module.exports = {
       var status = []
       var classes = []
 
+      if (false) {
+        var timeFormat = 'H:mm'
+      } else {
+        timeFormat = 'h:mm a'
+      }
       switch (game.game_status) {
         case 'Pre-Game':
           gameState = 0 // not started
           // Feed provides all game times in Eastern Time
-          status.push(moment(game.timestamp * 1000).tz(localTZ).format('h:mm a'))
+          status.push(moment(game.timestamp * 1000).tz(localTZ).format(timeFormat))
           break
 
         case 'In-Progress':
@@ -275,7 +280,7 @@ module.exports = {
 
         default:
           gameState = 0
-          status.push(moment(game.timestamp * 1000).tz(localTZ).format('h:mm a'))
+          status.push(moment(game.timestamp * 1000).tz(localTZ).format(timeFormat))
           break
       }
 
