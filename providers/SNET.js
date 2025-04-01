@@ -82,7 +82,7 @@ module.exports = {
       }, 1000)
     }
     else {
-      callback(self.getLeague(league, teams))
+      callback(self.getLeague(league, teams, internationalTime))
     }
   },
 
