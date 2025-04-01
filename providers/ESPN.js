@@ -519,7 +519,8 @@ module.exports = {
       */
       if (internationalTime) {
         var timeFormat = 'H:mm'
-      } else {
+      } 
+      else {
         timeFormat = 'h:mm a'
       }
       switch (game.status.type.id) {
