@@ -157,7 +157,7 @@ module.exports = {
       var status = []
       var classes = []
 
-      if (false) {
+      if (true) {
         var timeFormat = 'H:mm'
       } else {
         timeFormat = 'h:mm a'
