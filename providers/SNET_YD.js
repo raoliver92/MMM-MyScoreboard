@@ -8,6 +8,7 @@
     NBA (National Basketball Association)
     CFL (Canadian Football League)
     MLS (Major League Soccer)
+    WBC (World Baseball Classic)
 
   All sports are provided in a single feed at
   https://stats-api.sportsnet.ca/ticker
@@ -204,6 +205,7 @@ module.exports = {
               break
 
             case 'MLB':
+            case 'WBC':
               /*
                 game.period_status property will say "TOP 1st"
                 or "BOT 3rd" etc.  Break out "TOP" or "BOT", and
@@ -325,6 +327,7 @@ module.exports = {
         }
         break
       case 'MLB':
+      case 'WBC':
         if (game.period > 9) {
           return ' (' + game.period + ')'
         }
