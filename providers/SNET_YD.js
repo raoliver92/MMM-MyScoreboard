@@ -5,12 +5,9 @@
   -------------------------------------
 
   Provides scores for
-    NHL (National Hockey League)
-    NFL (National Football League)
     NBA (National Basketball Association)
     CFL (Canadian Football League)
     MLS (Major League Soccer)
-    MLB (Major League Baseball)
 
   All sports are provided in a single feed at
   https://stats-api.sportsnet.ca/ticker
