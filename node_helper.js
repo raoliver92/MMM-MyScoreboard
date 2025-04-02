@@ -1,6 +1,7 @@
 const NodeHelper = require('node_helper')
-const dirTree = require('directory-tree')
 const moment = require('moment-timezone')
+const fs = require('node:fs')
+const path = require('node:path')
 
 module.exports = NodeHelper.create({
 
@@ -12,20 +13,38 @@ module.exports = NodeHelper.create({
     this.providers.SNET = require('./providers/SNET.js')
     this.providers.SNET_YD = require('./providers/SNET_YD.js')
     this.providers.ESPN = require('./providers/ESPN.js')
-    this.localLogos = {}
 
-    const fsTree = dirTree('./modules/MMM-MyScoreboard/logos', {
-      extensions: /\.(svg|png)$/,
-    })
-    fsTree.children.forEach((league) => {
+    this.localLogos = {}
+    const fsTree = this.getDirectoryTree('./modules/MMM-MyStandings/logos')
+    fsTree.forEach((league) => {
       if (league.children) {
         var logoFiles = []
-        league.children.forEach((logo) => {
-          logoFiles.push(logo.name)
+        league.children.forEach((file) => {
+          logoFiles.push(file.name)
         })
         this.localLogos[league.name] = logoFiles
       }
     })
+  },
+
+  getDirectoryTree(dirPath) {
+    const result = []
+    const files = fs.readdirSync(dirPath, { withFileTypes: true })
+
+    files.forEach((file) => {
+      const filePath = path.join(dirPath, file.name)
+      if (file.name.endsWith('.svg') || file.name.endsWith('.png')) {
+        result.push({ name: file.name })
+      }
+      else if (file.isDirectory()) {
+        const children = this.getDirectoryTree(filePath)
+        if (children.length > 0) {
+          result.push({ name: file.name, children })
+        }
+      }
+    })
+
+    return result
   },
 
   socketNotificationReceived: function (notification, payload) {

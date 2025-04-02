@@ -57,12 +57,12 @@ Module.register('MMM-MyScoreboard', {
     */
 
     // North American Leagues
-    NBA: { provider: 'ESPN', logoFormat: 'svg' },
-    NHL: { provider: 'SNET', logoFormat: 'svg' },
-    NFL: { provider: 'SNET', logoFormat: 'svg' },
+    NBA: { provider: 'SNET', logoFormat: 'svg' },
+    NHL: { provider: 'ESPN', logoFormat: 'svg' },
+    NFL: { provider: 'ESPN', logoFormat: 'svg' },
     CFL: { provider: 'SNET', logoFormat: 'svg' },
     MLB: { provider: 'ESPN', logoFormat: 'svg' },
-    MLS: { provider: 'SNET', logoFormat: 'url', homeTeamFirst: true },
+    MLS: { provider: 'ESPN', logoFormat: 'url', homeTeamFirst: true },
     NCAAF: { provider: 'ESPN', logoFormat: 'url' },
     NCAAM: { provider: 'ESPN', logoFormat: 'url' },
     NCAAM_MM: { provider: 'ESPN', logoFormat: 'url' },
@@ -726,7 +726,7 @@ Module.register('MMM-MyScoreboard', {
         provider: self.supportedLeagues[sport.league].provider,
         gameDate: gameDate,
         whichDay: whichDay,
-        internationalTime: self.config.internationalTime
+        internationalTime: self.config.internationalTime,
       }
 
       self.sendSocketNotification('MMM-MYSCOREBOARD-GET-SCORES', payload)
