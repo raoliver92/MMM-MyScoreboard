@@ -5,12 +5,10 @@
   -------------------------------------
 
   Provides scores for
-    NHL (National Hockey League)
-    NFL (National Football League)
     NBA (National Basketball Association)
     CFL (Canadian Football League)
     MLS (Major League Soccer)
-    MLB (Major League Baseball)
+    WBC (World Baseball Classic)
 
   All sports are provided in a single feed at
   https://stats-api.sportsnet.ca/ticker
@@ -56,13 +54,13 @@ module.exports = {
     In any case, the front end asks for data every 2 minutes,
     so making this any more frequent doesn't change anything.
   */
-  POLL_FREQUENCY: 60 * 1000, // every 30 seconds.
+  POLL_FREQUENCY: 60 * 1000, // every 60 seconds.
 
   scoresObj: null,
   dataPollStarted: false,
   gameDate: null,
 
-  getScores: function (league, teams, gameDate, callback) {
+  getScores: function (league, teams, gameDate, internationalTime, callback) {
     var self = this
     this.gameDate = moment(gameDate)
 
@@ -77,12 +75,12 @@ module.exports = {
           clearInterval(waitForDataTimer)
           waitForDataTimer = null
 
-          callback(self.getLeague(league, teams))
+          callback(self.getLeague(league, teams, internationalTime))
         }
       }, 1000)
     }
     else {
-      callback(self.getLeague(league, teams))
+      callback(self.getLeague(league, teams, internationalTime))
     }
   },
 
@@ -111,7 +109,7 @@ module.exports = {
     }
   },
 
-  getLeague: function (league, teams) {
+  getLeague: function (league, teams, internationalTime) {
     var self = this
 
     var filteredGames = this.scoresObj.data.games.filter(function (game) {
@@ -157,11 +155,17 @@ module.exports = {
       var status = []
       var classes = []
 
+      if (internationalTime) {
+        var timeFormat = 'H:mm'
+      }
+      else {
+        timeFormat = 'h:mm a'
+      }
       switch (game.game_status) {
         case 'Pre-Game':
           gameState = 0 // not started
           // Feed provides all game times in Eastern Time
-          status.push(moment(game.timestamp * 1000).tz(localTZ).format('h:mm a'))
+          status.push(moment(game.timestamp * 1000).tz(localTZ).format(timeFormat))
           break
 
         case 'In-Progress':
@@ -201,6 +205,7 @@ module.exports = {
               break
 
             case 'MLB':
+            case 'WBC':
               /*
                 game.period_status property will say "TOP 1st"
                 or "BOT 3rd" etc.  Break out "TOP" or "BOT", and
@@ -275,7 +280,7 @@ module.exports = {
 
         default:
           gameState = 0
-          status.push(moment(game.timestamp * 1000).tz(localTZ).format('h:mm a'))
+          status.push(moment(game.timestamp * 1000).tz(localTZ).format(timeFormat))
           break
       }
 
@@ -322,6 +327,7 @@ module.exports = {
         }
         break
       case 'MLB':
+      case 'WBC':
         if (game.period > 9) {
           return ' (' + game.period + ')'
         }

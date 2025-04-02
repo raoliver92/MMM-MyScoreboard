@@ -8,8 +8,10 @@
     NCAAF (College Football, FBS Division)
     NCAAM (College Basketball. Division I)
     NCAAM_MM (College Basketball, March Madness Torunament)
-    NBA (National Basketball Association)
-    Every fucking Soccer league ESPN supports
+    MLB (Major League Baseball)
+    NHL
+    NFL
+    Every Soccer league ESPN supports
 
   You can get an idea of what sports and leagues are
   supported here:
@@ -48,9 +50,13 @@ module.exports = {
     NBAG: 'basketball/nba-development',
     NCAAM: 'basketball/mens-college-basketball',
     NCAAM_MM: 'basketball/mens-college-basketball',
-    NCAAW: 'basketball/womens-college-basketball/',
-    PLL: 'lacrosse/pll/',
-    NLL: 'lacrosse/nll/',
+    NCAAW: 'basketball/womens-college-basketball',
+    PLL: 'lacrosse/pll',
+    NLL: 'lacrosse/nll',
+    MLB: 'baseball/mlb',
+    NFL: 'football/nfl',
+    NHL: 'hockey/nhl',
+    MLS: 'soccer/usa.1',
 
     // International Soccer
     AFC_ASIAN_CUP: 'soccer/afc.cup',
@@ -216,6 +222,18 @@ module.exports = {
 
     // Other
     AFL: 'australian-football/afl',
+    PREMIERSHIP_RUGBY: 'rugby/267979',
+    RUGBY_WORLD_CUP: 'rugby/164205',
+    SIX_NATIONS: 'rugby/180659',
+    THE_RUGBY_CHAMPIONSHIP: 'rugby/244293',
+    EUROPEAN_RUGBY_CHAMPIONS_CUP: 'rugby/271937',
+    UNITED_RUGBY_CHAMPIONSHIP: 'rugby/270557',
+    SUPER_RUGBY_PACIFIC: 'rugby/242041',
+    OLYMPIC_MENS_7S: 'rugby/282',
+    OLYMPIC_WOMENS_RUGBY_SEVENS: 'rugby/283',
+    INTERNATIONAL_TEST_MATCH: 'rugby/289234',
+    URBA_TOP_12: 'rugby/289279',
+    MITRE_10_CUP: 'rugby/270563',
 
   },
 
@@ -391,7 +409,7 @@ module.exports = {
     return this.LEAGUE_PATHS[league]
   },
 
-  async getScores(league, teams, gameDate, callback) {
+  async getScores(league, teams, gameDate, internationalTime, callback) {
     var self = this
 
     var url = 'https://site.api.espn.com/apis/site/v2/sports/'
@@ -422,14 +440,14 @@ module.exports = {
     try {
       const response = await fetch(url)
       const body = await response.json()
-      callback(self.formatScores(league, body, teams, moment(gameDate).format('YYYYMMDD')))
+      callback(self.formatScores(league, body, teams, moment(gameDate).format('YYYYMMDD'), internationalTime))
     }
     catch (error) {
       console.error(error + url)
     }
   },
 
-  formatScores: function (league, data, teams, gameDate) {
+  formatScores: function (league, data, teams, gameDate, internationalTime) {
     // var self = this;
     var formattedGamesList = new Array()
     var localTZ = moment.tz.guess()
@@ -517,35 +535,30 @@ module.exports = {
         support, and some are so rare that we'll likely never
         see it.  These cases are handled in the 'default' block.
       */
+      if (internationalTime) {
+        var timeFormat = 'H:mm'
+      }
+      else {
+        timeFormat = 'h:mm a'
+      }
+      var channels = []
+      if (game.competitions[0].broadcasts.length > 0) {
+        // const excludedChannels = ["MLB.TV", "CLEGuardians.TV", "PADRES.TV", "DBACKS.TV"]
+        const maxChannels = 3
+        for (let i = 0; i < game.competitions[0].broadcasts.length; i++) {
+          if (game.competitions[0].broadcasts[i].market === 'national')
+            for (let j = 0; j < game.competitions[0].broadcasts[i].names.length; j++) {
+              // if (!excludedChannels.includes(game.competitions[0].broadcasts[i].names[j]) && !channels.includes(game.competitions[0].broadcasts[i].names[j])) {
+              channels.push(game.competitions[0].broadcasts[i].names[j])
+              // }
+            }
+        }
+      }
+      // console.log(channels)
       switch (game.status.type.id) {
         case '0' : // TBD
           gameState = 0
           status.push('TBD')
-          break
-        case '1': // scheduled
-          gameState = 0
-          status.push(moment(game.competitions[0].date).tz(localTZ).format('h:mm a'))
-          break
-        case '2': // in-progress
-        case '21': // beginning of period
-        case '24': // overtime
-        case '25': // SOCCER first half
-        case '26': // SOCCER second half
-        case '43': // SOCCER Golden Time
-        case '44': // Shootout
-          gameState = 1
-          status.push(game.status.displayClock)
-          status.push(this.getPeriod(league, game.status.period))
-          break
-        case '3': // final
-          gameState = 2
-          status.push('Final' + this.getFinalOT(league, game.status.period))
-          break
-        case '4': // forfeit
-        case '9': // forfeit of home team
-        case '10': // forfeit of away team
-          gameState = 0
-          status.push('Forfeit')
           break
         case '5': // cancelled
           gameState = 0
@@ -553,48 +566,81 @@ module.exports = {
           break
         case '6': // postponed
           gameState = 0
-          status.push('Postponed')
+          // status.push('Postponed')
+          status.push(game.status.type.detail)
+          break
+        case '8': // suspended
+          gameState = 0
+          status.push('Suspended')
+          break
+        case '1': // scheduled
+          gameState = 0
+          status.push(moment(game.competitions[0].date).tz(localTZ).format(timeFormat))
+          if (channels.length > 0) {
+            status.push('<span class="broadcast">' + channels.join('/') + '</span>')
+          }
+          break
+        case '2': // in-progress
+        case '21': // beginning of period
+        case '22': // end period
+        case '24': // overtime
+        case '25': // SOCCER first half
+        case '26': // SOCCER second half
+        case '43': // SOCCER Golden Time
+        case '44': // Shootout
+        case '48': // SOCCER end extra time
+          gameState = 1
+          status.push(game.status.type.shortDetail)
+          if (channels.length > 0) {
+            status.push('<span class="broadcast">' + channels.join('/') + '</span>')
+          }
+          break
+        case '23': // halftime
+          gameState = 1
+          status.push(game.status.type.description)
+          if (channels.length > 0) {
+            status.push('<span class="broadcast">' + channels.join('/') + '</span>')
+          }
           break
         case '7': // delayed
         case '17': // rain delay
           gameState = 1
           classes.push['delay']
           status.push('Delay')
-          break
-        case '8': // suspended
-          gameState = 0
-          status.push('Suspended')
-          break
-        case '22': // end period
-        case '48': // SOCCER end extra time
-          gameState = 1
-          status.push('END')
-          status.push(this.getPeriod(league, game.status.period))
-          break
-        case '23': // halftime
-          gameState = 1
-          status.push('HALFTIME')
+          if (channels.length > 0) {
+            status.push('<span class="broadcast">' + channels.join('/') + '</span>')
+          }
           break
         case '49': // SOCCER extra time half time
           gameState = 1
           status.push('HALFTIME (ET)')
+          if (channels.length > 0) {
+            status.push('<span class="broadcast">' + channels.join('/') + '</span>')
+          }
           break
+        case '3': // final
         case '28': // SOCCER Full Time
           gameState = 2
-          status.push('Full Time ' + this.getFinalOT(league, game.status.period))
+          status.push(game.status.type.description)
           break
         case '45': // SOCCER Final ET
         case '46': // SOCCER final score - after golden goal
           gameState = 2
-          status.push('Full Time (ET)')
+          status.push('FT (AET)')
           break
         case '47': // Soccer Final PK
           gameState = 2
           status.push('Full Time (PK) ' + this.getFinalPK(hTeamData, vTeamData))
           break
-        default: // Anything else, treat like a game that hasn't started yet
+        case '4': // forfeit
+        case '9': // forfeit of home team
+        case '10': // forfeit of away team
+          gameState = 2
+          status.push('Forfeit')
+          break
+        default: // Anything else, grab the description ESPN gives
           gameState = 0
-          status.push(moment(game.competitions[0].date).tz(localTZ).format('h:mm a'))
+          status.push(game.status.type.detail)
           break
       }
 
@@ -702,6 +748,11 @@ module.exports = {
   getFinalOT: function (league, p) {
     if (this.isSoccer(league) && p > 2) {
       return ' (ET)'
+    }
+    else if (league === 'MLB') {
+      if (p > 9) {
+        return ' (' + p + ')'
+      }
     }
     else if (!this.isSoccer(league)) {
       if (p == 5) {

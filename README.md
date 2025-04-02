@@ -14,23 +14,11 @@ leagues, including:
 * CFL Football (Canadian Football League)
 * MLS Soccer
 * NCAA College Football (FBS Division)
-* NCAA College Basketball (Division I and March Madness, and Womens')
-* Over 100 soccer leagues including:
-  * English Premier League
-  * UEFA Champions League
-  * UEFA Europa League
-  * UEFA Nations League
-  * FIFA World Cup
-  * Brazilian Serie A
-  * Bundesliga German League
-  * French Ligue 1
-  * CONMEBOL Libertadores
-  * Italian Serie A
-  * Spanish La Liga
-  * Mexican Liga BBVA Bancomer
+* NCAA College Basketball (Men's and Women's)
+* Over 100 soccer leagues
+* And more
 
 ![Screenshot](example1.png)
-
 
 ## Installation
 
@@ -61,6 +49,7 @@ npm install
 | `shadeRows`            | Whether to shade alternate rows.<br><br>**Type** `Boolean`<br>**Default** `false`
 | `highlightWinners`     | For games that are final, the winning team / score is highlighted.<br><br>**Type** `Boolean`<br>**Default** `true`
 | `showRankings`         | For the NCAAF and NCAAM, whether to show the rankings for the top 25 teams.<br><br>**Type** `Boolean`<br>**Default** `true`
+| `internationalTime`    | Sets the time format of game times to a 24-hour clock (true) or leaves it on a 12-hour clock (using am/pm) (false).<br><br>**Type** `Boolean`<br>**Default** `false`
 | `sports`               | **REQUIRED** An array of leagues and teams you wish to follow.<br>See below for instructions to configure your `sports` list.<br><br>**Type** `Array`
 
 
@@ -130,9 +119,11 @@ Currently this module supports the following leagues.  Use the bold uppercase sh
 ### Canadian and American Leagues
 
 * **NHL** - National Hockey League
+* **MLB** - Major League Baseball
+* **WBC** - World Baseball Classic
 * **NBA** - National Basketball Association
 * **WNBA** - Womens' Basketball Association
-* **MLB** - Major League Baseball
+* **NBAG** - NBA G League
 * **NFL** - National Football League
 * **CFL** - Canadian Football League
 * **MLS** - Major League Soccer
@@ -140,7 +131,14 @@ Currently this module supports the following leagues.  Use the bold uppercase sh
 * **NCAAM** - NCAA College Basketball (Division I)
 * **NCAAM_MM** - NCAA College Basketball (March Madness Tournament)
 * **NCAAW** - NCAA Women's College Basketball
+* **NLL** - National Lacrosse League
+* **PLL** - Premier Lacrosse League
 
+### Other Leagues
+
+* **AFL** - Australian Football League
+
+**Note:** You can probably guess the team abbreviations based on the city, but team abbreviation code lists for the leagues above are later in this README.  If you notice an error, open an issue and let me know.
 
 ### Soccer Leagues & Competitions
 
@@ -324,6 +322,28 @@ Currently this module supports the following leagues.  Use the bold uppercase sh
 
 </details>
 
+### Rugby Leagues & Competitions
+
+<details>
+  <summary><b>Available Rugby Leagues</b> (click to expand)</summary>
+ 
+* **PREMIERSHIP_RUGBY**
+* **RUGBY_WORLD_CUP**
+* **SIX_NATIONS**
+* **THE_RUGBY_CHAMPIONSHIP**
+* **EUROPEAN_RUGBY_CHAMPIONS_CUP**
+* **UNITED_RUGBY_CHAMPIONSHIP**
+* **SUPER_RUGBY_PACIFIC**
+* **OLYMPIC_MENS_7S**
+* **OLYMPIC_WOMENS_RUGBY_SEVENS**
+* **INTERNATIONAL_TEST_MATCH**
+* **URBA_TOP_12**
+* **MITRE_10_CUP**
+
+</details>
+
+**NOTE** For the soccer and rugby leagues, I won't be maintaining a team code list here.  To follow a specific team, go to ESPN.com, view the table for the league your team plays in and resize your browser to mobile width.  You will see the team's shortcode there.
+
 ## View Styles
 
 Examples of the available view styles you can specify with the `viewStyle` parameter.
@@ -335,8 +355,6 @@ Examples of the available view styles you can specify with the `viewStyle` param
 
 
 ## Team Shortcodes and Groups
-
-**NOTE** For the soccer leagues, the list of teams changes every season as teams get relegated out, while other get promoted in.  Therefore, I won't be maintaining a team list here.  To follow a specific team, go to ESPN.com, view the table for the league your team plays in and resize your browser to mobile width.  You will see the team's shortcode there.
 
 The following are shortcodes and groups for North American sports leagues.
 
@@ -446,6 +464,37 @@ NL Central
 NL West
 American League
 National League
+```
+</details>
+
+### WBC (World Baseball Classic)
+
+<details>
+  <summary><b>WBC Codes</b> (click to expand)</summary>
+
+```
+Teams:
+---------------
+AUS   Australia
+CAN   Canada
+CHN   China
+COL   Colombia
+CUB   Cuba
+CZE   Czech Republic
+DOM   Dominican Republic
+GBR   Great Britain
+ISR   Israel
+ITA   Italy
+JPN   Japan
+KOR   Korea
+MEX   Mexico
+NCA   Nicaragua
+NED   Netherlands
+PAN   Panama
+PUR   Puerto Rico
+TPE   Chinese Taipei
+USA   United States
+VEN   Venezuela
 ```
 </details>
 

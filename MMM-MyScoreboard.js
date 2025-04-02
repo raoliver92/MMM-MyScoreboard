@@ -21,6 +21,7 @@ Module.register('MMM-MyScoreboard', {
     highlightWinners: true,
     viewStyle: 'largeLogos',
     showRankings: true,
+    internationalTime: false,
     sports: [
       {
         league: 'NHL',
@@ -56,12 +57,13 @@ Module.register('MMM-MyScoreboard', {
     */
 
     // North American Leagues
-    NBA: { provider: 'ESPN', logoFormat: 'svg' },
-    NHL: { provider: 'SNET', logoFormat: 'svg' },
-    NFL: { provider: 'SNET', logoFormat: 'svg' },
+    NBA: { provider: 'SNET', logoFormat: 'svg' },
+    NHL: { provider: 'ESPN', logoFormat: 'svg' },
+    NFL: { provider: 'ESPN', logoFormat: 'svg' },
     CFL: { provider: 'SNET', logoFormat: 'svg' },
-    MLB: { provider: 'SNET', logoFormat: 'svg' },
-    MLS: { provider: 'SNET', logoFormat: 'url', homeTeamFirst: true },
+    MLB: { provider: 'ESPN', logoFormat: 'svg' },
+    WBC: {provider: "SNET", logoFormat: "svg"},
+    MLS: { provider: 'ESPN', logoFormat: 'url', homeTeamFirst: true },
     NCAAF: { provider: 'ESPN', logoFormat: 'url' },
     NCAAM: { provider: 'ESPN', logoFormat: 'url' },
     NCAAM_MM: { provider: 'ESPN', logoFormat: 'url' },
@@ -626,8 +628,9 @@ Module.register('MMM-MyScoreboard', {
         respective feed owners to lock down the APIs. Updating
         every two minutes should be more than fine for our purposes.
       */
+      var self = this
       setInterval(() => {
-        this.getScores()
+        self.getScores()
       }, 2 * 60 * 1000)
     }
   },
@@ -725,6 +728,7 @@ Module.register('MMM-MyScoreboard', {
         provider: self.supportedLeagues[sport.league].provider,
         gameDate: gameDate,
         whichDay: whichDay,
+        internationalTime: self.config.internationalTime,
       }
 
       self.sendSocketNotification('MMM-MYSCOREBOARD-GET-SCORES', payload)
