@@ -1,7 +1,7 @@
 {
   "name": "mmm-myscoreboard",
   "version": "4.3.0",
-  "description": "A MagicMirror² module to display scores for your favorite teams from many major sports",
+  "description": "A MagicMirror² module to display scores for your favorite teams from many major sports.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dathbe/MMM-MyScoreboard.git"
