@@ -8,7 +8,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 - NEW FEATURE: `internationalTime` config option that allows display of game times in 24-hour format (i.e., "14:00" instead of "2:00 pm")
 - NEW FEATURE: Module now displays any *national* broadcast channels for ESPN feed leagues (local broadcasts seemed to numerous to fit nicely into the display, but if you feel strongly about it start a discussion in Issues)
-- Changed MLB, NBA, NFL, NHL, and MLS from Sportsnet to ESPN (to take advantage of broadcast channel information)
+- Changed MLB, NFL, anf NHL from Sportsnet to ESPN (to take advantage of broadcast channel information)
 - Some revisions to game `status` logic (let me know if you see anything weird)
 - Replaced `directory-tree` dependency with internal method
 - Some new logos
