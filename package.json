@@ -24,7 +24,7 @@
   "license": "MIT",
   "dependencies": {
     "directory-tree": "^3.5.2",
-    "moment-timezone": "^0.5.37"
+    "moment-timezone": "^0.5.48"
   },
   "devDependencies": {
     "@eslint/js": "^9.23.0",
