@@ -101,10 +101,6 @@ It should be noted that if you specify arrays for both `teams` and `groups` they
         league: "CFL",
         teams: ["TOR", "MTL", "OTT"]
       },
-      {
-        league: "NCAAM_MM",
-        label: "March Madness"
-      }
     ]
 
   }
