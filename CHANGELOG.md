@@ -7,6 +7,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ## [4.3.1](https://github.com/dathbe/MMM-MyScoreboard/compare/v4.3.0...v4.3.1) - 2025-04-XX
 
 - Bump version of `moment` dependency
+- New CIN (NCAA) logo
 
 ## [4.3.0](https://github.com/dathbe/MMM-MyScoreboard/compare/v4.2.1...v4.3.0) - 2025-04-01
 
