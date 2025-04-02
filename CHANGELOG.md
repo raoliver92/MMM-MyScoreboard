@@ -4,6 +4,10 @@ Notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.3.1](https://github.com/dathbe/MMM-MyScoreboard/compare/v4.3.0...v4.3.1) - 2025-04-XX
+
+- Bump version of `moment` dependency
+
 ## [4.3.0](https://github.com/dathbe/MMM-MyScoreboard/compare/v4.2.1...v4.3.0) - 2025-04-01
 
 - **NEW FEATURE**: `internationalTime` config option that allows display of game times in 24-hour format (i.e., "14:00" instead of "2:00 pm")
