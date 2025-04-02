@@ -544,7 +544,7 @@ module.exports = {
       var channels = []
       if (game.competitions[0].broadcasts.length > 0) {
         // const excludedChannels = ["MLB.TV", "CLEGuardians.TV", "PADRES.TV", "DBACKS.TV"]
-        const maxChannels = 3
+        // const maxChannels = 3
         for (let i = 0; i < game.competitions[0].broadcasts.length; i++) {
           if (game.competitions[0].broadcasts[i].market === 'national')
             for (let j = 0; j < game.competitions[0].broadcasts[i].names.length; j++) {
