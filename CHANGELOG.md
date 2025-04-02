@@ -6,8 +6,9 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [4.3.0](https://github.com/dathbe/MMM-MyScoreboard/compare/v4.2.1...v4.3.0) - 2025-04-01
 
-- NEW FEATURE: `internationalTime` config option that allows display of game times in 24-hour format (i.e., "14:00" instead of "2:00 pm")
-- NEW FEATURE: Module now displays any *national* broadcast channels for ESPN feed leagues (local broadcasts seemed to numerous to fit nicely into the display, but if you feel strongly about it start a discussion in Issues)
+- **NEW FEATURE**: `internationalTime` config option that allows display of game times in 24-hour format (i.e., "14:00" instead of "2:00 pm")
+- **NEW FEATURE**: Module now displays any *national* broadcast channels for ESPN feed leagues (local broadcasts seemed to numerous to fit nicely into the display, but if you feel strongly about it start a discussion in Issues)
+- **NEW FEATURE**: WBC (World Baseball Classic) added
 - Changed MLB, NFL, and NHL from Sportsnet to ESPN (to take advantage of broadcast channel information)
 - Some revisions to game `status` logic (let me know if you see anything weird)
 - Replaced `directory-tree` dependency with internal method
@@ -19,10 +20,10 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [4.2.0](https://github.com/dathbe/MMM-MyScoreboard/compare/v4.1.0...v4.2.0) - 2025-03-31
 
-- NEW FEATURE: NLL (National Lacross League) added
-- NEW FEATURE: PLL (Premier Lacross League) added
-- NEW FEATURE: AFL (Australian Football League) added
-- NEW FEATURE: NBA G League (Development League) added
+- **NEW FEATURE**: NLL (National Lacross League) added
+- **NEW FEATURE**: PLL (Premier Lacross League) added
+- **NEW FEATURE**: AFL (Australian Football League) added
+- **NEW FEATURE**: NBA G League (Development League) added
 
 ## [4.1.0](https://github.com/dathbe/MMM-MyScoreboard/compare/v4.0.0...v4.1.0) - 2025-03-31
 
@@ -35,7 +36,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ## [4.0.0](https://github.com/jclarke0000/MMM-MyScoreboard/compare/master...dathbe:MMM-MyScoreboard:v4.0.0) - 2025-03-28 - First fork version
 
 Forked from [jclarke0000](https://github.com/jclarke0000/MMM-MyScoreboard).
-- NEW FEATURE: Added `alwaysShowToday` option, which allows today's scores to be shown simultaneously with yesterday's scores until `rolloverHours` time is reached
+- **NEW FEATURE**: Added `alwaysShowToday` option, which allows today's scores to be shown simultaneously with yesterday's scores until `rolloverHours` time is reached
 - Updated some team abbreviations and added new teams
 - Moved all NCAA sport logos to `NCAA` subfolder to avoid duplication
 - Added CODE_OF_CONDUCT.md
