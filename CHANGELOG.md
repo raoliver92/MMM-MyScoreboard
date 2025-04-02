@@ -11,6 +11,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - Changed MLB, NHL, and MLS from Sportsnet to ESPN (to take advantage of broadcast channel information)
 - Some revisions to game `status` logic (let me know if you see anything weird)
 - Replaced `directory-tree` dependency with internal method
+- Some new logos
 
 ## [4.2.1](https://github.com/dathbe/MMM-MyScoreboard/compare/v4.2.0...v4.2.1) - 2025-03-31
 
