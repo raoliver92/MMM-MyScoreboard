@@ -62,6 +62,7 @@ Module.register('MMM-MyScoreboard', {
     NFL: { provider: 'ESPN', logoFormat: 'svg' },
     CFL: { provider: 'SNET', logoFormat: 'svg' },
     MLB: { provider: 'ESPN', logoFormat: 'svg' },
+    WBC: {provider: "SNET", logoFormat: "svg"},
     MLS: { provider: 'ESPN', logoFormat: 'url', homeTeamFirst: true },
     NCAAF: { provider: 'ESPN', logoFormat: 'url' },
     NCAAM: { provider: 'ESPN', logoFormat: 'url' },
@@ -627,8 +628,9 @@ Module.register('MMM-MyScoreboard', {
         respective feed owners to lock down the APIs. Updating
         every two minutes should be more than fine for our purposes.
       */
+      var self = this
       setInterval(() => {
-        this.getScores()
+        self.getScores()
       }, 2 * 60 * 1000)
     }
   },
