@@ -13,6 +13,7 @@ const config = [
         ...globals.node,
         Log: 'readonly',
         Module: 'readonly',
+        moment: 'readonly',
         config: 'readonly',
       },
       sourceType: 'commonjs',

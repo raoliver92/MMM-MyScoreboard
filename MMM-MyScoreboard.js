@@ -2,9 +2,10 @@
 
  MagicMirror² Module:
  MMM-MyScoreboard
- https://github.com/jclarke0000/MMM-MyScoreboard
+ https://github.com/dathbe/MMM-MyScoreboard
 
- By Jeff Clarke
+ Originally by Jeff Clarke
+ Maintained by dathbe
  MIT Licensed
 
  *********************************/
