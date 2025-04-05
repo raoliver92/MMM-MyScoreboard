@@ -35,6 +35,7 @@
 
 */
 
+const Log = require('logger')
 const moment = require('moment-timezone')
 
 module.exports = {
@@ -443,7 +444,7 @@ module.exports = {
       callback(self.formatScores(league, body, teams, moment(gameDate).format('YYYYMMDD')))
     }
     catch (error) {
-      console.error(error + url)
+      Log.error(error + url, error)
     }
   },
 
@@ -554,7 +555,6 @@ module.exports = {
             }
         }
       }
-      // console.log(channels)
       switch (game.status.type.id) {
         case '0' : // TBD
           gameState = 0
