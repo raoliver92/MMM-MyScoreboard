@@ -444,7 +444,7 @@ module.exports = {
       callback(self.formatScores(league, body, teams, moment(gameDate).format('YYYYMMDD')))
     }
     catch (error) {
-      Log.error(error + url, error)
+      Log.error(error + url)
     }
   },
 
