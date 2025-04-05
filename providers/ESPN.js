@@ -535,7 +535,7 @@ module.exports = {
         support, and some are so rare that we'll likely never
         see it.  These cases are handled in the 'default' block.
       */
-      if (internationalTime) {
+      if (internationalTime === 24) {
         var timeFormat = 'H:mm'
       }
       else {
