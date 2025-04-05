@@ -40,6 +40,7 @@
 
 */
 
+const Log = require('logger')
 const moment = require('moment-timezone')
 
 module.exports = {
