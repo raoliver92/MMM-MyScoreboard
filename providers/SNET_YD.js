@@ -40,6 +40,7 @@
 
 */
 
+const Log = require('logger')
 const moment = require('moment-timezone')
 
 module.exports = {
@@ -95,7 +96,7 @@ module.exports = {
   },
 
   async getData() {
-    // console.log("Get SNET JSON");
+    Log.info("Get SNET JSON");
     var self = this
 
     var url = 'https://stats-api.sportsnet.ca/ticker?day=' + this.gameDate.format('YYYY-MM-DD')
@@ -105,7 +106,7 @@ module.exports = {
       self.scoresObj = await response.json()
     }
     catch (error) {
-      console.error(error + url)
+      Log.error(error + url)
     }
   },
 
