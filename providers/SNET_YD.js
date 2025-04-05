@@ -155,7 +155,7 @@ module.exports = {
       var status = []
       var classes = []
 
-      if (internationalTime) {
+      if (internationalTime === 24) {
         var timeFormat = 'H:mm'
       }
       else {
