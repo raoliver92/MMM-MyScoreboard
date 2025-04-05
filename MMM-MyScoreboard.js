@@ -22,7 +22,6 @@ Module.register('MMM-MyScoreboard', {
     highlightWinners: true,
     viewStyle: 'largeLogos',
     showRankings: true,
-    internationalTime: false,
     sports: [
       {
         league: 'NHL',
@@ -729,7 +728,6 @@ Module.register('MMM-MyScoreboard', {
         provider: self.supportedLeagues[sport.league].provider,
         gameDate: gameDate,
         whichDay: whichDay,
-        internationalTime: self.config.internationalTime,
       }
 
       self.sendSocketNotification('MMM-MYSCOREBOARD-GET-SCORES', payload)

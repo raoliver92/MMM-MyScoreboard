@@ -409,7 +409,7 @@ module.exports = {
     return this.LEAGUE_PATHS[league]
   },
 
-  async getScores(league, teams, gameDate, internationalTime, callback) {
+  async getScores(league, teams, gameDate, callback) {
     var self = this
 
     var url = 'https://site.api.espn.com/apis/site/v2/sports/'
@@ -440,14 +440,14 @@ module.exports = {
     try {
       const response = await fetch(url)
       const body = await response.json()
-      callback(self.formatScores(league, body, teams, moment(gameDate).format('YYYYMMDD'), internationalTime))
+      callback(self.formatScores(league, body, teams, moment(gameDate).format('YYYYMMDD')))
     }
     catch (error) {
       console.error(error + url)
     }
   },
 
-  formatScores: function (league, data, teams, gameDate, internationalTime) {
+  formatScores: function (league, data, teams, gameDate) {
     // var self = this;
     var formattedGamesList = new Array()
     var localTZ = moment.tz.guess()
@@ -535,7 +535,7 @@ module.exports = {
         support, and some are so rare that we'll likely never
         see it.  These cases are handled in the 'default' block.
       */
-      if (internationalTime) {
+      if (config.timeFormat === 24) {
         var timeFormat = 'H:mm'
       }
       else {

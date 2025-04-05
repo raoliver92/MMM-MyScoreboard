@@ -49,7 +49,6 @@ npm install
 | `shadeRows`            | Whether to shade alternate rows.<br><br>**Type** `Boolean`<br>**Default** `false`
 | `highlightWinners`     | For games that are final, the winning team / score is highlighted.<br><br>**Type** `Boolean`<br>**Default** `true`
 | `showRankings`         | For the NCAAF and NCAAM, whether to show the rankings for the top 25 teams.<br><br>**Type** `Boolean`<br>**Default** `true`
-| `internationalTime`    | Sets the time format of game times to a 24-hour clock (true) or leaves it on a 12-hour clock (using am/pm) (false).<br><br>**Type** `Boolean`<br>**Default** `false`
 | `sports`               | **REQUIRED** An array of leagues and teams you wish to follow.<br>See below for instructions to configure your `sports` list.<br><br>**Type** `Array`
 
 
