@@ -60,7 +60,7 @@ module.exports = {
   dataPollStarted: false,
   gameDate: null,
 
-  getScores: function (league, teams, gameDate, internationalTime, callback) {
+  getScores: function (league, teams, gameDate, callback) {
     var self = this
     this.gameDate = moment(gameDate)
 
@@ -75,12 +75,12 @@ module.exports = {
           clearInterval(waitForDataTimer)
           waitForDataTimer = null
 
-          callback(self.getLeague(league, teams, internationalTime))
+          callback(self.getLeague(league, teams))
         }
       }, 1000)
     }
     else {
-      callback(self.getLeague(league, teams, internationalTime))
+      callback(self.getLeague(league, teams))
     }
   },
 
@@ -109,7 +109,7 @@ module.exports = {
     }
   },
 
-  getLeague: function (league, teams, internationalTime) {
+  getLeague: function (league, teams) {
     var self = this
 
     var filteredGames = this.scoresObj.data.games.filter(function (game) {
@@ -155,7 +155,7 @@ module.exports = {
       var status = []
       var classes = []
 
-      if (internationalTime === 24) {
+      if (config.timeFormat === 24) {
         var timeFormat = 'H:mm'
       }
       else {
