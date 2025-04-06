@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [4.3.3](https://github.com/dathbe/MMM-MyScoreboard/compare/v4.3.2...v4.3.3) - 2025-04-XX
 
+- NEW FEATURE: `English Women's Super League` added
 - Replace `console.log` with `Log.log`
 
 ## [4.3.2](https://github.com/dathbe/MMM-MyScoreboard/compare/v4.3.1...v4.3.2) - 2025-04-04
