@@ -22,6 +22,7 @@ Module.register('MMM-MyScoreboard', {
     highlightWinners: true,
     viewStyle: 'largeLogos',
     showRankings: true,
+    hideBroadcasts: false,
     sports: [
       {
         league: 'NHL',
