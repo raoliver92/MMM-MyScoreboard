@@ -401,7 +401,7 @@ WSH   Washington Capitals
 Groups:
 ---------------
 Atlantic
-Metropolitain
+Metropolitan
 Central
 Pacific
 East
