@@ -209,6 +209,7 @@ Currently this module supports the following leagues.  Use the bold uppercase sh
 * **SCO_LEAGUE_2** - Scottish League Two
 * **SCO_PREM** - Scottish Premiership
 * **WAL_PREM** - Welsh Premier League
+* **ENG_WSL** - English Women's Super League
 
 #### Europe
 * **AUT_BUNDESLIGA** - Austrian Bundesliga
