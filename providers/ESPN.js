@@ -115,6 +115,7 @@ module.exports = {
     SCO_LEAGUE_2: 'soccer/sco.4',
     SCO_PREM: 'soccer/sco.1',
     WAL_PREM: 'soccer/wal.1',
+    ENG_WSL: 'soccer/eng.w.1',
 
     // European Soccer
     AUT_BUNDESLIGA: 'soccer/aut.1',
