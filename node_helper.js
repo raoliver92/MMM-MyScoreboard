@@ -1,3 +1,4 @@
+const Log = require('logger')
 const NodeHelper = require('node_helper')
 const moment = require('moment-timezone')
 const fs = require('node:fs')
@@ -8,7 +9,7 @@ module.exports = NodeHelper.create({
   providers: {},
 
   start: function () {
-    console.log('Starting node_helper for: ' + this.name)
+    Log.log('Starting node_helper for: ' + this.name)
 
     this.providers.SNET = require('./providers/SNET.js')
     this.providers.SNET_YD = require('./providers/SNET_YD.js')
