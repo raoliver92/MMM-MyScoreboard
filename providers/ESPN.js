@@ -544,7 +544,7 @@ module.exports = {
         timeFormat = 'h:mm a'
       }
       var channels = []
-      Log.debug(this.config.hideBroadcasts)
+      //Log.debug(this.config.hideBroadcasts)
       if (game.competitions[0].broadcasts.length > 0) {
         // const excludedChannels = ["MLB.TV", "CLEGuardians.TV", "PADRES.TV", "DBACKS.TV"]
         // const maxChannels = 3
