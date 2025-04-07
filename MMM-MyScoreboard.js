@@ -721,7 +721,6 @@ Module.register('MMM-MyScoreboard', {
     }
 
     var self = this
-    Log.debug(this.config.sports)
     this.config.sports.forEach(function (sport, index) {
       var payload = {
         instanceId: self.identifier,
@@ -731,9 +730,8 @@ Module.register('MMM-MyScoreboard', {
         provider: self.supportedLeagues[sport.league].provider,
         gameDate: gameDate,
         whichDay: whichDay,
-        hideBroadcasts: self.config.hideBroadcasts
+        hideBroadcasts: self.config.hideBroadcasts,
       }
-      Log.debug(sport.league)
 
       self.sendSocketNotification('MMM-MYSCOREBOARD-GET-SCORES', payload)
     })
