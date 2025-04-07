@@ -408,25 +408,25 @@ module.exports = {
   ],
 
   broadcastIcons: {
-    ESPN: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/ESPN_wordmark.svg',
+    'ESPN': 'https://upload.wikimedia.org/wikipedia/commons/2/2f/ESPN_wordmark.svg',
     'ESPN+': 'https://a.espncdn.com/redesign/assets/img/logos/espnplus/ESPN+White.svg',
-    ESPNEWS: 'https://upload.wikimedia.org/wikipedia/commons/1/1b/ESPNews.svg',
+    'ESPNEWS': 'https://upload.wikimedia.org/wikipedia/commons/1/1b/ESPNews.svg',
     'ESPN Deportes': 'https://upload.wikimedia.org/wikipedia/commons/d/d5/ESPN_Deportes.svg',
-    NBC: 'https://upload.wikimedia.org/wikipedia/commons/9/9f/NBC_Peacock_1986.svg',
-    TBS: 'https://upload.wikimedia.org/wikipedia/commons/2/2c/TBS_2020.svg',
+    'NBC': 'https://upload.wikimedia.org/wikipedia/commons/9/9f/NBC_Peacock_1986.svg',
+    'TBS': 'https://upload.wikimedia.org/wikipedia/commons/2/2c/TBS_2020.svg',
     'USA Net': 'https://upload.wikimedia.org/wikipedia/commons/d/d7/USA_Network_logo_%282016%29.svg',
-    Universo: 'https://img.nbc.com/files/images/2019/4/25/Universo-logos-templateUniverso-Logo-White-450x228.png',
+    'Universo': 'https://img.nbc.com/files/images/2019/4/25/Universo-logos-templateUniverso-Logo-White-450x228.png',
     'Paramount+': 'https://public-assets-pressexpress.s3.amazonaws.com/assets/logos/original/2022/01/04/pplus_logo_dark.svg',
     'NHL Net': 'https://upload.wikimedia.org/wikipedia/commons/f/f4/NHL_Network_2012.svg',
     'NBA TV': 'https://upload.wikimedia.org/wikipedia/en/d/d2/NBA_TV.svg',
-    
-    MASN: 'https://www.masnsports.com/images/masn.svg',
-    MASN2: 'https://video.masnsports.com/assets/images/masn2.svg',
+
+    'MASN': 'https://www.masnsports.com/images/masn.svg',
+    'MASN2': 'https://video.masnsports.com/assets/images/masn2.svg',
     'Root Sports NW': 'https://upload.wikimedia.org/wikipedia/en/8/8b/Root_Sports_logo.svg',
     'NBC Sports BA': 'https://upload.wikimedia.org/wikipedia/commons/0/08/NBC_Sports_2023.svg',
     'NBC Sports Phil': 'https://upload.wikimedia.org/wikipedia/commons/0/08/NBC_Sports_2023.svg',
     'NBCSCA+': 'https://upload.wikimedia.org/wikipedia/commons/0/08/NBC_Sports_2023.svg',
-    MSG: 'https://www.msgnetworks.com/wp-content/themes/msgn/images/logo1.png',
+    'MSG': 'https://www.msgnetworks.com/wp-content/themes/msgn/images/logo1.png',
     'FanDuel SN Sun': 'https://s3.us-east-1.amazonaws.com/cdn.fanduel.com/images/2023/fanduel/homepage/facelift/fdtv-logo.svg',
     'FanDuel SN West': 'https://s3.us-east-1.amazonaws.com/cdn.fanduel.com/images/2023/fanduel/homepage/facelift/fdtv-logo.svg',
     'FanDuel SN DET': 'https://s3.us-east-1.amazonaws.com/cdn.fanduel.com/images/2023/fanduel/homepage/facelift/fdtv-logo.svg',
@@ -436,8 +436,8 @@ module.exports = {
     'FanDuel Sports KC': 'https://s3.us-east-1.amazonaws.com/cdn.fanduel.com/images/2023/fanduel/homepage/facelift/fdtv-logo.svg',
     'FanDuel SN OH': 'https://s3.us-east-1.amazonaws.com/cdn.fanduel.com/images/2023/fanduel/homepage/facelift/fdtv-logo.svg',
     'FanDuel SN MW Extra': 'https://s3.us-east-1.amazonaws.com/cdn.fanduel.com/images/2023/fanduel/homepage/facelift/fdtv-logo.svg',
-    KCOP: 'https://static.foxtv.com/static/orion/img/core/s/logos/fts-los-angeles-a.svg',
-    KONG: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/KONG_%28TV%29_logo_2016.svg',
+    'KCOP': 'https://static.foxtv.com/static/orion/img/core/s/logos/fts-los-angeles-a.svg',
+    'KONG': 'https://upload.wikimedia.org/wikipedia/commons/6/6a/KONG_%28TV%29_logo_2016.svg',
     'YES': 'https://static.yesnetwork.com/assets/images/light-on-dark/yes.svg',
     'SNY': 'https://sny.tv/images/sny.svg',
     'Sportsnet': 'https://upload.wikimedia.org/wikipedia/commons/7/7f/Logo_Sportsnet_2011.svg',
@@ -447,19 +447,19 @@ module.exports = {
     'Sportsnet LA': 'https://spectrumsportsnet.com/content/dam/sports/images/SpectrumSportsNetLogo.svg',
     'Space City Home Network': 'https://static.wixstatic.com/media/b2a684_6cb9aa9a46fa4478bdeb7f3afe95713d~mv2.png/v1/fill/w_233,h_77,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/b2a684_6cb9aa9a46fa4478bdeb7f3afe95713d~mv2.png',
   },
-  
+
   broadcastIconsInvert: {
-    ABC: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/ABC-2021-LOGO.svg',
-    //CBS: 'https://upload.wikimedia.org/wikipedia/commons/b/bd/CBS_Eyemark.svg',
-    CBS: 'https://upload.wikimedia.org/wikipedia/commons/e/ee/CBS_logo_%282020%29.svg',
-    FOX: 'https://upload.wikimedia.org/wikipedia/commons/c/c0/Fox_Broadcasting_Company_logo_%282019%29.svg',
-    TNT: 'https://upload.wikimedia.org/wikipedia/commons/e/ec/TNT_%28TV_Channel%29.svg',
-    
+    'ABC': 'https://upload.wikimedia.org/wikipedia/commons/2/2f/ABC-2021-LOGO.svg',
+    // CBS: 'https://upload.wikimedia.org/wikipedia/commons/b/bd/CBS_Eyemark.svg',
+    'CBS': 'https://upload.wikimedia.org/wikipedia/commons/e/ee/CBS_logo_%282020%29.svg',
+    'FOX': 'https://upload.wikimedia.org/wikipedia/commons/c/c0/Fox_Broadcasting_Company_logo_%282019%29.svg',
+    'TNT': 'https://upload.wikimedia.org/wikipedia/commons/e/ec/TNT_%28TV_Channel%29.svg',
+
     'Victory+': 'https://thestreamable.com/media/pages/video-streaming/victory-plus/84029ec6cd-1720450552/victoryplus.svg',
-    NESN: 'https://upload.wikimedia.org/wikipedia/en/0/02/NESN_logo_2019.png',
+    'NESN': 'https://upload.wikimedia.org/wikipedia/en/0/02/NESN_logo_2019.png',
   },
-  
-  globalSkipChannels: ['MLB.TV','DBACKS.TV','Twins.TV','Padres.TV'],
+
+  globalSkipChannels: ['MLB.TV', 'DBACKS.TV', 'Twins.TV', 'Padres.TV'],
 
   getLeaguePath: function (league) {
     return this.LEAGUE_PATHS[league]
