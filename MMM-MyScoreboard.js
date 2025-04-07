@@ -23,6 +23,8 @@ Module.register('MMM-MyScoreboard', {
     viewStyle: 'largeLogos',
     showRankings: true,
     hideBroadcasts: false,
+    showLocalBroadcasts: false,
+    skipChannels: [],
     sports: [
       {
         league: 'NHL',
@@ -58,7 +60,7 @@ Module.register('MMM-MyScoreboard', {
     */
 
     // North American Leagues
-    NBA: { provider: 'SNET', logoFormat: 'svg' },
+    NBA: { provider: 'ESPN', logoFormat: 'svg' },
     NHL: { provider: 'ESPN', logoFormat: 'svg' },
     NFL: { provider: 'ESPN', logoFormat: 'svg' },
     CFL: { provider: 'SNET', logoFormat: 'svg' },
@@ -465,9 +467,16 @@ Module.register('MMM-MyScoreboard', {
     var status = document.createElement('div')
     status.classList.add('status')
     gameObj.status.forEach(function (s) {
-      var statusPart = document.createElement('span')
+      var statusPart = document.createElement('div')
       statusPart.innerHTML = s
+      statusPart.classList.add('statusPart')
       status.appendChild(statusPart)
+    })
+    gameObj.broadcast.forEach(function (b) {
+      var broadcastPart = document.createElement('div')
+      broadcastPart.innerHTML = b
+      broadcastPart.classList.add('broadcast')
+      status.appendChild(broadcastPart)
     })
     boxScore.appendChild(status)
 
@@ -731,6 +740,8 @@ Module.register('MMM-MyScoreboard', {
         gameDate: gameDate,
         whichDay: whichDay,
         hideBroadcasts: self.config.hideBroadcasts,
+        skipChannels: self.config.skipChannels,
+        showLocalBroadcasts: self.config.showLocalBroadcasts,
       }
 
       self.sendSocketNotification('MMM-MYSCOREBOARD-GET-SCORES', payload)

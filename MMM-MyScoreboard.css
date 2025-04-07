@@ -144,6 +144,10 @@
   font-weight: 400;
 }
 
+.MMM-MyScoreboard .box-score .status {
+  display: flex;
+}
+
 .MMM-MyScoreboard .box-score .status > span {
   padding: 0 4px;
   white-space: nowrap;
@@ -926,5 +930,43 @@
 
 .MMM-MyScoreboard .broadcast {
 	font-size: 14px;
+  color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 3px 7px 3px 7px;
+  clear: both;
 }
 
+.MMM-MyScoreboard .box-score.smallLogos .broadcast,
+.MMM-MyScoreboard .box-score.oneLine .broadcast,
+.MMM-MyScoreboard .box-score.oneLineWithLogos .broadcast {
+  width: unset;
+  /* padding-top: 2px; */
+}
+
+.MMM-MyScoreboard .box-score.stacked .broadcast,
+.MMM-MyScoreboard .box-score.stackedWithLogos .broadcast,
+.MMM-MyScoreboard .box-score.oneLine .broadcast,
+.MMM-MyScoreboard .box-score.oneLineWithLogos .broadcast {
+  justify-content: right;
+  padding-right: 0;
+}
+
+.MMM-MyScoreboard .box-score.oneLine .status,
+.MMM-MyScoreboard .box-score.oneLineWithLogos .status {
+  display: flex;
+  justify-content: right;
+}
+
+.MMM-MyScoreboard .broadcastIcon {
+	height: 15px;
+  -webkit-filter: drop-shadow(1px 1px 0 black)
+                  drop-shadow(-1px -1px 0 black);
+  filter: drop-shadow(1px 1px 0 black) 
+          drop-shadow(-1px -1px 0 black);
+}
+
+.MMM-MyScoreboard .broadcastIconInvert {
+  filter: invert(100%);
+}
