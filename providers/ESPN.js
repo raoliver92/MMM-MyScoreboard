@@ -411,14 +411,13 @@ module.exports = {
     return this.LEAGUE_PATHS[league]
   },
 
-  async getScores(league, teams, gameDate, callback) {
+  async getScores(payload, gameDate, callback) {
     var self = this
 
     var url = 'https://site.api.espn.com/apis/site/v2/sports/'
-      + this.getLeaguePath(league)
+      + this.getLeaguePath(payload.league)
       + '/scoreboard?dates='
       + moment(gameDate).format('YYYYMMDD') + '&limit=200'
-
     /*
       by default, ESPN returns only the Top 25 ranked teams for NCAAF
       and NCAAM. By appending the group parameter (80 for NCAAF and 50
@@ -429,27 +428,27 @@ module.exports = {
       currently have things set up, I need to treat it like a different
       league.
     */
-    if (league == 'NCAAF') {
+    if (payload.league == 'NCAAF') {
       url = url + '&groups=80'
     }
-    else if (league == 'NCAAM') {
+    else if (payload.league == 'NCAAM') {
       url = url + '&groups=50'
     }
-    else if (league == 'NCAAM_MM') {
+    else if (payload.league == 'NCAAM_MM') {
       url = url + '&groups=100'
     }
 
     try {
       const response = await fetch(url)
       const body = await response.json()
-      callback(self.formatScores(league, body, teams, moment(gameDate).format('YYYYMMDD')))
+      callback(self.formatScores(payload.league, body, payload.teams, moment(gameDate).format('YYYYMMDD'), payload.hideBroadcasts))
     }
     catch (error) {
       Log.error(error + url)
     }
   },
 
-  formatScores: function (league, data, teams, gameDate) {
+  formatScores: function (league, data, teams, gameDate, hideBroadcasts) {
     // var self = this;
     var formattedGamesList = new Array()
     var localTZ = moment.tz.guess()
@@ -544,8 +543,7 @@ module.exports = {
         timeFormat = 'h:mm a'
       }
       var channels = []
-      Log.debug(this.config.hideBroadcasts)
-      if (game.competitions[0].broadcasts.length > 0) {
+      if (game.competitions[0].broadcasts.length > 0 && !hideBroadcasts) {
         // const excludedChannels = ["MLB.TV", "CLEGuardians.TV", "PADRES.TV", "DBACKS.TV"]
         // const maxChannels = 3
         for (let i = 0; i < game.competitions[0].broadcasts.length; i++) {

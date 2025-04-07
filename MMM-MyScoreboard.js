@@ -130,6 +130,7 @@ Module.register('MMM-MyScoreboard', {
     SCO_LEAGUE_2: { provider: 'ESPN', logoFormat: 'url', homeTeamFirst: true },
     SCO_PREM: { provider: 'ESPN', logoFormat: 'url', homeTeamFirst: true },
     WAL_PREM: { provider: 'ESPN', logoFormat: 'url', homeTeamFirst: true },
+    ENG_WSL: { provider: 'ESPN', logoFormat: 'url', homeTeamFirst: true },
 
     // European Soccer
     AUT_BUNDESLIGA: { provider: 'ESPN', logoFormat: 'url', homeTeamFirst: true },
@@ -720,6 +721,7 @@ Module.register('MMM-MyScoreboard', {
     }
 
     var self = this
+    Log.debug(this.config.sports)
     this.config.sports.forEach(function (sport, index) {
       var payload = {
         instanceId: self.identifier,
@@ -729,7 +731,9 @@ Module.register('MMM-MyScoreboard', {
         provider: self.supportedLeagues[sport.league].provider,
         gameDate: gameDate,
         whichDay: whichDay,
+        hideBroadcasts: self.config.hideBroadcasts
       }
+      Log.debug(sport.league)
 
       self.sendSocketNotification('MMM-MYSCOREBOARD-GET-SCORES', payload)
     })
