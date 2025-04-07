@@ -61,7 +61,7 @@ module.exports = {
   dataPollStarted: false,
   gameDate: null,
 
-  getScores: function (league, teams, gameDate, callback) {
+  getScores: function (payload, gameDate, callback) {
     var self = this
     this.gameDate = moment(gameDate)
 
@@ -76,12 +76,12 @@ module.exports = {
           clearInterval(waitForDataTimer)
           waitForDataTimer = null
 
-          callback(self.getLeague(league, teams))
+          callback(self.getLeague(payload.league, payload.teams))
         }
       }, 1000)
     }
     else {
-      callback(self.getLeague(league, teams))
+      callback(self.getLeague(payload.league, payload.teams))
     }
   },
 

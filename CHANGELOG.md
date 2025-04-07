@@ -4,9 +4,15 @@ Notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [4.3.3](https://github.com/dathbe/MMM-MyScoreboard/compare/v4.3.2...v4.3.3) - 2025-04-05
+## [4.5.0](https://github.com/dathbe/MMM-MyScoreboard/compare/v4.4.0...v4.5.0) - 2025-04-06
 
-- NEW FEATURE: `English Women's Super League` added
+- **NEW FEATURE**: New config option to `hideBroadcasts`
+- BUG FIX: English WSL was not fully implemented properly
+- BUG FIX: Logo folder previously pointed to my other module, MMM-MyStandings, which wouldn't work unless you have both installed
+
+## [4.4.0](https://github.com/dathbe/MMM-MyScoreboard/compare/v4.3.2...v4.4.0) - 2025-04-05
+
+- **NEW FEATURE**: `English Women's Super League` added
 - Replace `console.log` with `Log.log`
 
 ## [4.3.2](https://github.com/dathbe/MMM-MyScoreboard/compare/v4.3.1...v4.3.2) - 2025-04-04
