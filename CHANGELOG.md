@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 - **NEW FEATURE**: New config option to `hideBroadcasts`
 - BUG FIX: English WSL was not fully implemented properly
+- BUG FIX: Logo folder previously pointed to my other module, MMM-MyStandings, which wouldn't work unless you have both installed
 
 ## [4.4.0](https://github.com/dathbe/MMM-MyScoreboard/compare/v4.3.2...v4.4.0) - 2025-04-05
 
