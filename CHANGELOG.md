@@ -4,7 +4,7 @@ Notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [4.5.0](https://github.com/dathbe/MMM-MyScoreboard/compare/v4.4.0...v4.5.0) - 2025-04-XX
+## [4.5.0](https://github.com/dathbe/MMM-MyScoreboard/compare/v4.4.0...v4.5.0) - 2025-04-06
 
 - **NEW FEATURE**: New config option to `hideBroadcasts`
 - BUG FIX: English WSL was not fully implemented properly
