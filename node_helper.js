@@ -16,7 +16,7 @@ module.exports = NodeHelper.create({
     this.providers.ESPN = require('./providers/ESPN.js')
 
     this.localLogos = {}
-    const fsTree = this.getDirectoryTree('./modules/MMM-MyStandings/logos')
+    const fsTree = this.getDirectoryTree('./modules/MMM-MyScoreboard/logos')
     fsTree.forEach((league) => {
       if (league.children) {
         var logoFiles = []
