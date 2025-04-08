@@ -416,7 +416,6 @@ module.exports = {
     'TBS': 'https://upload.wikimedia.org/wikipedia/commons/2/2c/TBS_2020.svg',
     'USA Net': 'https://upload.wikimedia.org/wikipedia/commons/d/d7/USA_Network_logo_%282016%29.svg',
     'Universo': 'https://img.nbc.com/files/images/2019/4/25/Universo-logos-templateUniverso-Logo-White-450x228.png',
-    'Paramount+': 'https://public-assets-pressexpress.s3.amazonaws.com/assets/logos/original/2022/01/04/pplus_logo_dark.svg',
     'NHL Net': 'https://upload.wikimedia.org/wikipedia/commons/f/f4/NHL_Network_2012.svg',
     'NBA TV': 'https://upload.wikimedia.org/wikipedia/en/d/d2/NBA_TV.svg',
 
@@ -440,12 +439,14 @@ module.exports = {
     'KONG': 'https://upload.wikimedia.org/wikipedia/commons/6/6a/KONG_%28TV%29_logo_2016.svg',
     'YES': 'https://static.yesnetwork.com/assets/images/light-on-dark/yes.svg',
     'SNY': 'https://sny.tv/images/sny.svg',
-    'Sportsnet': 'https://upload.wikimedia.org/wikipedia/commons/7/7f/Logo_Sportsnet_2011.svg',
-    'SportsNet PIT': 'https://upload.wikimedia.org/wikipedia/commons/3/30/SportsNet_Pittsburgh_logo.png',
     'Marquee Sports Net': 'https://dupvhm5r1oaxt.cloudfront.net/uploads/2020/02/CUBS_MSN_Logo_white.png',
     'Rangers Sports Network': 'https://upload.wikimedia.org/wikipedia/commons/f/fe/Rangers_Sports_Network_Logo.png',
     'Sportsnet LA': 'https://spectrumsportsnet.com/content/dam/sports/images/SpectrumSportsNetLogo.svg',
     'Space City Home Network': 'https://static.wixstatic.com/media/b2a684_6cb9aa9a46fa4478bdeb7f3afe95713d~mv2.png/v1/fill/w_233,h_77,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/b2a684_6cb9aa9a46fa4478bdeb7f3afe95713d~mv2.png',
+    'MLB.TV': 'https://images.ctfassets.net/iiozhi00a8lc/78yBC9oWuP1VldT6aJT1sL/8cc2b4b9d9ab83e6a90ee48476b66074/MLBTV_19_ondark_RGB.svg',
+    'DBACKS.TV': 'https://www.mlbstatic.com/team-logos/product-on-dark/dbacks-tv-partner.svg',
+    'Twins.TV': 'https://www.mlbstatic.com/team-logos/product-on-dark/twins-tv-partner.svg',
+    'Padres.TV': 'https://www.mlbstatic.com/team-logos/product-on-light/padres-tv.svg',
   },
 
   broadcastIconsInvert: {
@@ -458,7 +459,15 @@ module.exports = {
     'Victory+': 'https://thestreamable.com/media/pages/video-streaming/victory-plus/84029ec6cd-1720450552/victoryplus.svg',
     'NESN': 'https://upload.wikimedia.org/wikipedia/en/0/02/NESN_logo_2019.png',
   },
+  
+  broadcastIconsOutline: {
+    'Paramount+': 'https://public-assets-pressexpress.s3.amazonaws.com/assets/logos/original/2022/01/04/pplus_logo_dark.svg',
 
+    'Sportsnet': 'https://upload.wikimedia.org/wikipedia/commons/7/7f/Logo_Sportsnet_2011.svg',
+    'SportsNet PIT': 'https://upload.wikimedia.org/wikipedia/commons/3/30/SportsNet_Pittsburgh_logo.png',
+  },
+
+  // Skip these channels because they will return every out-of-market game
   globalSkipChannels: ['MLB.TV', 'DBACKS.TV', 'Twins.TV', 'Padres.TV'],
 
   getLeaguePath: function (league) {
@@ -605,30 +614,74 @@ module.exports = {
         home: homeWanted,
         away: awayWanted,
       }
-      var skipChannels = payload.skipChannels.concat(this.globalSkipChannels)
       if (game.competitions[0].broadcasts.length > 0 && !payload.hideBroadcasts) {
-        // const excludedChannels = ["MLB.TV", "CLEGuardians.TV", "PADRES.TV", "DBACKS.TV"]
-        // const maxChannels = 3
-        for (let i = 0; i < game.competitions[0].broadcasts.length; i++) {
-          if (game.competitions[0].broadcasts[i].market === 'national')
-            for (let j = 0; j < game.competitions[0].broadcasts[i].names.length; j++) {
-              if (!skipChannels.includes(game.competitions[0].broadcasts[i].names[j])) {
-                if (this.broadcastIcons[game.competitions[0].broadcasts[i].names[j]] !== undefined) {
-                  channels.push(`<img src="${this.broadcastIcons[game.competitions[0].broadcasts[i].names[j]]}" class="broadcastIcon" alt="${game.competitions[0].broadcasts[i].names[j]}">`)
+        game.competitions[0].broadcasts.forEach(market => {
+          if (market.market === 'national') {
+            market.names.forEach(channelName => {
+              if (!payload.skipChannels.includes(channelName)) {
+                if (this.broadcastIcons[channelName] !== undefined) {
+                  channels.push(`<img src="${this.broadcastIcons[channelName]}" class="broadcastIcon" alt="${channelName}">`)
                 }
-                else if (this.broadcastIconsInvert[game.competitions[0].broadcasts[i].names[j]] !== undefined) {
-                  channels.push(`<img src="${this.broadcastIconsInvert[game.competitions[0].broadcasts[i].names[j]]}" class="broadcastIcon broadcastIconInvert" alt="${game.competitions[0].broadcasts[i].names[j]}">`)
+                else if (this.broadcastIconsInvert[channelName] !== undefined) {
+                  channels.push(`<img src="${this.broadcastIconsInvert[channelName]}" class="broadcastIcon broadcastIconInvert" alt="${channelName}">`)
+                }
+                else if (this.broadcastIconsOutline[channelName] !== undefined) {
+                  channels.push(`<img src="${this.broadcastIconsOutline[channelName]}" class="broadcastIcon outline" alt="${channelName}">`)
                 }
                 else {
-                  channels.push(game.competitions[0].broadcasts[i].names[j])
+                  channels.push(channelName)
                 }
               }
-              // }
+            })
+          }
+        })
+        if (channels.length === 0) {
+          var localGamesList = []
+          game.competitions[0].broadcasts.forEach(market => {
+            if (payload.showLocalBroadcasts && homeOrAway[market.market]) {
+              market.names.forEach(channelName => {
+                if (!payload.skipChannels.includes(channelName)) {
+                  if (this.broadcastIcons[channelName] !== undefined) {
+                    channels.push(`<img src="${this.broadcastIcons[channelName]}" class="broadcastIcon" alt="${channelName}">`)
+                  }
+                  else if (this.broadcastIconsInvert[channelName] !== undefined) {
+                    channels.push(`<img src="${this.broadcastIconsInvert[channelName]}" class="broadcastIcon broadcastIconInvert" alt="${channelName}">`)
+                  }
+                  else if (this.broadcastIconsOutline[channelName] !== undefined) {
+                    channels.push(`<img src="${this.broadcastIconsOutline[channelName]}" class="broadcastIcon outline" alt="${channelName}">`)
+                  }
+                  else {
+                    channels.push(channelName)
+                  }
+                }
+              })
             }
+            else if (!payload.showLocalBroadcasts) {
+              market.names.forEach(channelName => {
+                if (!payload.skipChannels.includes(channelName) && !payload.displayLocalChannels.includes(channelName)) {
+                    localGamesList.push(channelName)
+                }
+              })
+            }
+          })
+          if (localGamesList.length > 0) {
+            Log.info(`The local channels available for ${game.shortName} are: ${localGamesList.join(', ')}`)
+          }
         }
-        if (channels.length === 0 && payload.showLocalBroadcasts) {
-          for (let i = 0; i < game.competitions[0].broadcasts.length; i++) {
-            if (game.competitions[0].broadcasts[i].market === 'home' && homeOrAway['home']) {
+      }
+/*
+          
+            if (payload.showLocalBroadcasts && homeOrAway[game.competitions[0].broadcasts[i].market]) {
+              
+            }
+            else if (!payload.showLocalBroadcasts)
+            
+            
+            
+            
+            
+            
+            || game.competitions[0].broadcasts[i].names.includes())) {
               for (let j = 0; j < game.competitions[0].broadcasts[i].names.length; j++) {
                 if (!skipChannels.includes(game.competitions[0].broadcasts[i].names[j])) {
                   if (this.broadcastIcons[game.competitions[0].broadcasts[i].names[j]] !== undefined) {
@@ -659,8 +712,23 @@ module.exports = {
               }
             }
           }
-        }
-      }
+        } */
+/*         else {
+          
+          game.competitions[0].broadcasts.forEach(market => {
+            if (market.market !== 'national') {
+              market.names.forEach(channel => {
+                if (!payload.displayLocalChannels.includes(channel)) {
+                  localGamesList.push(channel)
+                }
+              })
+            }
+        })
+          if (localGamesList.length > 0) {
+            Log.info()
+          }
+        } */
+
       switch (game.status.type.id) {
         case '0' : // TBD
           gameState = 0

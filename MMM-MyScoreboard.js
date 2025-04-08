@@ -25,6 +25,7 @@ Module.register('MMM-MyScoreboard', {
     hideBroadcasts: false,
     showLocalBroadcasts: false,
     skipChannels: [],
+    displayLocalChannels: [],
     sports: [
       {
         league: 'NHL',
@@ -742,6 +743,7 @@ Module.register('MMM-MyScoreboard', {
         hideBroadcasts: self.config.hideBroadcasts,
         skipChannels: self.config.skipChannels,
         showLocalBroadcasts: self.config.showLocalBroadcasts,
+        displayLocalChannels: self.config.displayLocalChannels,
       }
 
       self.sendSocketNotification('MMM-MYSCOREBOARD-GET-SCORES', payload)
