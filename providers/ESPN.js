@@ -459,7 +459,7 @@ module.exports = {
     'Victory+': 'https://thestreamable.com/media/pages/video-streaming/victory-plus/84029ec6cd-1720450552/victoryplus.svg',
     'NESN': 'https://upload.wikimedia.org/wikipedia/en/0/02/NESN_logo_2019.png',
   },
-  
+
   broadcastIconsOutline: {
     'Paramount+': 'https://public-assets-pressexpress.s3.amazonaws.com/assets/logos/original/2022/01/04/pplus_logo_dark.svg',
 
@@ -615,9 +615,9 @@ module.exports = {
         away: awayWanted,
       }
       if (game.competitions[0].broadcasts.length > 0 && !payload.hideBroadcasts) {
-        game.competitions[0].broadcasts.forEach(market => {
+        game.competitions[0].broadcasts.forEach((market) => {
           if (market.market === 'national') {
-            market.names.forEach(channelName => {
+            market.names.forEach((channelName) => {
               if (!payload.skipChannels.includes(channelName)) {
                 if (this.broadcastIcons[channelName] !== undefined) {
                   channels.push(`<img src="${this.broadcastIcons[channelName]}" class="broadcastIcon" alt="${channelName}">`)
@@ -637,8 +637,8 @@ module.exports = {
         })
         if (channels.length === 0) {
           var localGamesList = []
-          game.competitions[0].broadcasts.forEach(market => {
-            market.names.forEach(channelName => {
+          game.competitions[0].broadcasts.forEach((market) => {
+            market.names.forEach((channelName) => {
               if ((payload.showLocalBroadcasts && homeOrAway[market.market] && !payload.skipChannels.includes(channelName)) || payload.displayLocalChannels.includes(channelName)) {
                 if (this.broadcastIcons[channelName] !== undefined) {
                   channels.push(`<img src="${this.broadcastIcons[channelName]}" class="broadcastIcon" alt="${channelName}">`)
