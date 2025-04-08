@@ -638,96 +638,31 @@ module.exports = {
         if (channels.length === 0) {
           var localGamesList = []
           game.competitions[0].broadcasts.forEach(market => {
-            if (payload.showLocalBroadcasts && homeOrAway[market.market]) {
-              market.names.forEach(channelName => {
-                if (!payload.skipChannels.includes(channelName)) {
-                  if (this.broadcastIcons[channelName] !== undefined) {
-                    channels.push(`<img src="${this.broadcastIcons[channelName]}" class="broadcastIcon" alt="${channelName}">`)
-                  }
-                  else if (this.broadcastIconsInvert[channelName] !== undefined) {
-                    channels.push(`<img src="${this.broadcastIconsInvert[channelName]}" class="broadcastIcon broadcastIconInvert" alt="${channelName}">`)
-                  }
-                  else if (this.broadcastIconsOutline[channelName] !== undefined) {
-                    channels.push(`<img src="${this.broadcastIconsOutline[channelName]}" class="broadcastIcon outline" alt="${channelName}">`)
-                  }
-                  else {
-                    channels.push(channelName)
-                  }
+            market.names.forEach(channelName => {
+              if ((payload.showLocalBroadcasts && homeOrAway[market.market] && !payload.skipChannels.includes(channelName)) || payload.displayLocalChannels.includes(channelName)) {
+                if (this.broadcastIcons[channelName] !== undefined) {
+                  channels.push(`<img src="${this.broadcastIcons[channelName]}" class="broadcastIcon" alt="${channelName}">`)
                 }
-              })
-            }
-            else if (!payload.showLocalBroadcasts) {
-              market.names.forEach(channelName => {
-                if (!payload.skipChannels.includes(channelName) && !payload.displayLocalChannels.includes(channelName)) {
-                    localGamesList.push(channelName)
+                else if (this.broadcastIconsInvert[channelName] !== undefined) {
+                  channels.push(`<img src="${this.broadcastIconsInvert[channelName]}" class="broadcastIcon broadcastIconInvert" alt="${channelName}">`)
                 }
-              })
-            }
+                else if (this.broadcastIconsOutline[channelName] !== undefined) {
+                  channels.push(`<img src="${this.broadcastIconsOutline[channelName]}" class="broadcastIcon outline" alt="${channelName}">`)
+                }
+                else {
+                  channels.push(channelName)
+                }
+              }
+              else if (!payload.showLocalBroadcasts && !payload.skipChannels.includes(channelName) && !payload.displayLocalChannels.includes(channelName)) {
+                localGamesList.push(channelName)
+              }
+            })
           })
           if (localGamesList.length > 0) {
             Log.info(`The local channels available for ${game.shortName} are: ${localGamesList.join(', ')}`)
           }
         }
       }
-/*
-          
-            if (payload.showLocalBroadcasts && homeOrAway[game.competitions[0].broadcasts[i].market]) {
-              
-            }
-            else if (!payload.showLocalBroadcasts)
-            
-            
-            
-            
-            
-            
-            || game.competitions[0].broadcasts[i].names.includes())) {
-              for (let j = 0; j < game.competitions[0].broadcasts[i].names.length; j++) {
-                if (!skipChannels.includes(game.competitions[0].broadcasts[i].names[j])) {
-                  if (this.broadcastIcons[game.competitions[0].broadcasts[i].names[j]] !== undefined) {
-                    channels.push(`<img src="${this.broadcastIcons[game.competitions[0].broadcasts[i].names[j]]}" class="broadcastIcon">`)
-                  }
-                  else if (this.broadcastIconsInvert[game.competitions[0].broadcasts[i].names[j]] !== undefined) {
-                    channels.push(`<img src="${this.broadcastIconsInvert[game.competitions[0].broadcasts[i].names[j]]}" class="broadcastIcon broadcastIconInvert">`)
-                  }
-                  else {
-                    channels.push(game.competitions[0].broadcasts[i].names[j])
-                  }
-                }
-              }
-            }
-            if (game.competitions[0].broadcasts[i].market === 'away' && homeOrAway['away']) {
-              for (let j = 0; j < game.competitions[0].broadcasts[i].names.length; j++) {
-                if (!skipChannels.includes(game.competitions[0].broadcasts[i].names[j])) {
-                  if (this.broadcastIcons[game.competitions[0].broadcasts[i].names[j]] !== undefined) {
-                    channels.push(`<img src="${this.broadcastIcons[game.competitions[0].broadcasts[i].names[j]]}" class="broadcastIcon">`)
-                  }
-                  else if (this.broadcastIconsInvert[game.competitions[0].broadcasts[i].names[j]] !== undefined) {
-                    channels.push(`<img src="${this.broadcastIconsInvert[game.competitions[0].broadcasts[i].names[j]]}" class="broadcastIcon broadcastIconInvert">`)
-                  }
-                  else {
-                    channels.push(game.competitions[0].broadcasts[i].names[j])
-                  }
-                }
-              }
-            }
-          }
-        } */
-/*         else {
-          
-          game.competitions[0].broadcasts.forEach(market => {
-            if (market.market !== 'national') {
-              market.names.forEach(channel => {
-                if (!payload.displayLocalChannels.includes(channel)) {
-                  localGamesList.push(channel)
-                }
-              })
-            }
-        })
-          if (localGamesList.length > 0) {
-            Log.info()
-          }
-        } */
 
       switch (game.status.type.id) {
         case '0' : // TBD
