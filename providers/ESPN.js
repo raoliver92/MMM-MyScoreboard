@@ -432,7 +432,7 @@ module.exports = {
     'Arizona\'s Family 3TV': 'https://upload.wikimedia.org/wikipedia/commons/0/00/KTVK_logo.svg',
     'BlazerVision': './modules/MMM-MyScoreboard/logos/channels/BlazerVision.png',
     'CHSN': 'https://upload.wikimedia.org/wikipedia/en/6/68/Chicago_Sports_Network_Logo.png',
-    'CHSN+': 'https://upload.wikimedia.org/wikipedia/en/6/68/Chicago_Sports_Network_Logo.png',
+    'CHSN+': './modules/MMM-MyScoreboard/logos/channels/CHSNPlus.webp',
     'CLEGuardians.TV': './modules/MMM-MyScoreboard/logos/channels/CLEGuardiansTV.svg',
     'ClipperVision': './modules/MMM-MyScoreboard/logos/channels/ClipperVision.webp',
     'DBACKS.TV': 'https://www.mlbstatic.com/team-logos/product-on-dark/dbacks-tv-partner.svg',
@@ -453,12 +453,12 @@ module.exports = {
     'MLB.TV': 'https://images.ctfassets.net/iiozhi00a8lc/78yBC9oWuP1VldT6aJT1sL/8cc2b4b9d9ab83e6a90ee48476b66074/MLBTV_19_ondark_RGB.svg',
     'MNMT': './modules/MMM-MyScoreboard/logos/channels/MNMT.svg',
     'MSG': './modules/MMM-MyScoreboard/logos/channels/MSG.png',
-    'MSGB': './modules/MMM-MyScoreboard/logos/channels/MSG.png',
-    'MSGSN': './modules/MMM-MyScoreboard/logos/channels/MSG.png',
-    'NBCSCA+': 'https://nbcsports.brightspotcdn.com/76/a1/28ae939d488781e23e1813aaecb3/nbc-sports-logo-1.svg',
+    //'MSGB': './modules/MMM-MyScoreboard/logos/channels/MSG.png',
+    'MSGSN': 'https://upload.wikimedia.org/wikipedia/commons/5/5e/Msg-sportsnet.png',
+    'NBCSCA+': './modules/MMM-MyScoreboard/logos/channels/NBCSCAPlus.svg',
     'NBC Sports': 'https://nbcsports.brightspotcdn.com/76/a1/28ae939d488781e23e1813aaecb3/nbc-sports-logo-1.svg',
     'NESN': './modules/MMM-MyScoreboard/logos/channels/NESN.svg',
-    'NESN+': './modules/MMM-MyScoreboard/logos/channels/NESN.svg',
+    'NESN+': './modules/MMM-MyScoreboard/logos/channels/NESNPlus.svg',
     'Padres.TV': 'https://www.mlbstatic.com/team-logos/product-on-light/padres-tv.svg',
     'Rangers Sports Network': 'https://upload.wikimedia.org/wikipedia/commons/f/fe/Rangers_Sports_Network_Logo.png',
     'Rockies.TV': './modules/MMM-MyScoreboard/logos/channels/RockiesTV.svg',
@@ -467,17 +467,17 @@ module.exports = {
     'Space City Home Network': 'https://static.wixstatic.com/media/b2a684_6cb9aa9a46fa4478bdeb7f3afe95713d~mv2.png/v1/fill/w_233,h_77,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/b2a684_6cb9aa9a46fa4478bdeb7f3afe95713d~mv2.png',
     'Spectrum Sports Net': 'https://spectrumsportsnet.com/content/dam/sports/images/SpectrumSportsNetLogo.svg',
     'Sportsnet': './modules/MMM-MyScoreboard/logos/channels/Sportsnet.svg',
-    'Sportsnet LA': 'https://spectrumsportsnet.com/content/dam/sports/images/SpectrumSportsNetLogo.svg',
+    'Sportsnet LA': 'https://spectrumsportsnet.com/content/dam/sports/images/logo-sports-net-la.svg',
     'Sportsnet One': './modules/MMM-MyScoreboard/logos/channels/SportsnetOne.svg',
     'SportsNet PIT': './modules/MMM-MyScoreboard/logos/channels/SportsNetPIT.svg',
-    'SportsNet PIT+': './modules/MMM-MyScoreboard/logos/channels/SportsNetPIT.svg',
+    'SportsNet PIT+': './modules/MMM-MyScoreboard/logos/channels/SportsNetPITPlus.svg',
     'Suns Live': './modules/MMM-MyScoreboard/logos/channels/SunsLive.svg',
     'The U': './modules/MMM-MyScoreboard/logos/channels/TheU.png',
     'TSN': 'https://www.tsn.ca/content/dam/sports/images/main-navigation/group_1/tsn_100x24.png',
     'TVA': 'https://upload.wikimedia.org/wikipedia/commons/0/00/TVA_logo_2020.svg',
     'Twins.TV': './modules/MMM-MyScoreboard/logos/channels/TwinsTV.svg',
     'Utah 16': 'https://upload.wikimedia.org/wikipedia/commons/f/f4/KUPX-TV_logo_2023.svg',
-    // 'WLNY': 'https://upload.wikimedia.org/wikipedia/en/1/10/WLNY_New_York_55_2023.svg',
+    'WLNY': 'https://upload.wikimedia.org/wikipedia/en/1/10/WLNY_New_York_55_2023.svg',
     'YES': 'https://static.yesnetwork.com/assets/images/light-on-dark/yes.svg',
   },
 
@@ -657,22 +657,26 @@ module.exports = {
             })
           }
         })
-        if (channels.length === 0) {
+        // if (channels.length === 0) {
           var localGamesList = []
           game.competitions[0].broadcasts.forEach((market) => {
             market.names.forEach((channelName) => {
+              var localDesignation = ''
               if (channelName.startsWith('FanDuel')) {
+                localDesignation = channelName.replace('FanDuel ','')
+                localDesignation = localDesignation.replace('SN ','')
                 channelName = 'FanDuel'
               }
-              if (channelName.startsWith('NBC Sports')) {
+              else if (channelName.startsWith('NBC Sports')) {
+                localDesignation = channelName.replace('NBC Sports ','')
                 channelName = 'NBC Sports'
               }
               if ((payload.showLocalBroadcasts /* && homeOrAway[market.market] */ && !payload.skipChannels.includes(channelName)) || payload.displayLocalChannels.includes(channelName)) {
                 if (this.broadcastIcons[channelName] !== undefined) {
-                  channels.push(`<img src="${this.broadcastIcons[channelName]}" class="broadcastIcon">`)
+                  channels.push(`<img src="${this.broadcastIcons[channelName]}" class="broadcastIcon">${localDesignation}`)
                 }
                 else if (this.broadcastIconsInvert[channelName] !== undefined) {
-                  channels.push(`<img src="${this.broadcastIconsInvert[channelName]}" class="broadcastIcon broadcastIconInvert">`)
+                  channels.push(`<img src="${this.broadcastIconsInvert[channelName]}" class="broadcastIcon broadcastIconInvert">${localDesignation}`)
                 }
                 else {
                   channels.push(channelName)
@@ -687,7 +691,10 @@ module.exports = {
           if (localGamesList.length > 0) {
             Log.info(`The local channels available for ${game.shortName} are: ${localGamesList.join(', ')}`)
           }
-        }
+        // }
+       // else {
+        //  Log.info(`There were local broadcasts even though there were national ones`)
+       // }
       }
       channels = [...new Set(channels)]
 

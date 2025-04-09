@@ -1019,6 +1019,10 @@
   width: unset;
 }
 
+.moreBroadcasts {
+  padding-left: 2px;
+}
+
 /* .ellipses, .statusPart {
   background-color:white;
 }

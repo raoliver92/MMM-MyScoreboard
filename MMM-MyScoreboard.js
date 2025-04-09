@@ -498,7 +498,7 @@ Module.register('MMM-MyScoreboard', {
       }
     }
     if (maxBroadcasts < gameObj.broadcast.length) {
-      broadcastPart.innerHTML += `<span class="ellipses"> +${gameObj.broadcast.length - maxBroadcasts}</span>`
+      broadcastPart.innerHTML += `<span class="moreBroadcasts">+${gameObj.broadcast.length - maxBroadcasts}</span>`
     }
     status.appendChild(broadcastPart)
     boxScore.appendChild(status)
