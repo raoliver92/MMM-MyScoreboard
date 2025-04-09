@@ -26,7 +26,7 @@ Module.register('MMM-MyScoreboard', {
     showLocalBroadcasts: false,
     skipChannels: [],
     displayLocalChannels: [],
-    limitBroadcasts: 3,
+    limitBroadcasts: 1,
     sports: [
       {
         league: 'NHL',
@@ -486,11 +486,19 @@ Module.register('MMM-MyScoreboard', {
     }
     var broadcastPart = document.createElement('div')
     broadcastPart.classList.add('broadcast')
-    for (var i = 0; i < maxBroadcasts; i++) {
-      broadcastPart.innerHTML += gameObj.broadcast[i]
+    if (gameObj.broadcast.length === 1) {
+      broadcastPart.innerHTML += gameObj.broadcast[0]
+    }
+    else if (maxBroadcasts === 1) {
+      broadcastPart.innerHTML += gameObj.broadcast[Math.floor(Math.random() * gameObj.broadcast.length)]
+    }
+    else {
+      for (var i = 0; i < maxBroadcasts; i++) {
+        broadcastPart.innerHTML += gameObj.broadcast[i]
+      }
     }
     if (maxBroadcasts < gameObj.broadcast.length) {
-      broadcastPart.innerHTML += '<span class="ellipses">...</span>'
+      broadcastPart.innerHTML += `<span class="ellipses"> +${gameObj.broadcast.length - maxBroadcasts}</span>`
     }
     status.appendChild(broadcastPart)
     boxScore.appendChild(status)

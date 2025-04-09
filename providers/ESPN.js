@@ -415,27 +415,37 @@ module.exports = {
     'ESPNU': 'https://storage.googleapis.com/byucougars-prod/2023/08/15/FDU7FuMUvL1g21JvnaSPUSCWAvfZZXq11MRP7pKp.svg',
     'ESPN Deportes': 'https://upload.wikimedia.org/wikipedia/commons/d/d5/ESPN_Deportes.svg',
     'Max': 'https://upload.wikimedia.org/wikipedia/commons/c/ce/Max_logo.svg',
+    'MLB Net': 'https://upload.wikimedia.org/wikipedia/en/a/ac/MLBNetworkLogo.svg',
     'NBA League Pass': 'https://cdn.nba.com/manage/2025/02/NBA_League_Pass_horiz_onDkBkgd_NEWLOGO.png',
     'NBA TV': 'https://upload.wikimedia.org/wikipedia/en/d/d2/NBA_TV.svg',
     'NBC': 'https://upload.wikimedia.org/wikipedia/commons/9/9f/NBC_Peacock_1986.svg',
     'NHL Net': 'https://upload.wikimedia.org/wikipedia/commons/f/f4/NHL_Network_2012.svg',
     'Paramount+': 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Paramount%2B_logo.svg',
     'Peacock': './modules/MMM-MyScoreboard/logos/channels/Peacock.svg',
+    'Prime Video': 'https://upload.wikimedia.org/wikipedia/commons/9/90/Prime_Video_logo_%282024%29.svg',
     'TBS': 'https://upload.wikimedia.org/wikipedia/commons/2/2c/TBS_2020.svg',
     'TNT': 'https://www.tntdrama.com/themes/custom/ten_theme/images/tnt/tnt_logo_top.png',
     'truTV': './modules/MMM-MyScoreboard/logos/channels/truTV.svg',
     'USA Net': 'https://upload.wikimedia.org/wikipedia/commons/d/d7/USA_Network_logo_%282016%29.svg',
     'Universo': './modules/MMM-MyScoreboard/logos/channels/Universo.svg',
 
+    'Arizona\'s Family 3TV': 'https://upload.wikimedia.org/wikipedia/commons/0/00/KTVK_logo.svg',
+    'BlazerVision': './modules/MMM-MyScoreboard/logos/channels/BlazerVision.png',
     'CHSN': 'https://upload.wikimedia.org/wikipedia/en/6/68/Chicago_Sports_Network_Logo.png',
     'CHSN+': 'https://upload.wikimedia.org/wikipedia/en/6/68/Chicago_Sports_Network_Logo.png',
     'CLEGuardians.TV': './modules/MMM-MyScoreboard/logos/channels/CLEGuardiansTV.svg',
     'ClipperVision': './modules/MMM-MyScoreboard/logos/channels/ClipperVision.webp',
     'DBACKS.TV': 'https://www.mlbstatic.com/team-logos/product-on-dark/dbacks-tv-partner.svg',
-    'FanDuel': 'https://www.stayonsearch.com/wp-content/uploads/2018/09/fanduel-logo-300.png',
+    //'FanDuel': 'https://www.stayonsearch.com/wp-content/uploads/2018/09/fanduel-logo-300.png',
+    'FanDuel': 'https://upload.wikimedia.org/wikipedia/en/f/f4/Fanduel_Official_Logo_2022.svg',
+    'Jazz+': './modules/MMM-MyScoreboard/logos/channels/JazzPlus.svg',
+    'KATU 2.2': './modules/MMM-MyScoreboard/logos/channels/KATU.svg',
     'KCOP': 'https://static.foxtv.com/static/orion/img/core/s/logos/fts-los-angeles-a.svg',
+    'KENS 5': 'https://www.kens5.com/assets/shared-images/logos/kens.png',
     'KHN': './modules/MMM-MyScoreboard/logos/channels/KHN1.png',
+    'KJZZ-TV': './modules/MMM-MyScoreboard/logos/channels/KJZZ-TV.png',
     'KONG': 'https://upload.wikimedia.org/wikipedia/commons/6/6a/KONG_%28TV%29_logo_2016.svg',
+    'KUNP 16': './modules/MMM-MyScoreboard/logos/channels/KUNP16.svg',
     'Marquee Sports Net': 'https://dupvhm5r1oaxt.cloudfront.net/uploads/2020/02/CUBS_MSN_Logo_white.png',
     'MASN': 'https://www.masnsports.com/images/masn.svg',
     'MASN2': 'https://video.masnsports.com/assets/images/masn2.svg',
@@ -461,7 +471,9 @@ module.exports = {
     'Sportsnet One': './modules/MMM-MyScoreboard/logos/channels/SportsnetOne.svg',
     'SportsNet PIT': './modules/MMM-MyScoreboard/logos/channels/SportsNetPIT.svg',
     'SportsNet PIT+': './modules/MMM-MyScoreboard/logos/channels/SportsNetPIT.svg',
+    'Suns Live': './modules/MMM-MyScoreboard/logos/channels/SunsLive.svg',
     'The U': './modules/MMM-MyScoreboard/logos/channels/TheU.png',
+    'TSN': 'https://www.tsn.ca/content/dam/sports/images/main-navigation/group_1/tsn_100x24.png',
     'TVA': 'https://upload.wikimedia.org/wikipedia/commons/0/00/TVA_logo_2020.svg',
     'Twins.TV': './modules/MMM-MyScoreboard/logos/channels/TwinsTV.svg',
     'Utah 16': 'https://upload.wikimedia.org/wikipedia/commons/f/f4/KUPX-TV_logo_2023.svg',
@@ -620,12 +632,12 @@ module.exports = {
       }
       var channels = []
 
-      var homeWanted = (payload.teams === null || payload.teams.indexOf(hTeamData.team.abbreviation) != -1)
+      /* var homeWanted = (payload.teams === null || payload.teams.indexOf(hTeamData.team.abbreviation) != -1)
       var awayWanted = (payload.teams === null || payload.teams.indexOf(vTeamData.team.abbreviation) != -1)
       var homeOrAway = {
         home: homeWanted,
         away: awayWanted,
-      }
+      } */
       if (game.competitions[0].broadcasts.length > 0 && !payload.hideBroadcasts) {
         game.competitions[0].broadcasts.forEach((market) => {
           if (market.market === 'national') {
@@ -655,7 +667,7 @@ module.exports = {
               if (channelName.startsWith('NBC Sports')) {
                 channelName = 'NBC Sports'
               }
-              if ((payload.showLocalBroadcasts && homeOrAway[market.market] && !payload.skipChannels.includes(channelName)) || payload.displayLocalChannels.includes(channelName)) {
+              if ((payload.showLocalBroadcasts /* && homeOrAway[market.market] */ && !payload.skipChannels.includes(channelName)) || payload.displayLocalChannels.includes(channelName)) {
                 if (this.broadcastIcons[channelName] !== undefined) {
                   channels.push(`<img src="${this.broadcastIcons[channelName]}" class="broadcastIcon">`)
                 }
@@ -687,7 +699,6 @@ module.exports = {
         case '5': // cancelled
         case '6': // postponed
           gameState = 0
-          // status.push('Postponed')
           status.push(game.status.type.detail)
           break
         case '8': // suspended
