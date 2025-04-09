@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - **NEW FEATURE**: New config option to `showLocalBroadcasts`
 - **NEW FEATURE**: New config option to `skipChannels`
 - **NEW FEATURE**: New config option to `displayLocalChannels`
+- **NEW FEATURE**: Add UEFA Women's Nations League
 - **NEW FEATURE**: Some broadcast channel logos will be displayed instead of text (if you want to add a logo, submit an issue)
 - Lots of tweaking of how broadcast channels are displayed
 

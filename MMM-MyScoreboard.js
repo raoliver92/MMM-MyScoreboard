@@ -26,6 +26,7 @@ Module.register('MMM-MyScoreboard', {
     showLocalBroadcasts: false,
     skipChannels: [],
     displayLocalChannels: [],
+    limitBroadcasts: 10,
     sports: [
       {
         league: 'NHL',
@@ -113,6 +114,7 @@ Module.register('MMM-MyScoreboard', {
     UEFA_NATIONS: { provider: 'ESPN', logoFormat: 'url', homeTeamFirst: true },
     SAFF_CHAMPIONSHIP: { provider: 'ESPN', logoFormat: 'url', homeTeamFirst: true },
     WOMENS_EUROPEAN_CHAMPIONSHIP: { provider: 'ESPN', logoFormat: 'url', homeTeamFirst: true },
+    UEFA_WOMENS_NATIONS: { provider: 'ESPN', logoFormat: 'url', homeTeamFirst: true },
 
     // UK / Ireland Soccer
     ENG_CARABAO_CUP: { provider: 'ESPN', logoFormat: 'url', homeTeamFirst: true },
@@ -473,12 +475,21 @@ Module.register('MMM-MyScoreboard', {
       statusPart.classList.add('statusPart')
       status.appendChild(statusPart)
     })
-    gameObj.broadcast.forEach(function (b) {
-      var broadcastPart = document.createElement('div')
-      broadcastPart.innerHTML = b
-      broadcastPart.classList.add('broadcast')
-      status.appendChild(broadcastPart)
-    })
+    if (['smallLogos'].includes(this.config.viewStyle)) {
+      var maxBroadcasts = Math.min(2, gameObj.broadcast.length, this.config.limitBroadcasts)
+    }
+    else if (['oneLine', 'oneLineWithLogos'].includes(this.config.viewStyle)) {
+      maxBroadcasts = Math.min(1, gameObj.broadcast.length, this.config.limitBroadcasts)
+    }
+    else {
+      maxBroadcasts = Math.min(gameObj.broadcast.length, this.config.limitBroadcasts)
+    }
+    var broadcastPart = document.createElement('div')
+    broadcastPart.classList.add('broadcast')
+    for (var i = 0; i < maxBroadcasts; i++) {
+      broadcastPart.innerHTML += gameObj.broadcast[i]
+    }
+    status.appendChild(broadcastPart)
     boxScore.appendChild(status)
 
     // add scores if game in progress or finished

@@ -95,6 +95,7 @@ module.exports = {
     UEFA_NATIONS: 'soccer/uefa.nations',
     SAFF_CHAMPIONSHIP: 'soccer/afc.saff.championship',
     WOMENS_EUROPEAN_CHAMPIONSHIP: 'soccer/uefa.weuro',
+    UEFA_WOMENS_NATIONS: 'soccer/uefa.w.nations',
 
     // UK / Ireland Soccer
     ENG_CARABAO_CUP: 'soccer/eng.league_cup',
@@ -409,44 +410,63 @@ module.exports = {
 
   broadcastIcons: {
     'ESPN': 'https://upload.wikimedia.org/wikipedia/commons/2/2f/ESPN_wordmark.svg',
-    'ESPN+': 'https://a.espncdn.com/redesign/assets/img/logos/espnplus/ESPN+White.svg',
+    'ESPN+': './modules/MMM-MyScoreboard/logos/channels/ESPN+.svg',
     'ESPNEWS': 'https://upload.wikimedia.org/wikipedia/commons/1/1b/ESPNews.svg',
+    'ESPNU': 'https://storage.googleapis.com/byucougars-prod/2023/08/15/FDU7FuMUvL1g21JvnaSPUSCWAvfZZXq11MRP7pKp.svg',
     'ESPN Deportes': 'https://upload.wikimedia.org/wikipedia/commons/d/d5/ESPN_Deportes.svg',
-    'NBC': 'https://upload.wikimedia.org/wikipedia/commons/9/9f/NBC_Peacock_1986.svg',
-    'TBS': 'https://upload.wikimedia.org/wikipedia/commons/2/2c/TBS_2020.svg',
-    'USA Net': 'https://upload.wikimedia.org/wikipedia/commons/d/d7/USA_Network_logo_%282016%29.svg',
-    'Universo': 'https://img.nbc.com/files/images/2019/4/25/Universo-logos-templateUniverso-Logo-White-450x228.png',
-    'NHL Net': 'https://upload.wikimedia.org/wikipedia/commons/f/f4/NHL_Network_2012.svg',
+    'Max': 'https://upload.wikimedia.org/wikipedia/commons/c/ce/Max_logo.svg',
+    'NBA League Pass': 'https://cdn.nba.com/manage/2025/02/NBA_League_Pass_horiz_onDkBkgd_NEWLOGO.png',
     'NBA TV': 'https://upload.wikimedia.org/wikipedia/en/d/d2/NBA_TV.svg',
+    'NBC': 'https://upload.wikimedia.org/wikipedia/commons/9/9f/NBC_Peacock_1986.svg',
+    'NHL Net': 'https://upload.wikimedia.org/wikipedia/commons/f/f4/NHL_Network_2012.svg',
+    'Paramount+': 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Paramount%2B_logo.svg',
+    'Peacock': './modules/MMM-MyScoreboard/logos/channels/Peacock.svg',
+    'TBS': 'https://upload.wikimedia.org/wikipedia/commons/2/2c/TBS_2020.svg',
+    'TNT': 'https://www.tntdrama.com/themes/custom/ten_theme/images/tnt/tnt_logo_top.png',
+    'truTV': './modules/MMM-MyScoreboard/logos/channels/truTV.svg',
+    'USA Net': 'https://upload.wikimedia.org/wikipedia/commons/d/d7/USA_Network_logo_%282016%29.svg',
+    'Universo': './modules/MMM-MyScoreboard/logos/channels/Universo.svg',
 
+    'CHSN': 'https://upload.wikimedia.org/wikipedia/en/6/68/Chicago_Sports_Network_Logo.png',
+    'CHSN+': 'https://upload.wikimedia.org/wikipedia/en/6/68/Chicago_Sports_Network_Logo.png',
+    'CLEGuardians.TV': './modules/MMM-MyScoreboard/logos/channels/CLEGuardiansTV.svg',
+    'ClipperVision': './modules/MMM-MyScoreboard/logos/channels/ClipperVision.webp',
+    'DBACKS.TV': 'https://www.mlbstatic.com/team-logos/product-on-dark/dbacks-tv-partner.svg',
+    'FanDuel': 'https://www.stayonsearch.com/wp-content/uploads/2018/09/fanduel-logo-300.png',
+    'KCOP': 'https://static.foxtv.com/static/orion/img/core/s/logos/fts-los-angeles-a.svg',
+    'KHN': './modules/MMM-MyScoreboard/logos/channels/KHN1.png',
+    'KONG': 'https://upload.wikimedia.org/wikipedia/commons/6/6a/KONG_%28TV%29_logo_2016.svg',
+    'Marquee Sports Net': 'https://dupvhm5r1oaxt.cloudfront.net/uploads/2020/02/CUBS_MSN_Logo_white.png',
     'MASN': 'https://www.masnsports.com/images/masn.svg',
     'MASN2': 'https://video.masnsports.com/assets/images/masn2.svg',
-    'Root Sports NW': 'https://upload.wikimedia.org/wikipedia/en/8/8b/Root_Sports_logo.svg',
-    'NBC Sports BA': 'https://upload.wikimedia.org/wikipedia/commons/0/08/NBC_Sports_2023.svg',
-    'NBC Sports Phil': 'https://upload.wikimedia.org/wikipedia/commons/0/08/NBC_Sports_2023.svg',
-    'NBCSCA+': 'https://upload.wikimedia.org/wikipedia/commons/0/08/NBC_Sports_2023.svg',
-    'MSG': 'https://www.msgnetworks.com/wp-content/themes/msgn/images/logo1.png',
-    'FanDuel SN Sun': 'https://s3.us-east-1.amazonaws.com/cdn.fanduel.com/images/2023/fanduel/homepage/facelift/fdtv-logo.svg',
-    'FanDuel SN West': 'https://s3.us-east-1.amazonaws.com/cdn.fanduel.com/images/2023/fanduel/homepage/facelift/fdtv-logo.svg',
-    'FanDuel SN DET': 'https://s3.us-east-1.amazonaws.com/cdn.fanduel.com/images/2023/fanduel/homepage/facelift/fdtv-logo.svg',
-    'FanDuel SN MW': 'https://s3.us-east-1.amazonaws.com/cdn.fanduel.com/images/2023/fanduel/homepage/facelift/fdtv-logo.svg',
-    'FanDuel SN PIT': 'https://s3.us-east-1.amazonaws.com/cdn.fanduel.com/images/2023/fanduel/homepage/facelift/fdtv-logo.svg',
-    'FanDuel SN FL': 'https://s3.us-east-1.amazonaws.com/cdn.fanduel.com/images/2023/fanduel/homepage/facelift/fdtv-logo.svg',
-    'FanDuel Sports KC': 'https://s3.us-east-1.amazonaws.com/cdn.fanduel.com/images/2023/fanduel/homepage/facelift/fdtv-logo.svg',
-    'FanDuel SN OH': 'https://s3.us-east-1.amazonaws.com/cdn.fanduel.com/images/2023/fanduel/homepage/facelift/fdtv-logo.svg',
-    'FanDuel SN MW Extra': 'https://s3.us-east-1.amazonaws.com/cdn.fanduel.com/images/2023/fanduel/homepage/facelift/fdtv-logo.svg',
-    'KCOP': 'https://static.foxtv.com/static/orion/img/core/s/logos/fts-los-angeles-a.svg',
-    'KONG': 'https://upload.wikimedia.org/wikipedia/commons/6/6a/KONG_%28TV%29_logo_2016.svg',
-    'YES': 'https://static.yesnetwork.com/assets/images/light-on-dark/yes.svg',
-    'SNY': 'https://sny.tv/images/sny.svg',
-    'Marquee Sports Net': 'https://dupvhm5r1oaxt.cloudfront.net/uploads/2020/02/CUBS_MSN_Logo_white.png',
-    'Rangers Sports Network': 'https://upload.wikimedia.org/wikipedia/commons/f/fe/Rangers_Sports_Network_Logo.png',
-    'Sportsnet LA': 'https://spectrumsportsnet.com/content/dam/sports/images/SpectrumSportsNetLogo.svg',
-    'Space City Home Network': 'https://static.wixstatic.com/media/b2a684_6cb9aa9a46fa4478bdeb7f3afe95713d~mv2.png/v1/fill/w_233,h_77,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/b2a684_6cb9aa9a46fa4478bdeb7f3afe95713d~mv2.png',
+    'MLB.com': 'https://www.mlbstatic.com/team-logos/league-on-dark/1.svg',
     'MLB.TV': 'https://images.ctfassets.net/iiozhi00a8lc/78yBC9oWuP1VldT6aJT1sL/8cc2b4b9d9ab83e6a90ee48476b66074/MLBTV_19_ondark_RGB.svg',
-    'DBACKS.TV': 'https://www.mlbstatic.com/team-logos/product-on-dark/dbacks-tv-partner.svg',
-    'Twins.TV': 'https://www.mlbstatic.com/team-logos/product-on-dark/twins-tv-partner.svg',
+    'MNMT': './modules/MMM-MyScoreboard/logos/channels/MNMT.svg',
+    'MSG': './modules/MMM-MyScoreboard/logos/channels/MSG.png',
+    'MSGB': './modules/MMM-MyScoreboard/logos/channels/MSG.png',
+    'MSGSN': './modules/MMM-MyScoreboard/logos/channels/MSG.png',
+    'NBCSCA+': 'https://nbcsports.brightspotcdn.com/76/a1/28ae939d488781e23e1813aaecb3/nbc-sports-logo-1.svg',
+    'NBC Sports': 'https://nbcsports.brightspotcdn.com/76/a1/28ae939d488781e23e1813aaecb3/nbc-sports-logo-1.svg',
+    'NESN': './modules/MMM-MyScoreboard/logos/channels/NESN.svg',
+    'NESN+': './modules/MMM-MyScoreboard/logos/channels/NESN.svg',
     'Padres.TV': 'https://www.mlbstatic.com/team-logos/product-on-light/padres-tv.svg',
+    'Rangers Sports Network': 'https://upload.wikimedia.org/wikipedia/commons/f/fe/Rangers_Sports_Network_Logo.png',
+    'Rockies.TV': './modules/MMM-MyScoreboard/logos/channels/RockiesTV.svg',
+    'Root Sports NW': 'https://upload.wikimedia.org/wikipedia/en/8/8b/Root_Sports_logo.svg',
+    'SNY': 'https://sny.tv/images/sny.svg',
+    'Space City Home Network': 'https://static.wixstatic.com/media/b2a684_6cb9aa9a46fa4478bdeb7f3afe95713d~mv2.png/v1/fill/w_233,h_77,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/b2a684_6cb9aa9a46fa4478bdeb7f3afe95713d~mv2.png',
+    'Spectrum Sports Net': 'https://spectrumsportsnet.com/content/dam/sports/images/SpectrumSportsNetLogo.svg',
+    'Sportsnet': './modules/MMM-MyScoreboard/logos/channels/Sportsnet.svg',
+    'Sportsnet LA': 'https://spectrumsportsnet.com/content/dam/sports/images/SpectrumSportsNetLogo.svg',
+    'Sportsnet One': './modules/MMM-MyScoreboard/logos/channels/SportsnetOne.svg',
+    'SportsNet PIT': './modules/MMM-MyScoreboard/logos/channels/SportsNetPIT.svg',
+    'SportsNet PIT+': './modules/MMM-MyScoreboard/logos/channels/SportsNetPIT.svg',
+    'The U': './modules/MMM-MyScoreboard/logos/channels/TheU.png',
+    'TVA': 'https://upload.wikimedia.org/wikipedia/commons/0/00/TVA_logo_2020.svg',
+    'Twins.TV': './modules/MMM-MyScoreboard/logos/channels/TwinsTV.svg',
+    'Utah 16': 'https://upload.wikimedia.org/wikipedia/commons/f/f4/KUPX-TV_logo_2023.svg',
+    // 'WLNY': 'https://upload.wikimedia.org/wikipedia/en/1/10/WLNY_New_York_55_2023.svg',
+    'YES': 'https://static.yesnetwork.com/assets/images/light-on-dark/yes.svg',
   },
 
   broadcastIconsInvert: {
@@ -454,17 +474,9 @@ module.exports = {
     // CBS: 'https://upload.wikimedia.org/wikipedia/commons/b/bd/CBS_Eyemark.svg',
     'CBS': 'https://upload.wikimedia.org/wikipedia/commons/e/ee/CBS_logo_%282020%29.svg',
     'FOX': 'https://upload.wikimedia.org/wikipedia/commons/c/c0/Fox_Broadcasting_Company_logo_%282019%29.svg',
-    'TNT': 'https://upload.wikimedia.org/wikipedia/commons/e/ec/TNT_%28TV_Channel%29.svg',
 
+    'Spectrum Sports Net +': 'https://thestreamable.com/media/pages/video-streaming/spectrum-sportsnet-plus/4a9b2bff0c-1698772675/sportsnetb-1.svg',
     'Victory+': 'https://thestreamable.com/media/pages/video-streaming/victory-plus/84029ec6cd-1720450552/victoryplus.svg',
-    'NESN': 'https://upload.wikimedia.org/wikipedia/en/0/02/NESN_logo_2019.png',
-  },
-
-  broadcastIconsOutline: {
-    'Paramount+': 'https://public-assets-pressexpress.s3.amazonaws.com/assets/logos/original/2022/01/04/pplus_logo_dark.svg',
-
-    'Sportsnet': 'https://upload.wikimedia.org/wikipedia/commons/7/7f/Logo_Sportsnet_2011.svg',
-    'SportsNet PIT': 'https://upload.wikimedia.org/wikipedia/commons/3/30/SportsNet_Pittsburgh_logo.png',
   },
 
   // Skip these channels because they will return every out-of-market game
@@ -620,17 +632,15 @@ module.exports = {
             market.names.forEach((channelName) => {
               if (!payload.skipChannels.includes(channelName)) {
                 if (this.broadcastIcons[channelName] !== undefined) {
-                  channels.push(`<img src="${this.broadcastIcons[channelName]}" class="broadcastIcon" alt="${channelName}">`)
+                  channels.push(`<img src="${this.broadcastIcons[channelName]}" class="broadcastIcon">`)
                 }
                 else if (this.broadcastIconsInvert[channelName] !== undefined) {
-                  channels.push(`<img src="${this.broadcastIconsInvert[channelName]}" class="broadcastIcon broadcastIconInvert" alt="${channelName}">`)
-                }
-                else if (this.broadcastIconsOutline[channelName] !== undefined) {
-                  channels.push(`<img src="${this.broadcastIconsOutline[channelName]}" class="broadcastIcon outline" alt="${channelName}">`)
+                  channels.push(`<img src="${this.broadcastIconsInvert[channelName]}" class="broadcastIcon broadcastIconInvert"">`)
                 }
                 else {
                   channels.push(channelName)
                 }
+                Log.debug(channelName)
               }
             })
           }
@@ -639,19 +649,23 @@ module.exports = {
           var localGamesList = []
           game.competitions[0].broadcasts.forEach((market) => {
             market.names.forEach((channelName) => {
+              if (channelName.startsWith('FanDuel')) {
+                channelName = 'FanDuel'
+              }
+              if (channelName.startsWith('NBC Sports')) {
+                channelName = 'NBC Sports'
+              }
               if ((payload.showLocalBroadcasts && homeOrAway[market.market] && !payload.skipChannels.includes(channelName)) || payload.displayLocalChannels.includes(channelName)) {
                 if (this.broadcastIcons[channelName] !== undefined) {
-                  channels.push(`<img src="${this.broadcastIcons[channelName]}" class="broadcastIcon" alt="${channelName}">`)
+                  channels.push(`<img src="${this.broadcastIcons[channelName]}" class="broadcastIcon">`)
                 }
                 else if (this.broadcastIconsInvert[channelName] !== undefined) {
-                  channels.push(`<img src="${this.broadcastIconsInvert[channelName]}" class="broadcastIcon broadcastIconInvert" alt="${channelName}">`)
-                }
-                else if (this.broadcastIconsOutline[channelName] !== undefined) {
-                  channels.push(`<img src="${this.broadcastIconsOutline[channelName]}" class="broadcastIcon outline" alt="${channelName}">`)
+                  channels.push(`<img src="${this.broadcastIconsInvert[channelName]}" class="broadcastIcon broadcastIconInvert">`)
                 }
                 else {
                   channels.push(channelName)
                 }
+                Log.debug(channelName)
               }
               else if (!payload.showLocalBroadcasts && !payload.skipChannels.includes(channelName) && !payload.displayLocalChannels.includes(channelName)) {
                 localGamesList.push(channelName)
@@ -663,6 +677,7 @@ module.exports = {
           }
         }
       }
+      channels = [...new Set(channels)]
 
       switch (game.status.type.id) {
         case '0' : // TBD
@@ -670,9 +685,6 @@ module.exports = {
           status.push('TBD')
           break
         case '5': // cancelled
-          gameState = 0
-          status.push('Cancelled')
-          break
         case '6': // postponed
           gameState = 0
           // status.push('Postponed')
@@ -685,9 +697,7 @@ module.exports = {
         case '1': // scheduled
           gameState = 0
           status.push(moment(game.competitions[0].date).tz(localTZ).format(timeFormat))
-          if (channels.length > 0) {
-            broadcast.push(channels.join('/'))
-          }
+          broadcast = channels
           break
         case '2': // in-progress
         case '21': // beginning of period
@@ -700,32 +710,24 @@ module.exports = {
         case '48': // SOCCER end extra time
           gameState = 1
           status.push(game.status.type.shortDetail)
-          if (channels.length > 0) {
-            broadcast.push(channels.join('/'))
-          }
+          broadcast = channels
           break
         case '23': // halftime
           gameState = 1
           status.push(game.status.type.description)
-          if (channels.length > 0) {
-            broadcast.push(channels.join('/'))
-          }
+          broadcast = channels
           break
         case '7': // delayed
         case '17': // rain delay
           gameState = 1
           classes.push['delay']
           status.push('Delay')
-          if (channels.length > 0) {
-            broadcast.push(channels.join('/'))
-          }
+          broadcast = channels
           break
         case '49': // SOCCER extra time half time
           gameState = 1
           status.push('HALFTIME (ET)')
-          if (channels.length > 0) {
-            broadcast.push(channels.join('/'))
-          }
+          broadcast = channels
           break
         case '3': // final
         case '28': // SOCCER Full Time
