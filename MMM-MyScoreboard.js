@@ -26,7 +26,7 @@ Module.register('MMM-MyScoreboard', {
     showLocalBroadcasts: false,
     skipChannels: [],
     displayLocalChannels: [],
-    limitBroadcasts: 10,
+    limitBroadcasts: 3,
     sports: [
       {
         league: 'NHL',
@@ -475,11 +475,11 @@ Module.register('MMM-MyScoreboard', {
       statusPart.classList.add('statusPart')
       status.appendChild(statusPart)
     })
-    if (['smallLogos'].includes(this.config.viewStyle)) {
-      var maxBroadcasts = Math.min(2, gameObj.broadcast.length, this.config.limitBroadcasts)
+    if (['smallLogos', 'oneLine', 'oneLineWithLogos'].includes(this.config.viewStyle)) {
+      var maxBroadcasts = Math.min(1, gameObj.broadcast.length, this.config.limitBroadcasts)
     }
-    else if (['oneLine', 'oneLineWithLogos'].includes(this.config.viewStyle)) {
-      maxBroadcasts = Math.min(1, gameObj.broadcast.length, this.config.limitBroadcasts)
+    else if (['largeLogos', 'stacked', 'stackedWithLogos'].includes(this.config.viewStyle)) {
+      maxBroadcasts = Math.min(2, gameObj.broadcast.length, this.config.limitBroadcasts)
     }
     else {
       maxBroadcasts = Math.min(gameObj.broadcast.length, this.config.limitBroadcasts)
@@ -488,6 +488,9 @@ Module.register('MMM-MyScoreboard', {
     broadcastPart.classList.add('broadcast')
     for (var i = 0; i < maxBroadcasts; i++) {
       broadcastPart.innerHTML += gameObj.broadcast[i]
+    }
+    if (maxBroadcasts < gameObj.broadcast.length) {
+      broadcastPart.innerHTML += '<span class="ellipses">...</span>'
     }
     status.appendChild(broadcastPart)
     boxScore.appendChild(status)

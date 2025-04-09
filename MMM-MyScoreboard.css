@@ -1,5 +1,5 @@
 .MMM-MyScoreboard {
-  min-width: 300px;
+  min-width: 325px;
 }
 
 .MMM-MyScoreboard .wrapper {
@@ -938,6 +938,7 @@
   clear: both;
   white-space: nowrap;
   /* overflow: hidden; */
+  align-items: center;
 }
 
 .MMM-MyScoreboard .box-score.smallLogos .broadcast,
@@ -999,7 +1000,29 @@
     background-color: #ccc;
 } */
 
-.statusPart {
+.MMM-MyScoreboard .statusPart {
   width: 100%;
   text-align: center;
 }
+
+.MMM-MyScoreboard .oneLine .statusPart,
+.MMM-MyScoreboard .oneLineWithLogos .statusPart {
+  width: unset;
+}
+
+.MMM-MyScoreboard .stacked .statusPart,
+.MMM-MyScoreboard .stackedWithLogos .statusPart {
+  text-align: right;
+}
+
+.MMM-MyScoreboard .smallLogos .statusPart {
+  width: unset;
+}
+
+/* .ellipses, .statusPart {
+  background-color:white;
+}
+
+.broadcastIcon {
+  background-color: #123456
+} */
