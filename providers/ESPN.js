@@ -416,6 +416,7 @@ module.exports = {
     'ESPN Deportes': 'https://upload.wikimedia.org/wikipedia/commons/d/d5/ESPN_Deportes.svg',
     'Max': 'https://upload.wikimedia.org/wikipedia/commons/c/ce/Max_logo.svg',
     'MLB Net': 'https://upload.wikimedia.org/wikipedia/en/a/ac/MLBNetworkLogo.svg',
+    'MLB.TV Free Game': './modules/MMM-MyScoreboard/logos/channels/MLBTVFreeGame.svg',
     'NBA League Pass': 'https://cdn.nba.com/manage/2025/02/NBA_League_Pass_horiz_onDkBkgd_NEWLOGO.png',
     'NBA TV': 'https://upload.wikimedia.org/wikipedia/en/d/d2/NBA_TV.svg',
     'NBC': 'https://upload.wikimedia.org/wikipedia/commons/9/9f/NBC_Peacock_1986.svg',
@@ -436,7 +437,7 @@ module.exports = {
     'CLEGuardians.TV': './modules/MMM-MyScoreboard/logos/channels/CLEGuardiansTV.svg',
     'ClipperVision': './modules/MMM-MyScoreboard/logos/channels/ClipperVision.webp',
     'DBACKS.TV': 'https://www.mlbstatic.com/team-logos/product-on-dark/dbacks-tv-partner.svg',
-    //'FanDuel': 'https://www.stayonsearch.com/wp-content/uploads/2018/09/fanduel-logo-300.png',
+    // 'FanDuel': 'https://www.stayonsearch.com/wp-content/uploads/2018/09/fanduel-logo-300.png',
     'FanDuel': 'https://upload.wikimedia.org/wikipedia/en/f/f4/Fanduel_Official_Logo_2022.svg',
     'Jazz+': './modules/MMM-MyScoreboard/logos/channels/JazzPlus.svg',
     'KATU 2.2': './modules/MMM-MyScoreboard/logos/channels/KATU.svg',
@@ -453,7 +454,7 @@ module.exports = {
     'MLB.TV': 'https://images.ctfassets.net/iiozhi00a8lc/78yBC9oWuP1VldT6aJT1sL/8cc2b4b9d9ab83e6a90ee48476b66074/MLBTV_19_ondark_RGB.svg',
     'MNMT': './modules/MMM-MyScoreboard/logos/channels/MNMT.svg',
     'MSG': './modules/MMM-MyScoreboard/logos/channels/MSG.png',
-    //'MSGB': './modules/MMM-MyScoreboard/logos/channels/MSG.png',
+    // 'MSGB': './modules/MMM-MyScoreboard/logos/channels/MSG.png',
     'MSGSN': 'https://upload.wikimedia.org/wikipedia/commons/5/5e/Msg-sportsnet.png',
     'NBCSCA+': './modules/MMM-MyScoreboard/logos/channels/NBCSCAPlus.svg',
     'NBC Sports': 'https://nbcsports.brightspotcdn.com/76/a1/28ae939d488781e23e1813aaecb3/nbc-sports-logo-1.svg',
@@ -491,8 +492,10 @@ module.exports = {
     'Victory+': 'https://thestreamable.com/media/pages/video-streaming/victory-plus/84029ec6cd-1720450552/victoryplus.svg',
   },
 
-  // Skip these channels because they will return every out-of-market game
-  globalSkipChannels: ['MLB.TV', 'DBACKS.TV', 'Twins.TV', 'Padres.TV'],
+  freeGameOfTheDay: {
+    day: '',
+    teams: [],
+  },
 
   getLeaguePath: function (league) {
     return this.LEAGUE_PATHS[league]
@@ -505,6 +508,8 @@ module.exports = {
       + this.getLeaguePath(payload.league)
       + '/scoreboard?dates='
       + moment(gameDate).format('YYYYMMDD') + '&limit=200'
+    var MLBurl = 'https://mastapi.mobile.mlbinfra.com/api/epg/v3/search?date='
+      + moment().format('YYYY-MM-DD') + '&exp=MLB'
     /*
       by default, ESPN returns only the Top 25 ranked teams for NCAAF
       and NCAAM. By appending the group parameter (80 for NCAAF and 50
@@ -528,10 +533,23 @@ module.exports = {
     try {
       const response = await fetch(url)
       const body = await response.json()
+      if (this.freeGameOfTheDay['day'] !== moment(gameDate).format('YYYY-MM-DD') && payload.league === 'MLB' && !payload.hideBroadcasts) {
+        const freeGameResponse = await fetch(MLBurl)
+        const freeGameBody = await freeGameResponse.json()
+        freeGameBody['results'].forEach ((game) => {
+          if (game['videoFeeds'][1]['freeGame']) {
+            // Log.debug(game['gameData']['away']['teamAbbrv'])
+            this.freeGameOfTheDay = {
+              day: moment().format('YYYY-MM-DD'),
+              teams: [game['gameData']['away']['teamAbbrv'], game['gameData']['home']['teamAbbrv']],
+            }
+          }
+        })
+      }
       callback(self.formatScores(payload, body, moment(gameDate).format('YYYYMMDD')))
     }
     catch (error) {
-      Log.error(error + url)
+      Log.error(error + ' ' + url)
     }
   },
 
@@ -652,49 +670,47 @@ module.exports = {
                 else {
                   channels.push(channelName)
                 }
-                Log.debug(channelName)
+                // Log.debug(channelName)
               }
             })
           }
         })
-        // if (channels.length === 0) {
-          var localGamesList = []
-          game.competitions[0].broadcasts.forEach((market) => {
-            market.names.forEach((channelName) => {
-              var localDesignation = ''
-              if (channelName.startsWith('FanDuel')) {
-                localDesignation = channelName.replace('FanDuel ','')
-                localDesignation = localDesignation.replace('SN ','')
-                channelName = 'FanDuel'
+        var localGamesList = []
+        game.competitions[0].broadcasts.forEach((market) => {
+          market.names.forEach((channelName) => {
+            var localDesignation = ''
+            if (channelName.startsWith('FanDuel')) {
+              localDesignation = channelName.replace('FanDuel ', '')
+              localDesignation = localDesignation.replace('SN ', '')
+              channelName = 'FanDuel'
+            }
+            else if (channelName.startsWith('NBC Sports')) {
+              localDesignation = channelName.replace('NBC Sports ', '')
+              channelName = 'NBC Sports'
+            }
+            if ((payload.showLocalBroadcasts /* && homeOrAway[market.market] */ && !payload.skipChannels.includes(channelName)) || payload.displayLocalChannels.includes(channelName)) {
+              if (this.broadcastIcons[channelName] !== undefined) {
+                channels.push(`<img src="${this.broadcastIcons[channelName]}" class="broadcastIcon">${localDesignation}`)
               }
-              else if (channelName.startsWith('NBC Sports')) {
-                localDesignation = channelName.replace('NBC Sports ','')
-                channelName = 'NBC Sports'
+              else if (this.broadcastIconsInvert[channelName] !== undefined) {
+                channels.push(`<img src="${this.broadcastIconsInvert[channelName]}" class="broadcastIcon broadcastIconInvert">${localDesignation}`)
               }
-              if ((payload.showLocalBroadcasts /* && homeOrAway[market.market] */ && !payload.skipChannels.includes(channelName)) || payload.displayLocalChannels.includes(channelName)) {
-                if (this.broadcastIcons[channelName] !== undefined) {
-                  channels.push(`<img src="${this.broadcastIcons[channelName]}" class="broadcastIcon">${localDesignation}`)
-                }
-                else if (this.broadcastIconsInvert[channelName] !== undefined) {
-                  channels.push(`<img src="${this.broadcastIconsInvert[channelName]}" class="broadcastIcon broadcastIconInvert">${localDesignation}`)
-                }
-                else {
-                  channels.push(channelName)
-                }
-                Log.debug(channelName)
+              else {
+                channels.push(channelName)
               }
-              else if (!payload.showLocalBroadcasts && !payload.skipChannels.includes(channelName) && !payload.displayLocalChannels.includes(channelName)) {
-                localGamesList.push(channelName)
-              }
-            })
+              // Log.debug(channelName)
+            }
+            else if (!payload.showLocalBroadcasts && !payload.skipChannels.includes(channelName) && !payload.displayLocalChannels.includes(channelName)) {
+              localGamesList.push(channelName)
+            }
           })
-          if (localGamesList.length > 0) {
-            Log.info(`The local channels available for ${game.shortName} are: ${localGamesList.join(', ')}`)
-          }
-        // }
-       // else {
-        //  Log.info(`There were local broadcasts even though there were national ones`)
-       // }
+        })
+        if (localGamesList.length > 0) {
+          Log.info(`The local channels available for ${game.shortName} are: ${localGamesList.join(', ')}`)
+        }
+      }
+      if (this.freeGameOfTheDay['day'] === moment(game.competitions[0].date).format('YYYY-MM-DD') && payload.league === 'MLB' && this.freeGameOfTheDay['teams'].includes(hTeamData.team.abbreviation)) {
+        channels.push(`<img src="${this.broadcastIcons['MLB.TV Free Game']}" class="broadcastIcon">`)
       }
       channels = [...new Set(channels)]
 
@@ -751,6 +767,7 @@ module.exports = {
         case '28': // SOCCER Full Time
           gameState = 2
           status.push(game.status.type.description)
+          // broadcast = channels
           break
         case '45': // SOCCER Final ET
         case '46': // SOCCER final score - after golden goal
