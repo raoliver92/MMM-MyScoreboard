@@ -409,11 +409,15 @@ module.exports = {
   ],
 
   broadcastIcons: {
+    'CW': 'https://upload.wikimedia.org/wikipedia/commons/b/b1/The_CW_2024.svg',
     'ESPN': 'https://upload.wikimedia.org/wikipedia/commons/2/2f/ESPN_wordmark.svg',
+    'ESPN2': 'https://upload.wikimedia.org/wikipedia/commons/b/bf/ESPN2_logo.svg',
     'ESPN+': './modules/MMM-MyScoreboard/logos/channels/ESPN+.svg',
     'ESPNEWS': 'https://upload.wikimedia.org/wikipedia/commons/1/1b/ESPNews.svg',
     'ESPNU': 'https://storage.googleapis.com/byucougars-prod/2023/08/15/FDU7FuMUvL1g21JvnaSPUSCWAvfZZXq11MRP7pKp.svg',
     'ESPN Deportes': 'https://upload.wikimedia.org/wikipedia/commons/d/d5/ESPN_Deportes.svg',
+    'FS1': 'https://upload.wikimedia.org/wikipedia/commons/3/37/2015_Fox_Sports_1_logo.svg',
+    'FS2': 'https://upload.wikimedia.org/wikipedia/commons/3/38/FS2_logo_2015.svg',
     'Max': 'https://upload.wikimedia.org/wikipedia/commons/c/ce/Max_logo.svg',
     'MLB Net': 'https://upload.wikimedia.org/wikipedia/en/a/ac/MLBNetworkLogo.svg',
     'MLB.TV Free Game': './modules/MMM-MyScoreboard/logos/channels/MLBTVFreeGame.svg',

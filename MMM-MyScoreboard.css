@@ -1,5 +1,15 @@
 .MMM-MyScoreboard {
+  min-width: 300px;
+  max-width: 400px;
+}
+
+.MMM-MyScoreboard:has(.smallLogos) {
   min-width: 325px;
+}
+
+.MMM-MyScoreboard:has(.oneLine),
+.MMM-MyScoreboard:has(.oneLineWithLogos) {
+  min-width: 375px;
 }
 
 .MMM-MyScoreboard .wrapper {
@@ -1019,14 +1029,17 @@
   width: unset;
 }
 
-.moreBroadcasts {
+.MMM-MyScoreboard .moreBroadcasts {
   padding-left: 2px;
 }
 
-/* .ellipses, .statusPart {
-  background-color:white;
+.MMM-MyScoreboard .oneLine .broadcast,
+.MMM-MyScoreboard .oneLine .oneLineWithLogos {
+  order: 1;
 }
 
-.broadcastIcon {
-  background-color: #123456
-} */
+
+.MMM-MyScoreboard .oneLine .statusPart,
+.MMM-MyScoreboard .oneLine .oneLineWithLogos {
+  order: 2;
+}
