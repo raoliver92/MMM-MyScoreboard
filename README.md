@@ -51,6 +51,9 @@ npm install
 | `highlightWinners`     | For games that are final, the winning team / score is highlighted.<br><br>**Type** `Boolean`<br>**Default** `true`
 | `showRankings`         | For the NCAAF and NCAAM, whether to show the rankings for the top 25 teams.<br><br>**Type** `Boolean`<br>**Default** `true`
 | `hideBroadcasts`       | Hide the display of broadcast channel when set to `true` (though if you are having problems with how broadcast channels are displayed, please open an Issue with a suggestion).<br><br>**Type** `Boolean`<br>**Default** `false`
+| `showLocalBroadcasts`  | Will show local broadcast channels for displayed games when set to `true`.<br><br>**Type** `Boolean`<br>**Default** `false` because your local television market might not match with your selected team
+| `skipChannels`         | A list of channels that you would never like to see displayed (e.g., if you do not subscribe to that channel).  You can find the abbreviation for a channel that displays as a logo by checking `MMM-MyScoreboard/providers/ESPN.js`.  I.e., start with all the channels and remove the ones you don't want.<br><br>**Type** `Array` of `Strings`<br>**Default** `[]`
+| `displayLocalChannels` | A list of local channels you would like to display, even if `showLocalBroadcasts` is set to `false`.  This allows you to manually set the local broadcast channels you receive.  A list of channels available for a game will show up in your MagicMirror logs.  I.e., start with no channels and add the ones you want.<br><br>**Type** `Array` or `Strings`<br>**Default** `[]`
 
 
 ## Configuring your sports list

@@ -1,5 +1,5 @@
 .MMM-MyScoreboard {
-  min-width: 300px;
+  min-width: 325px;
 }
 
 .MMM-MyScoreboard .wrapper {
@@ -142,6 +142,10 @@
   font-weight: 300;
   font-size: 20px;
   font-weight: 400;
+}
+
+.MMM-MyScoreboard .box-score .status {
+  display: flex;
 }
 
 .MMM-MyScoreboard .box-score .status > span {
@@ -926,5 +930,103 @@
 
 .MMM-MyScoreboard .broadcast {
 	font-size: 14px;
+  color: white;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  padding: 3px 3px 3px 3px;
+  clear: both;
+  white-space: nowrap;
+  /* overflow: hidden; */
+  align-items: center;
 }
 
+.MMM-MyScoreboard .box-score.smallLogos .broadcast,
+.MMM-MyScoreboard .box-score.oneLine .broadcast,
+.MMM-MyScoreboard .box-score.oneLineWithLogos .broadcast {
+  /* width: unset; */
+  animation: unset;
+}
+
+.MMM-MyScoreboard .box-score.stacked .broadcast,
+.MMM-MyScoreboard .box-score.stackedWithLogos .broadcast,
+.MMM-MyScoreboard .box-score.oneLine .broadcast,
+.MMM-MyScoreboard .box-score.oneLineWithLogos .broadcast {
+  justify-content: right;
+  padding-right: 0;
+}
+
+.MMM-MyScoreboard .box-score.oneLine .status,
+.MMM-MyScoreboard .box-score.oneLineWithLogos .status {
+  display: flex;
+  justify-content: right;
+}
+
+.MMM-MyScoreboard .status {
+  overflow: hidden
+}
+
+.MMM-MyScoreboard .broadcastIcon {
+	height: 15px;
+  margin: 0px 2px 0px 2px;
+}
+
+.MMM-MyScoreboard .outline {
+  -webkit-filter: drop-shadow(0px 0px 2px white)
+                  drop-shadow(-1px -1px 0px white)
+                  drop-shadow(1px -1px 0px white)
+                  drop-shadow(-1px 1px 0px white); 
+  filter: drop-shadow(1px 1px 0px white) 
+          drop-shadow(-1px -1px 0px white)
+          drop-shadow(1px -1px 0px white)
+          drop-shadow(-1px 1px 0px white);
+}
+
+.MMM-MyScoreboard .broadcastIconInvert {
+  filter: invert(100%);
+}
+
+/* @keyframes marquee {
+    0%, 33% {
+        transform: translateX(42px);
+    }
+    67%, 100% {
+        transform: translateX(-42px);
+    }
+}
+
+.broadcast {
+    animation: marquee 10s linear infinite;
+    background-color: #ccc;
+} */
+
+.MMM-MyScoreboard .statusPart {
+  width: 100%;
+  text-align: center;
+}
+
+.MMM-MyScoreboard .oneLine .statusPart,
+.MMM-MyScoreboard .oneLineWithLogos .statusPart {
+  width: unset;
+}
+
+.MMM-MyScoreboard .stacked .statusPart,
+.MMM-MyScoreboard .stackedWithLogos .statusPart {
+  text-align: right;
+}
+
+.MMM-MyScoreboard .smallLogos .statusPart {
+  width: unset;
+}
+
+.moreBroadcasts {
+  padding-left: 2px;
+}
+
+/* .ellipses, .statusPart {
+  background-color:white;
+}
+
+.broadcastIcon {
+  background-color: #123456
+} */

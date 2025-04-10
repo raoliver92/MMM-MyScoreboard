@@ -23,6 +23,10 @@ Module.register('MMM-MyScoreboard', {
     viewStyle: 'largeLogos',
     showRankings: true,
     hideBroadcasts: false,
+    showLocalBroadcasts: false,
+    skipChannels: [],
+    displayLocalChannels: [],
+    limitBroadcasts: 1,
     sports: [
       {
         league: 'NHL',
@@ -58,7 +62,7 @@ Module.register('MMM-MyScoreboard', {
     */
 
     // North American Leagues
-    NBA: { provider: 'SNET', logoFormat: 'svg' },
+    NBA: { provider: 'ESPN', logoFormat: 'svg' },
     NHL: { provider: 'ESPN', logoFormat: 'svg' },
     NFL: { provider: 'ESPN', logoFormat: 'svg' },
     CFL: { provider: 'SNET', logoFormat: 'svg' },
@@ -110,6 +114,7 @@ Module.register('MMM-MyScoreboard', {
     UEFA_NATIONS: { provider: 'ESPN', logoFormat: 'url', homeTeamFirst: true },
     SAFF_CHAMPIONSHIP: { provider: 'ESPN', logoFormat: 'url', homeTeamFirst: true },
     WOMENS_EUROPEAN_CHAMPIONSHIP: { provider: 'ESPN', logoFormat: 'url', homeTeamFirst: true },
+    UEFA_WOMENS_NATIONS: { provider: 'ESPN', logoFormat: 'url', homeTeamFirst: true },
 
     // UK / Ireland Soccer
     ENG_CARABAO_CUP: { provider: 'ESPN', logoFormat: 'url', homeTeamFirst: true },
@@ -465,10 +470,37 @@ Module.register('MMM-MyScoreboard', {
     var status = document.createElement('div')
     status.classList.add('status')
     gameObj.status.forEach(function (s) {
-      var statusPart = document.createElement('span')
+      var statusPart = document.createElement('div')
       statusPart.innerHTML = s
+      statusPart.classList.add('statusPart')
       status.appendChild(statusPart)
     })
+    if (['smallLogos', 'oneLine', 'oneLineWithLogos'].includes(this.config.viewStyle)) {
+      var maxBroadcasts = Math.min(1, gameObj.broadcast.length, this.config.limitBroadcasts)
+    }
+    else if (['largeLogos', 'stacked', 'stackedWithLogos'].includes(this.config.viewStyle)) {
+      maxBroadcasts = Math.min(2, gameObj.broadcast.length, this.config.limitBroadcasts)
+    }
+    else {
+      maxBroadcasts = Math.min(gameObj.broadcast.length, this.config.limitBroadcasts)
+    }
+    var broadcastPart = document.createElement('div')
+    broadcastPart.classList.add('broadcast')
+    if (gameObj.broadcast.length === 1) {
+      broadcastPart.innerHTML += gameObj.broadcast[0]
+    }
+    else if (maxBroadcasts === 1) {
+      broadcastPart.innerHTML += gameObj.broadcast[Math.floor(Math.random() * gameObj.broadcast.length)]
+    }
+    else {
+      for (var i = 0; i < maxBroadcasts; i++) {
+        broadcastPart.innerHTML += gameObj.broadcast[i]
+      }
+    }
+    if (maxBroadcasts < gameObj.broadcast.length) {
+      broadcastPart.innerHTML += `<span class="moreBroadcasts">+${gameObj.broadcast.length - maxBroadcasts}</span>`
+    }
+    status.appendChild(broadcastPart)
     boxScore.appendChild(status)
 
     // add scores if game in progress or finished
@@ -731,6 +763,9 @@ Module.register('MMM-MyScoreboard', {
         gameDate: gameDate,
         whichDay: whichDay,
         hideBroadcasts: self.config.hideBroadcasts,
+        skipChannels: self.config.skipChannels,
+        showLocalBroadcasts: self.config.showLocalBroadcasts,
+        displayLocalChannels: self.config.displayLocalChannels,
       }
 
       self.sendSocketNotification('MMM-MYSCOREBOARD-GET-SCORES', payload)

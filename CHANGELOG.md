@@ -4,6 +4,14 @@ Notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.6.0](https://github.com/dathbe/MMM-MyScoreboard/compare/v4.5.0...v4.6.0) - 2025-04-XX
+- **NEW FEATURE**: New config option to `showLocalBroadcasts`
+- **NEW FEATURE**: New config option to `skipChannels`
+- **NEW FEATURE**: New config option to `displayLocalChannels`
+- **NEW FEATURE**: Add UEFA Women's Nations League
+- **NEW FEATURE**: Some broadcast channel logos will be displayed instead of text (if you want to add a logo, submit an issue)
+- Lots of tweaking of how broadcast channels are displayed
+
 ## [4.5.0](https://github.com/dathbe/MMM-MyScoreboard/compare/v4.4.0...v4.5.0) - 2025-04-06
 
 - **NEW FEATURE**: New config option to `hideBroadcasts`

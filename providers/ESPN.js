@@ -95,6 +95,7 @@ module.exports = {
     UEFA_NATIONS: 'soccer/uefa.nations',
     SAFF_CHAMPIONSHIP: 'soccer/afc.saff.championship',
     WOMENS_EUROPEAN_CHAMPIONSHIP: 'soccer/uefa.weuro',
+    UEFA_WOMENS_NATIONS: 'soccer/uefa.w.nations',
 
     // UK / Ireland Soccer
     ENG_CARABAO_CUP: 'soccer/eng.league_cup',
@@ -407,6 +408,95 @@ module.exports = {
     'ZIM_PREMIER_LEAGUE',
   ],
 
+  broadcastIcons: {
+    'ESPN': 'https://upload.wikimedia.org/wikipedia/commons/2/2f/ESPN_wordmark.svg',
+    'ESPN+': './modules/MMM-MyScoreboard/logos/channels/ESPN+.svg',
+    'ESPNEWS': 'https://upload.wikimedia.org/wikipedia/commons/1/1b/ESPNews.svg',
+    'ESPNU': 'https://storage.googleapis.com/byucougars-prod/2023/08/15/FDU7FuMUvL1g21JvnaSPUSCWAvfZZXq11MRP7pKp.svg',
+    'ESPN Deportes': 'https://upload.wikimedia.org/wikipedia/commons/d/d5/ESPN_Deportes.svg',
+    'Max': 'https://upload.wikimedia.org/wikipedia/commons/c/ce/Max_logo.svg',
+    'MLB Net': 'https://upload.wikimedia.org/wikipedia/en/a/ac/MLBNetworkLogo.svg',
+    'MLB.TV Free Game': './modules/MMM-MyScoreboard/logos/channels/MLBTVFreeGame.svg',
+    'NBA League Pass': 'https://cdn.nba.com/manage/2025/02/NBA_League_Pass_horiz_onDkBkgd_NEWLOGO.png',
+    'NBA TV': 'https://upload.wikimedia.org/wikipedia/en/d/d2/NBA_TV.svg',
+    'NBC': 'https://upload.wikimedia.org/wikipedia/commons/9/9f/NBC_Peacock_1986.svg',
+    'NHL Net': 'https://upload.wikimedia.org/wikipedia/commons/f/f4/NHL_Network_2012.svg',
+    'Paramount+': 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Paramount%2B_logo.svg',
+    'Peacock': './modules/MMM-MyScoreboard/logos/channels/Peacock.svg',
+    'Prime Video': 'https://upload.wikimedia.org/wikipedia/commons/9/90/Prime_Video_logo_%282024%29.svg',
+    'TBS': 'https://upload.wikimedia.org/wikipedia/commons/2/2c/TBS_2020.svg',
+    'TNT': 'https://www.tntdrama.com/themes/custom/ten_theme/images/tnt/tnt_logo_top.png',
+    'truTV': './modules/MMM-MyScoreboard/logos/channels/truTV.svg',
+    'USA Net': 'https://upload.wikimedia.org/wikipedia/commons/d/d7/USA_Network_logo_%282016%29.svg',
+    'Universo': './modules/MMM-MyScoreboard/logos/channels/Universo.svg',
+
+    'Arizona\'s Family 3TV': 'https://upload.wikimedia.org/wikipedia/commons/0/00/KTVK_logo.svg',
+    'BlazerVision': './modules/MMM-MyScoreboard/logos/channels/BlazerVision.png',
+    'CHSN': 'https://upload.wikimedia.org/wikipedia/en/6/68/Chicago_Sports_Network_Logo.png',
+    'CHSN+': './modules/MMM-MyScoreboard/logos/channels/CHSNPlus.webp',
+    'CLEGuardians.TV': './modules/MMM-MyScoreboard/logos/channels/CLEGuardiansTV.svg',
+    'ClipperVision': './modules/MMM-MyScoreboard/logos/channels/ClipperVision.webp',
+    'DBACKS.TV': 'https://www.mlbstatic.com/team-logos/product-on-dark/dbacks-tv-partner.svg',
+    // 'FanDuel': 'https://www.stayonsearch.com/wp-content/uploads/2018/09/fanduel-logo-300.png',
+    'FanDuel': 'https://upload.wikimedia.org/wikipedia/en/f/f4/Fanduel_Official_Logo_2022.svg',
+    'Jazz+': './modules/MMM-MyScoreboard/logos/channels/JazzPlus.svg',
+    'KATU 2.2': './modules/MMM-MyScoreboard/logos/channels/KATU.svg',
+    'KCOP': 'https://static.foxtv.com/static/orion/img/core/s/logos/fts-los-angeles-a.svg',
+    'KENS 5': 'https://www.kens5.com/assets/shared-images/logos/kens.png',
+    'KHN': './modules/MMM-MyScoreboard/logos/channels/KHN1.png',
+    'KJZZ-TV': './modules/MMM-MyScoreboard/logos/channels/KJZZ-TV.png',
+    'KONG': 'https://upload.wikimedia.org/wikipedia/commons/6/6a/KONG_%28TV%29_logo_2016.svg',
+    'KUNP 16': './modules/MMM-MyScoreboard/logos/channels/KUNP16.svg',
+    'Marquee Sports Net': 'https://dupvhm5r1oaxt.cloudfront.net/uploads/2020/02/CUBS_MSN_Logo_white.png',
+    'MASN': 'https://www.masnsports.com/images/masn.svg',
+    'MASN2': 'https://video.masnsports.com/assets/images/masn2.svg',
+    'MLB.com': 'https://www.mlbstatic.com/team-logos/league-on-dark/1.svg',
+    'MLB.TV': 'https://images.ctfassets.net/iiozhi00a8lc/78yBC9oWuP1VldT6aJT1sL/8cc2b4b9d9ab83e6a90ee48476b66074/MLBTV_19_ondark_RGB.svg',
+    'MNMT': './modules/MMM-MyScoreboard/logos/channels/MNMT.svg',
+    'MSG': './modules/MMM-MyScoreboard/logos/channels/MSG.png',
+    // 'MSGB': './modules/MMM-MyScoreboard/logos/channels/MSG.png',
+    'MSGSN': 'https://upload.wikimedia.org/wikipedia/commons/5/5e/Msg-sportsnet.png',
+    'NBCSCA+': './modules/MMM-MyScoreboard/logos/channels/NBCSCAPlus.svg',
+    'NBC Sports': 'https://nbcsports.brightspotcdn.com/76/a1/28ae939d488781e23e1813aaecb3/nbc-sports-logo-1.svg',
+    'NESN': './modules/MMM-MyScoreboard/logos/channels/NESN.svg',
+    'NESN+': './modules/MMM-MyScoreboard/logos/channels/NESNPlus.svg',
+    'Padres.TV': 'https://www.mlbstatic.com/team-logos/product-on-light/padres-tv.svg',
+    'Rangers Sports Network': 'https://upload.wikimedia.org/wikipedia/commons/f/fe/Rangers_Sports_Network_Logo.png',
+    'Rockies.TV': './modules/MMM-MyScoreboard/logos/channels/RockiesTV.svg',
+    'Root Sports NW': 'https://upload.wikimedia.org/wikipedia/en/8/8b/Root_Sports_logo.svg',
+    'SNY': 'https://sny.tv/images/sny.svg',
+    'Space City Home Network': 'https://static.wixstatic.com/media/b2a684_6cb9aa9a46fa4478bdeb7f3afe95713d~mv2.png/v1/fill/w_233,h_77,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/b2a684_6cb9aa9a46fa4478bdeb7f3afe95713d~mv2.png',
+    'Spectrum Sports Net': 'https://spectrumsportsnet.com/content/dam/sports/images/SpectrumSportsNetLogo.svg',
+    'Sportsnet': './modules/MMM-MyScoreboard/logos/channels/Sportsnet.svg',
+    'Sportsnet LA': 'https://spectrumsportsnet.com/content/dam/sports/images/logo-sports-net-la.svg',
+    'Sportsnet One': './modules/MMM-MyScoreboard/logos/channels/SportsnetOne.svg',
+    'SportsNet PIT': './modules/MMM-MyScoreboard/logos/channels/SportsNetPIT.svg',
+    'SportsNet PIT+': './modules/MMM-MyScoreboard/logos/channels/SportsNetPITPlus.svg',
+    'Suns Live': './modules/MMM-MyScoreboard/logos/channels/SunsLive.svg',
+    'The U': './modules/MMM-MyScoreboard/logos/channels/TheU.png',
+    'TSN': 'https://www.tsn.ca/content/dam/sports/images/main-navigation/group_1/tsn_100x24.png',
+    'TVA': 'https://upload.wikimedia.org/wikipedia/commons/0/00/TVA_logo_2020.svg',
+    'Twins.TV': './modules/MMM-MyScoreboard/logos/channels/TwinsTV.svg',
+    'Utah 16': 'https://upload.wikimedia.org/wikipedia/commons/f/f4/KUPX-TV_logo_2023.svg',
+    'WLNY': 'https://upload.wikimedia.org/wikipedia/en/1/10/WLNY_New_York_55_2023.svg',
+    'YES': 'https://static.yesnetwork.com/assets/images/light-on-dark/yes.svg',
+  },
+
+  broadcastIconsInvert: {
+    'ABC': 'https://upload.wikimedia.org/wikipedia/commons/2/2f/ABC-2021-LOGO.svg',
+    // CBS: 'https://upload.wikimedia.org/wikipedia/commons/b/bd/CBS_Eyemark.svg',
+    'CBS': 'https://upload.wikimedia.org/wikipedia/commons/e/ee/CBS_logo_%282020%29.svg',
+    'FOX': 'https://upload.wikimedia.org/wikipedia/commons/c/c0/Fox_Broadcasting_Company_logo_%282019%29.svg',
+
+    'Spectrum Sports Net +': 'https://thestreamable.com/media/pages/video-streaming/spectrum-sportsnet-plus/4a9b2bff0c-1698772675/sportsnetb-1.svg',
+    'Victory+': 'https://thestreamable.com/media/pages/video-streaming/victory-plus/84029ec6cd-1720450552/victoryplus.svg',
+  },
+
+  freeGameOfTheDay: {
+    day: '',
+    teams: [],
+  },
+
   getLeaguePath: function (league) {
     return this.LEAGUE_PATHS[league]
   },
@@ -418,6 +508,8 @@ module.exports = {
       + this.getLeaguePath(payload.league)
       + '/scoreboard?dates='
       + moment(gameDate).format('YYYYMMDD') + '&limit=200'
+    var MLBurl = 'https://mastapi.mobile.mlbinfra.com/api/epg/v3/search?date='
+      + moment().format('YYYY-MM-DD') + '&exp=MLB'
     /*
       by default, ESPN returns only the Top 25 ranked teams for NCAAF
       and NCAAM. By appending the group parameter (80 for NCAAF and 50
@@ -441,23 +533,36 @@ module.exports = {
     try {
       const response = await fetch(url)
       const body = await response.json()
-      callback(self.formatScores(payload.league, body, payload.teams, moment(gameDate).format('YYYYMMDD'), payload.hideBroadcasts))
+      if (this.freeGameOfTheDay['day'] !== moment(gameDate).format('YYYY-MM-DD') && payload.league === 'MLB' && !payload.hideBroadcasts) {
+        const freeGameResponse = await fetch(MLBurl)
+        const freeGameBody = await freeGameResponse.json()
+        freeGameBody['results'].forEach ((game) => {
+          if (game['videoFeeds'][1]['freeGame']) {
+            // Log.debug(game['gameData']['away']['teamAbbrv'])
+            this.freeGameOfTheDay = {
+              day: moment().format('YYYY-MM-DD'),
+              teams: [game['gameData']['away']['teamAbbrv'], game['gameData']['home']['teamAbbrv']],
+            }
+          }
+        })
+      }
+      callback(self.formatScores(payload, body, moment(gameDate).format('YYYYMMDD')))
     }
     catch (error) {
-      Log.error(error + url)
+      Log.error(error + ' ' + url)
     }
   },
 
-  formatScores: function (league, data, teams, gameDate, hideBroadcasts) {
+  formatScores: function (payload, data, gameDate) {
     // var self = this;
     var formattedGamesList = new Array()
     var localTZ = moment.tz.guess()
 
     var filteredGamesList
-    if (teams != null) { // filter to teams list
+    if (payload.teams != null) { // filter to teams list
       filteredGamesList = data.events.filter(function (game) {
         // if "@T25" is in the teams list, it indicates to include teams ranked in the top 25
-        if (teams.indexOf('@T25') != -1
+        if (payload.teams.indexOf('@T25') != -1
           && ((game.competitions[0].competitors[0].curatedRank.current >= 1
             && game.competitions[0].competitors[0].curatedRank.current <= 25)
           || (game.competitions[0].competitors[1].curatedRank.current >= 1
@@ -465,8 +570,8 @@ module.exports = {
           return true
         }
 
-        return teams.indexOf(game.competitions[0].competitors[0].team.abbreviation) != -1
-          || teams.indexOf(game.competitions[0].competitors[1].team.abbreviation) != -1
+        return payload.teams.indexOf(game.competitions[0].competitors[0].team.abbreviation) != -1
+          || payload.teams.indexOf(game.competitions[0].competitors[1].team.abbreviation) != -1
       })
     }
     else { // return all games
@@ -513,6 +618,7 @@ module.exports = {
     // iterate through games and construct formattedGamesList
     filteredGamesList.forEach((game) => {
       var status = []
+      var broadcast = []
       var classes = []
 
       var gameState = 0
@@ -543,30 +649,79 @@ module.exports = {
         timeFormat = 'h:mm a'
       }
       var channels = []
-      if (game.competitions[0].broadcasts.length > 0 && !hideBroadcasts) {
-        // const excludedChannels = ["MLB.TV", "CLEGuardians.TV", "PADRES.TV", "DBACKS.TV"]
-        // const maxChannels = 3
-        for (let i = 0; i < game.competitions[0].broadcasts.length; i++) {
-          if (game.competitions[0].broadcasts[i].market === 'national')
-            for (let j = 0; j < game.competitions[0].broadcasts[i].names.length; j++) {
-              // if (!excludedChannels.includes(game.competitions[0].broadcasts[i].names[j]) && !channels.includes(game.competitions[0].broadcasts[i].names[j])) {
-              channels.push(game.competitions[0].broadcasts[i].names[j])
-              // }
+
+      /* var homeWanted = (payload.teams === null || payload.teams.indexOf(hTeamData.team.abbreviation) != -1)
+      var awayWanted = (payload.teams === null || payload.teams.indexOf(vTeamData.team.abbreviation) != -1)
+      var homeOrAway = {
+        home: homeWanted,
+        away: awayWanted,
+      } */
+      if (game.competitions[0].broadcasts.length > 0 && !payload.hideBroadcasts) {
+        game.competitions[0].broadcasts.forEach((market) => {
+          if (market.market === 'national') {
+            market.names.forEach((channelName) => {
+              if (!payload.skipChannels.includes(channelName)) {
+                if (this.broadcastIcons[channelName] !== undefined) {
+                  channels.push(`<img src="${this.broadcastIcons[channelName]}" class="broadcastIcon">`)
+                }
+                else if (this.broadcastIconsInvert[channelName] !== undefined) {
+                  channels.push(`<img src="${this.broadcastIconsInvert[channelName]}" class="broadcastIcon broadcastIconInvert"">`)
+                }
+                else {
+                  channels.push(channelName)
+                }
+                // Log.debug(channelName)
+              }
+            })
+          }
+        })
+        var localGamesList = []
+        game.competitions[0].broadcasts.forEach((market) => {
+          market.names.forEach((channelName) => {
+            var localDesignation = ''
+            if (channelName.startsWith('FanDuel')) {
+              localDesignation = channelName.replace('FanDuel ', '')
+              localDesignation = localDesignation.replace('SN ', '')
+              channelName = 'FanDuel'
             }
+            else if (channelName.startsWith('NBC Sports')) {
+              localDesignation = channelName.replace('NBC Sports ', '')
+              channelName = 'NBC Sports'
+            }
+            if ((payload.showLocalBroadcasts /* && homeOrAway[market.market] */ && !payload.skipChannels.includes(channelName)) || payload.displayLocalChannels.includes(channelName)) {
+              if (this.broadcastIcons[channelName] !== undefined) {
+                channels.push(`<img src="${this.broadcastIcons[channelName]}" class="broadcastIcon">${localDesignation}`)
+              }
+              else if (this.broadcastIconsInvert[channelName] !== undefined) {
+                channels.push(`<img src="${this.broadcastIconsInvert[channelName]}" class="broadcastIcon broadcastIconInvert">${localDesignation}`)
+              }
+              else {
+                channels.push(channelName)
+              }
+              // Log.debug(channelName)
+            }
+            else if (!payload.showLocalBroadcasts && !payload.skipChannels.includes(channelName) && !payload.displayLocalChannels.includes(channelName)) {
+              localGamesList.push(channelName)
+            }
+          })
+        })
+        if (localGamesList.length > 0) {
+          Log.info(`The local channels available for ${game.shortName} are: ${localGamesList.join(', ')}`)
         }
       }
+      if (this.freeGameOfTheDay['day'] === moment(game.competitions[0].date).format('YYYY-MM-DD') && payload.league === 'MLB' && this.freeGameOfTheDay['teams'].includes(hTeamData.team.abbreviation)) {
+        channels.push(`<img src="${this.broadcastIcons['MLB.TV Free Game']}" class="broadcastIcon">`)
+      }
+      channels = [...new Set(channels)]
+
       switch (game.status.type.id) {
         case '0' : // TBD
           gameState = 0
           status.push('TBD')
           break
         case '5': // cancelled
-          gameState = 0
-          status.push('Cancelled')
-          break
         case '6': // postponed
           gameState = 0
-          // status.push('Postponed')
           status.push(game.status.type.detail)
           break
         case '8': // suspended
@@ -576,9 +731,7 @@ module.exports = {
         case '1': // scheduled
           gameState = 0
           status.push(moment(game.competitions[0].date).tz(localTZ).format(timeFormat))
-          if (channels.length > 0) {
-            status.push('<span class="broadcast">' + channels.join('/') + '</span>')
-          }
+          broadcast = channels
           break
         case '2': // in-progress
         case '21': // beginning of period
@@ -591,37 +744,30 @@ module.exports = {
         case '48': // SOCCER end extra time
           gameState = 1
           status.push(game.status.type.shortDetail)
-          if (channels.length > 0) {
-            status.push('<span class="broadcast">' + channels.join('/') + '</span>')
-          }
+          broadcast = channels
           break
         case '23': // halftime
           gameState = 1
           status.push(game.status.type.description)
-          if (channels.length > 0) {
-            status.push('<span class="broadcast">' + channels.join('/') + '</span>')
-          }
+          broadcast = channels
           break
         case '7': // delayed
         case '17': // rain delay
           gameState = 1
           classes.push['delay']
           status.push('Delay')
-          if (channels.length > 0) {
-            status.push('<span class="broadcast">' + channels.join('/') + '</span>')
-          }
+          broadcast = channels
           break
         case '49': // SOCCER extra time half time
           gameState = 1
           status.push('HALFTIME (ET)')
-          if (channels.length > 0) {
-            status.push('<span class="broadcast">' + channels.join('/') + '</span>')
-          }
+          broadcast = channels
           break
         case '3': // final
         case '28': // SOCCER Full Time
           gameState = 2
           status.push(game.status.type.description)
+          // broadcast = channels
           break
         case '45': // SOCCER Final ET
         case '46': // SOCCER final score - after golden goal
@@ -659,10 +805,10 @@ module.exports = {
         code for basketball: SDST.
       */
 
-      if (league == 'NCAAF' && hTeamData.team.abbreviation == 'SDSU' && hTeamData.team.location.indexOf('South Dakota State') != -1) {
+      if (payload.league == 'NCAAF' && hTeamData.team.abbreviation == 'SDSU' && hTeamData.team.location.indexOf('South Dakota State') != -1) {
         hTeamData.team.abbreviation = 'SDSU '
       }
-      else if (league == 'NCAAF' && vTeamData.team.abbreviation == 'SDSU' && vTeamData.team.location.indexOf('South Dakota State') != -1) {
+      else if (payload.league == 'NCAAF' && vTeamData.team.abbreviation == 'SDSU' && vTeamData.team.location.indexOf('South Dakota State') != -1) {
         vTeamData.team.abbreviation = 'SDSU '
       }
 
@@ -670,7 +816,7 @@ module.exports = {
       var hTeamLong = ''
       var vTeamLong = ''
       // For college sports, use the displayName property
-      if (league == 'NCAAF' || league == 'NCAAM') {
+      if (payload.league == 'NCAAF' || payload.league == 'NCAAM') {
         hTeamLong = (hTeamData.team.abbreviation == undefined ? '' : hTeamData.team.abbreviation + ' ') + hTeamData.team.name
         vTeamLong = (vTeamData.team.abbreviation == undefined ? '' : vTeamData.team.abbreviation + ' ') + vTeamData.team.name
       }
@@ -686,11 +832,12 @@ module.exports = {
         vTeam: vTeamData.team.abbreviation == undefined ? vTeamData.team.name.substring(0, 4).toUpperCase() + ' ' : vTeamData.team.abbreviation,
         hTeamLong: hTeamLong,
         vTeamLong: vTeamLong,
-        hTeamRanking: (league == 'NCAAF' || league == 'NCAAM') ? this.formatT25Ranking(hTeamData.curatedRank.current) : null,
-        vTeamRanking: (league == 'NCAAF' || league == 'NCAAM') ? this.formatT25Ranking(vTeamData.curatedRank.current) : null,
+        hTeamRanking: (payload.league == 'NCAAF' || payload.league == 'NCAAM') ? this.formatT25Ranking(hTeamData.curatedRank.current) : null,
+        vTeamRanking: (payload.league == 'NCAAF' || payload.league == 'NCAAM') ? this.formatT25Ranking(vTeamData.curatedRank.current) : null,
         hScore: parseInt(hTeamData.score),
         vScore: parseInt(vTeamData.score),
         status: status,
+        broadcast: broadcast,
         hTeamLogoUrl: hTeamData.team.logo ? hTeamData.team.logo : '',
         vTeamLogoUrl: vTeamData.team.logo ? vTeamData.team.logo : '',
       })
